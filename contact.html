@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-adsense-account" content="ca-pub-8775883855490271">
-  <meta name="description" content="Contact Sharpline — creators of the free 50/30/20 Budget Calculator at 503020.ca"/>
-  <title>Contact | Sharpline — 503020.ca</title>
+  <meta name="description" content="Contact Sharpline — creators of the free 50/30/20 Budget Calculator at 503020.ca. Send us feedback, questions or suggestions." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://503020.ca/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://503020.ca/contact.html" />
+  <meta property="og:title" content="Contact Sharpline | 503020.ca" />
+  <meta property="og:description" content="Get in touch with Sharpline — feedback, questions or suggestions welcome." />
+  <title>Contact Us | Sharpline — 503020.ca</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -50,32 +56,32 @@
   <span class="header-pipe">|</span>
   <span class="header-sub">Contact &nbsp;·&nbsp; 503020.ca</span>
 </header>
- 
+
 <div class="ad-banner">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
- 
+
 <main><div class="container">
- 
+
   <h1 class="page-title">Contact Us.</h1>
   <p class="page-sub">Feedback, questions, or suggestions — we'd love to hear from you.</p>
- 
+
   <div class="card">
     <div class="card-title">Send a Message <div class="card-title-bar"></div></div>
- 
+
     <form id="contactForm">
- 
+
       <div class="form-group">
         <label class="form-label" for="name">Your Name *</label>
         <input type="text" id="name" name="name" placeholder="Jane Smith" required />
       </div>
- 
+
       <div class="form-group">
         <label class="form-label" for="email">Email Address *</label>
         <input type="email" id="email" name="email" placeholder="jane@example.com" required />
       </div>
- 
+
       <div class="form-group">
         <label class="form-label" for="subject">Topic *</label>
         <select id="subject" name="subject" required>
@@ -87,55 +93,55 @@
           <option value="Other">Other</option>
         </select>
       </div>
- 
+
       <div class="form-group">
         <label class="form-label" for="message">Message *</label>
         <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
       </div>
- 
+
       <button type="submit" id="submitBtn" class="btn-primary">Send Message →</button>
     </form>
- 
+
     <div class="success-msg" id="successMsg">✅ Message sent! We'll get back to you within 2 business days.</div>
   </div>
- 
+
   <div class="info-box">
     <strong>📬 Other Ways to Reach Us</strong>
     Website: 503020.ca &nbsp;·&nbsp; We aim to respond within 2 business days.
   </div>
- 
+
 </div></main>
- 
+
 <footer class="site-footer">
   &copy; <span id="year"></span> <a href="index.html">Sharpline</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp;
   <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="disclaimer.html">Disclaimer</a>
   &nbsp;·&nbsp; 503020.ca &nbsp;·&nbsp; Not financial advice.
 </footer>
- 
+
 <nav class="bottom-nav">
   <a href="index.html"><span class="nav-icon">🏠</span>Calculator</a>
   <a href="about.html"><span class="nav-icon">ℹ️</span>About</a>
   <a href="privacy.html"><span class="nav-icon">🔒</span>Privacy</a>
   <a href="contact.html" class="active"><span class="nav-icon">✉️</span>Contact</a>
 </nav>
- 
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
- 
+
   var form = document.getElementById('contactForm');
   var btn  = document.getElementById('submitBtn');
   var msg  = document.getElementById('successMsg');
- 
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
- 
+
     // Disable button while sending
     btn.disabled = true;
     btn.textContent = 'Sending…';
- 
+
     var data = new FormData(form);
- 
+
     fetch('https://formspree.io/f/xlgzqoeb', {
       method: 'POST',
       body: data,
