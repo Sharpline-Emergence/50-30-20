@@ -1,36 +1,413 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Free 50/30/20 Budget Calculator by Sharpline. Split your income into Needs, Wants, and Savings instantly. Supports USD, BRL, GBP, EUR, CAD, and AUD." />
-  <meta name="keywords" content="budget calculator, 50/30/20 rule, personal finance, savings calculator, Sharpline" />
-  <meta name="author" content="Sharpline" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="50/30/20 Budget Calculator | Sharpline" />
-  <meta property="og:description" content="Split your income into Needs, Wants & Savings in seconds. Free tool by Sharpline." />
-  <meta property="og:type" content="website" />
-
+  <meta name="description" content="Free 50/30/20 Budget Calculator by Sharpline. Split your income into Needs, Wants, and Savings instantly." />
   <title>50/30/20 Budget Calculator | Sharpline</title>
-
-  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      color: #222;
+      min-height: 100vh;
+    }
+ 
+    /* ── Header ── */
+    .site-header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      padding: 18px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+ 
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #e94560;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+ 
+    .logo span { color: #fff; }
+ 
+    .tagline {
+      font-size: 0.85rem;
+      color: #a8b2d8;
+      margin-top: 2px;
+    }
+ 
+    /* ── Ad banner ── */
+    .ad-banner {
+      background: #fff;
+      border-bottom: 1px solid #e0e4ef;
+      text-align: center;
+      padding: 8px 0;
+      min-height: 60px;
+    }
+ 
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 36px auto;
+      padding: 0 16px 60px;
+    }
+ 
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+ 
+    .page-sub {
+      text-align: center;
+      color: #5a6480;
+      font-size: 0.97rem;
+      margin-bottom: 28px;
+    }
+ 
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(15,52,96,0.09);
+      padding: 28px 30px;
+      margin-bottom: 24px;
+    }
+ 
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f3460;
+      border-left: 4px solid #e94560;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+ 
+    /* ── Inputs ── */
+    .input-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+ 
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      min-width: 160px;
+    }
+ 
+    label {
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: #3a4060;
+    }
+ 
+    select, input[type="number"] {
+      padding: 11px 14px;
+      border: 1.5px solid #d0d6e8;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #1a1a2e;
+      background: #f8f9fd;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+ 
+    select:focus, input[type="number"]:focus {
+      border-color: #e94560;
+      background: #fff;
+    }
+ 
+    /* hide number spinners */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+    input[type="number"] { -moz-appearance: textfield; }
+ 
+    .calc-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      background: linear-gradient(90deg, #e94560, #c0392b);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 700;
+      font-family: inherit;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.4px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+ 
+    .calc-btn:hover { opacity: 0.91; transform: translateY(-1px); }
+    .calc-btn:active { transform: translateY(0); }
+ 
+    /* ── Results grid ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+ 
+    .result-box {
+      border-radius: 12px;
+      padding: 22px 12px 18px;
+      text-align: center;
+      color: #fff;
+    }
+ 
+    .result-box.needs   { background: linear-gradient(135deg, #0f3460, #16213e); }
+    .result-box.wants   { background: linear-gradient(135deg, #e94560, #c0392b); }
+    .result-box.savings { background: linear-gradient(135deg, #1abc9c, #16a085); }
+ 
+    .rb-pct  { font-size: 2.2rem; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .rb-lbl  { font-size: 0.8rem; font-weight: 600; opacity: 0.82; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .rb-amt  { font-size: 1.35rem; font-weight: 700; word-break: break-word; }
+    .rb-per  { font-size: 0.74rem; opacity: 0.7; margin-top: 4px; }
+ 
+    /* ── Table ── */
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+ 
+    .breakdown-table th {
+      background: #f0f3fa;
+      color: #0f3460;
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid #e0e4ef;
+    }
+ 
+    .breakdown-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f3fa;
+      color: #333;
+    }
+ 
+    .breakdown-table tr:last-child td { border-bottom: none; }
+ 
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.77rem;
+      font-weight: 700;
+      color: #fff;
+    }
+ 
+    .tag.needs   { background: #0f3460; }
+    .tag.wants   { background: #e94560; }
+    .tag.savings { background: #1abc9c; }
+ 
+    /* ── Tip box ── */
+    .tip-box {
+      background: #f0f3fa;
+      border-left: 4px solid #0f3460;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: #3a4060;
+      margin-top: 20px;
+    }
+ 
+    .tip-box strong { color: #0f3460; }
+ 
+    /* ── Info list ── */
+    .info-intro { color: #3a4060; font-size: 0.95rem; line-height: 1.7; }
+ 
+    .info-list {
+      margin: 12px 0 0 20px;
+      color: #3a4060;
+      font-size: 0.93rem;
+      line-height: 2.1;
+    }
+ 
+    .info-list .c-needs   { color: #0f3460; }
+    .info-list .c-wants   { color: #e94560; }
+    .info-list .c-savings { color: #16a085; }
+ 
+    .info-note {
+      margin-top: 14px;
+      color: #5a6480;
+      font-size: 0.87rem;
+      font-style: italic;
+    }
+ 
+    /* ── Mid ad ── */
+    .ad-mid {
+      border: 1px solid #e0e4ef;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      text-align: center;
+      background: #fff;
+      min-height: 60px;
+    }
+ 
+    /* ── Footer ── */
+    .site-footer {
+      text-align: center;
+      color: #a0a8c0;
+      font-size: 0.82rem;
+      padding: 16px 0 8px;
+    }
+ 
+    .site-footer a { color: #e94560; text-decoration: none; }
+ 
+    /* ── Hidden ── */
+    .hidden { display: none !important; }
+ 
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .results-grid { grid-template-columns: 1fr; }
+      .card { padding: 22px 18px; }
+      .breakdown-table th:last-child,
+      .breakdown-table td:last-child { display: none; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">Sharp<span>line</span></div>
-      <div class="tagline">Smart Financial Tools</div>
+ 
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">Sharp<span>line</span></div>
+  <div class="tagline">Smart Financial Tools</div>
+</header>
+ 
+<!-- AD TOP -->
+<div class="ad-banner">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8775883855490271"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+ 
+<!-- MAIN -->
+<main class="container">
+ 
+  <h1 class="page-title">50/30/20 Budget Calculator</h1>
+  <p class="page-sub">Split your income into Needs, Wants &amp; Savings — in seconds.</p>
+ 
+  <!-- Input card -->
+  <div class="card">
+    <div class="card-title">Enter Your Income</div>
+    <div class="input-row">
+ 
+      <div class="input-group">
+        <label for="currency">Currency</label>
+        <select id="currency">
+          <option value="$" selected>$ USD — US Dollar</option>
+          <option value="R$">R$ BRL — Brazilian Real</option>
+          <option value="£">£ GBP — UK Pound</option>
+          <option value="€">€ EUR — Euro</option>
+          <option value="CA$">CA$ CAD — Canadian Dollar</option>
+          <option value="A$">A$ AUD — Australian Dollar</option>
+        </select>
+      </div>
+ 
+      <div class="input-group">
+        <label for="period">Income Period</label>
+        <select id="period">
+          <option value="monthly" selected>Monthly</option>
+          <option value="annual">Annual</option>
+          <option value="weekly">Weekly</option>
+          <option value="biweekly">Bi-Weekly</option>
+        </select>
+      </div>
+ 
+      <div class="input-group">
+        <label for="income">Income Amount</label>
+        <input type="number" id="income" placeholder="e.g. 5000" min="0" step="any" />
+      </div>
+ 
     </div>
-  </header>
-
-  <!-- ===== AD: TOP BANNER ===== -->
-  <div class="ad-banner ad-banner--top">
+    <button class="calc-btn" onclick="calculate()">Calculate My Budget</button>
+  </div>
+ 
+  <!-- Results card -->
+  <div class="card hidden" id="resultsCard">
+    <div class="card-title">Your 50/30/20 Breakdown</div>
+ 
+    <div class="results-grid">
+      <div class="result-box needs">
+        <div class="rb-pct">50%</div>
+        <div class="rb-lbl">Needs</div>
+        <div class="rb-amt" id="needsAmt"></div>
+        <div class="rb-per">per month</div>
+      </div>
+      <div class="result-box wants">
+        <div class="rb-pct">30%</div>
+        <div class="rb-lbl">Wants</div>
+        <div class="rb-amt" id="wantsAmt"></div>
+        <div class="rb-per">per month</div>
+      </div>
+      <div class="result-box savings">
+        <div class="rb-pct">20%</div>
+        <div class="rb-lbl">Savings</div>
+        <div class="rb-amt" id="savingsAmt"></div>
+        <div class="rb-per">per month</div>
+      </div>
+    </div>
+ 
+    <table class="breakdown-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Monthly</th>
+          <th>Annual</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag needs">Needs 50%</span></td>
+          <td id="needsM"></td>
+          <td id="needsY"></td>
+          <td>Rent, groceries, utilities, insurance</td>
+        </tr>
+        <tr>
+          <td><span class="tag wants">Wants 30%</span></td>
+          <td id="wantsM"></td>
+          <td id="wantsY"></td>
+          <td>Dining out, subscriptions, hobbies</td>
+        </tr>
+        <tr>
+          <td><span class="tag savings">Savings 20%</span></td>
+          <td id="savingsM"></td>
+          <td id="savingsY"></td>
+          <td>Emergency fund, investments, debt payoff</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <div class="tip-box">
+      <strong>💡 Sharpline Tip:</strong> If your Needs exceed 50%, focus on reducing fixed costs like rent or subscriptions before cutting your Savings. Always pay yourself first!
+    </div>
+  </div>
+ 
+  <!-- AD MID -->
+  <div class="ad-mid">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-8775883855490271"
@@ -39,153 +416,95 @@
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-
-  <!-- ===== MAIN CONTENT ===== -->
-  <main class="container">
-
-    <h1 class="page-title">50/30/20 Budget Calculator</h1>
-    <p class="page-subtitle">Split your income into Needs, Wants &amp; Savings — in seconds.</p>
-
-    <!-- Input Card -->
-    <section class="card" aria-labelledby="input-heading">
-      <h2 id="input-heading" class="card__title">Enter Your Income</h2>
-      <div class="input-row">
-
-        <div class="input-group">
-          <label for="currency">Currency</label>
-          <select id="currency" name="currency">
-            <option value="$" selected>$ USD — US Dollar</option>
-            <option value="R$">R$ BRL — Brazilian Real</option>
-            <option value="£">£ GBP — UK Pound</option>
-            <option value="€">€ EUR — Euro</option>
-            <option value="CA$">CA$ CAD — Canadian Dollar</option>
-            <option value="A$">A$ AUD — Australian Dollar</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="period">Income Period</label>
-          <select id="period" name="period">
-            <option value="monthly" selected>Monthly</option>
-            <option value="annual">Annual</option>
-            <option value="weekly">Weekly</option>
-            <option value="biweekly">Bi-Weekly</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="income">Income Amount</label>
-          <input
-            type="number"
-            id="income"
-            name="income"
-            placeholder="e.g. 5000"
-            min="0"
-            step="any"
-            aria-describedby="income-hint"
-          />
-          <span id="income-hint" class="sr-only">Enter your gross income for the selected period</span>
-        </div>
-
-      </div>
-      <button id="calcBtn" type="button">Calculate My Budget</button>
-    </section>
-
-    <!-- Results Card (hidden until calculated) -->
-    <section class="card card--results hidden" id="resultsCard" aria-live="polite" aria-labelledby="results-heading">
-      <h2 id="results-heading" class="card__title">Your 50/30/20 Breakdown</h2>
-
-      <div class="results-grid">
-        <div class="result-box result-box--needs">
-          <div class="result-box__pct">50%</div>
-          <div class="result-box__lbl">Needs</div>
-          <div class="result-box__amt" id="needsAmt" aria-label="Needs amount"></div>
-          <div class="result-box__per">per month</div>
-        </div>
-        <div class="result-box result-box--wants">
-          <div class="result-box__pct">30%</div>
-          <div class="result-box__lbl">Wants</div>
-          <div class="result-box__amt" id="wantsAmt" aria-label="Wants amount"></div>
-          <div class="result-box__per">per month</div>
-        </div>
-        <div class="result-box result-box--savings">
-          <div class="result-box__pct">20%</div>
-          <div class="result-box__lbl">Savings</div>
-          <div class="result-box__amt" id="savingsAmt" aria-label="Savings amount"></div>
-          <div class="result-box__per">per month</div>
-        </div>
-      </div>
-
-      <table class="breakdown-table" role="table" aria-label="Budget breakdown by category">
-        <thead>
-          <tr>
-            <th scope="col">Category</th>
-            <th scope="col">Monthly</th>
-            <th scope="col">Annual</th>
-            <th scope="col">Examples</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="tag tag--needs">Needs 50%</span></td>
-            <td id="needsM"></td>
-            <td id="needsY"></td>
-            <td>Rent, groceries, utilities, insurance</td>
-          </tr>
-          <tr>
-            <td><span class="tag tag--wants">Wants 30%</span></td>
-            <td id="wantsM"></td>
-            <td id="wantsY"></td>
-            <td>Dining out, subscriptions, hobbies</td>
-          </tr>
-          <tr>
-            <td><span class="tag tag--savings">Savings 20%</span></td>
-            <td id="savingsM"></td>
-            <td id="savingsY"></td>
-            <td>Emergency fund, investments, debt payoff</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="tip-box" role="note">
-        <strong>💡 Sharpline Tip:</strong> If your Needs exceed 50%, prioritize reducing fixed costs like housing or subscriptions before cutting your Savings. Always pay yourself first!
-      </div>
-    </section>
-
-    <!-- AD: Mid-page -->
-    <div class="ad-banner ad-banner--mid">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-8775883855490271"
-           data-ad-slot="auto"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- Info Card -->
-    <section class="card" aria-labelledby="info-heading">
-      <h2 id="info-heading" class="card__title">How the 50/30/20 Rule Works</h2>
-      <p class="info-intro">
-        The <strong>50/30/20 rule</strong>, popularized by Senator Elizabeth Warren, splits your after-tax income into three clear buckets:
-      </p>
-      <ul class="info-list">
-        <li><strong class="color--needs">50% Needs</strong> — Essential expenses you cannot avoid (rent, food, bills, insurance)</li>
-        <li><strong class="color--wants">30% Wants</strong> — Lifestyle choices and non-essentials (entertainment, dining out, travel)</li>
-        <li><strong class="color--savings">20% Savings</strong> — Emergency fund, retirement contributions, investments, or extra debt payments</li>
-      </ul>
-      <p class="info-footnote">
-        All calculations convert your selected income period to a monthly figure automatically. Results are estimates — consult a qualified financial advisor for personalised guidance.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> <a href="#">Sharpline</a> &nbsp;|&nbsp; Smart Financial Tools &nbsp;|&nbsp; Not financial advice.</p>
-  </footer>
-
-  <script src="js/calculator.js"></script>
+ 
+  <!-- Info card -->
+  <div class="card">
+    <div class="card-title">How the 50/30/20 Rule Works</div>
+    <p class="info-intro">
+      The <strong>50/30/20 rule</strong>, popularized by Senator Elizabeth Warren, splits your after-tax income into three clear buckets:
+    </p>
+    <ul class="info-list">
+      <li><strong class="c-needs">50% Needs</strong> — Essential expenses you cannot avoid (rent, food, bills, insurance)</li>
+      <li><strong class="c-wants">30% Wants</strong> — Lifestyle and non-essentials (dining out, entertainment, travel)</li>
+      <li><strong class="c-savings">20% Savings</strong> — Emergency fund, retirement, investments, or extra debt payments</li>
+    </ul>
+    <p class="info-note">
+      All income periods are converted to monthly automatically. Results are estimates — consult a qualified financial advisor for personalised guidance.
+    </p>
+  </div>
+ 
+</main>
+ 
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> <a href="#">Sharpline</a> &nbsp;|&nbsp; Smart Financial Tools &nbsp;|&nbsp; Not financial advice.</p>
+</footer>
+ 
+<script>
+  // Auto year
+  document.getElementById('year').textContent = new Date().getFullYear();
+ 
+  // Convert any period to monthly
+  function toMonthly(amount, period) {
+    if (period === 'annual')   return amount / 12;
+    if (period === 'weekly')   return amount * 52 / 12;
+    if (period === 'biweekly') return amount * 26 / 12;
+    return amount;
+  }
+ 
+  // Format number as currency string
+  function fmt(symbol, value) {
+    return symbol + value.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+ 
+  // Set element text by ID
+  function set(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+ 
+  // Main calculation
+  function calculate() {
+    var income = parseFloat(document.getElementById('income').value);
+    var symbol = document.getElementById('currency').value;
+    var period = document.getElementById('period').value;
+ 
+    if (!income || income <= 0) {
+      alert('Please enter a valid income amount greater than zero.');
+      return;
+    }
+ 
+    var monthly  = toMonthly(income, period);
+    var needs    = monthly * 0.50;
+    var wants    = monthly * 0.30;
+    var savings  = monthly * 0.20;
+ 
+    // Summary boxes
+    set('needsAmt',   fmt(symbol, needs));
+    set('wantsAmt',   fmt(symbol, wants));
+    set('savingsAmt', fmt(symbol, savings));
+ 
+    // Table
+    set('needsM',   fmt(symbol, needs));
+    set('needsY',   fmt(symbol, needs * 12));
+    set('wantsM',   fmt(symbol, wants));
+    set('wantsY',   fmt(symbol, wants * 12));
+    set('savingsM', fmt(symbol, savings));
+    set('savingsY', fmt(symbol, savings * 12));
+ 
+    // Show results
+    var card = document.getElementById('resultsCard');
+    card.classList.remove('hidden');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+ 
+  // Enter key support
+  document.getElementById('income').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+</script>
+ 
 </body>
 </html>
