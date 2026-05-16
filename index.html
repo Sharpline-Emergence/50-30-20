@@ -1,17 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-adsense-account" content="ca-pub-8775883855490271">
-  <meta name="description" content="Free 50/30/20 Budget Calculator by Sharpline. Split your income into Needs, Wants, and Savings instantly." />
-  <title>50/30/20 Budget Calculator | Sharpline</title>
+  <meta name="description" content="Free 50/30/20 budget calculator. Instantly split your income into Needs, Wants and Savings. Supports USD, CAD, GBP, BRL, EUR and AUD. No sign-up required." />
+  <meta name="keywords" content="50 30 20 budget calculator, budget calculator, 50/30/20 rule, personal finance calculator, savings calculator, needs wants savings, budget split, income calculator, free budget tool" />
+  <meta name="author" content="Sharpline" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://503020.ca/" />
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://503020.ca/" />
+  <meta property="og:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
+  <meta property="og:description" content="Instantly split your income into Needs, Wants and Savings using the 50/30/20 rule. Free, no sign-up, multi-currency." />
+  <meta property="og:site_name" content="Sharpline — 503020.ca" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
+  <meta name="twitter:description" content="Instantly split your income into Needs, Wants and Savings. Free, no sign-up, multi-currency." />
+
+  <title>Free 50/30/20 Budget Calculator — Split Income into Needs, Wants & Savings | Sharpline</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema: WebApplication (tells Google this is a financial calculator tool) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "50/30/20 Budget Calculator",
+    "url": "https://503020.ca/",
+    "description": "A free budget calculator that splits your income into Needs (50%), Wants (30%) and Savings (20%) using the 50/30/20 rule.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sharpline",
+      "url": "https://503020.ca"
+    }
+  }
+  </script>
+
+  <!-- Schema: FAQPage (boosts Google rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the 50/30/20 budget rule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 50/30/20 rule is a budgeting framework that divides your after-tax income into three categories: 50% for Needs (essential expenses), 30% for Wants (lifestyle spending), and 20% for Savings (emergency fund, investments, debt payoff)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use the 50/30/20 calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your income amount, select your currency and income period (monthly, annual, weekly or bi-weekly), then click Calculate. The calculator instantly shows your recommended Needs, Wants and Savings amounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the 50/30/20 calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Sharpline 50/30/20 Budget Calculator is completely free to use with no sign-up or account required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What currencies does the calculator support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The calculator supports US Dollar (USD), Brazilian Real (BRL), British Pound (GBP), Euro (EUR), Canadian Dollar (CAD), and Australian Dollar (AUD)."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --cream:        #f0ede6;
       --cream-dark:   #e6e2d8;
@@ -29,7 +110,7 @@
       --text-muted:   #7a7572;
       --label:        #6b6760;
     }
- 
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--cream);
@@ -39,7 +120,7 @@
       flex-direction: column;
       padding-bottom: 56px;
     }
- 
+
     /* ─── HEADER ─── */
     .site-header {
       background: var(--cream);
@@ -49,7 +130,7 @@
       align-items: center;
       gap: 12px;
     }
- 
+
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.65rem;
@@ -57,11 +138,11 @@
       color: var(--green);
       text-decoration: none;
     }
- 
+
     .logo-dot { color: var(--gold-mid); }
- 
+
     .header-pipe { color: var(--border); margin: 0 4px; }
- 
+
     .header-sub {
       font-size: 0.68rem;
       font-weight: 600;
@@ -69,7 +150,7 @@
       color: var(--text-muted);
       text-transform: uppercase;
     }
- 
+
     /* ─── AD BANNER ─── */
     .ad-banner {
       background: var(--cream-dark);
@@ -82,16 +163,16 @@
       color: var(--text-muted);
       text-transform: uppercase;
     }
- 
+
     /* ─── LAYOUT ─── */
     main { flex: 1; }
- 
+
     .container {
       max-width: 860px;
       margin: 0 auto;
       padding: 36px 20px 60px;
     }
- 
+
     .page-title {
       font-family: 'Playfair Display', serif;
       font-style: italic;
@@ -99,14 +180,14 @@
       color: var(--green);
       margin-bottom: 4px;
     }
- 
+
     .page-sub {
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-bottom: 32px;
       letter-spacing: 0.2px;
     }
- 
+
     /* ─── TWO COLUMN ─── */
     .two-col {
       display: grid;
@@ -115,11 +196,11 @@
       align-items: start;
       margin-bottom: 20px;
     }
- 
+
     @media (max-width: 680px) {
       .two-col { grid-template-columns: 1fr; }
     }
- 
+
     /* ─── CARD ─── */
     .card {
       background: var(--white);
@@ -127,7 +208,7 @@
       border-radius: 5px;
       padding: 26px 24px;
     }
- 
+
     .card-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
@@ -140,16 +221,16 @@
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
- 
+
     .card-title-bar {
       flex: 1;
       height: 1px;
       background: var(--border);
     }
- 
+
     /* ─── FORM ─── */
     .form-group { margin-bottom: 16px; }
- 
+
     .form-label {
       display: block;
       font-size: 0.67rem;
@@ -159,7 +240,7 @@
       color: var(--label);
       margin-bottom: 7px;
     }
- 
+
     select, input[type="number"] {
       width: 100%;
       padding: 11px 13px;
@@ -174,16 +255,16 @@
       -webkit-appearance: none;
       appearance: none;
     }
- 
+
     select:focus, input[type="number"]:focus {
       border-color: var(--green);
       background: var(--white);
     }
- 
+
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
     input[type="number"] { -moz-appearance: textfield; }
- 
+
     .input-hint {
       font-size: 0.77rem;
       color: var(--text-muted);
@@ -192,7 +273,7 @@
       font-style: italic;
       line-height: 1.5;
     }
- 
+
     /* ─── BUTTON ─── */
     .btn-primary {
       display: block;
@@ -211,9 +292,9 @@
       cursor: pointer;
       transition: background 0.18s;
     }
- 
+
     .btn-primary:hover { background: var(--green-dark); }
- 
+
     .btn-outline {
       display: inline-flex;
       align-items: center;
@@ -232,9 +313,9 @@
       transition: background 0.18s;
       text-decoration: none;
     }
- 
+
     .btn-outline:hover { background: var(--green-light); }
- 
+
     .btn-gold {
       display: inline-flex;
       align-items: center;
@@ -252,11 +333,11 @@
       font-family: 'Inter', sans-serif;
       transition: background 0.18s;
     }
- 
+
     .btn-gold:hover { background: var(--gold); }
- 
+
     .btn-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
- 
+
     /* ─── RESULTS PANEL ─── */
     .results-name {
       font-family: 'Playfair Display', serif;
@@ -265,7 +346,7 @@
       color: var(--green);
       margin-bottom: 3px;
     }
- 
+
     .results-sub {
       font-size: 0.73rem;
       color: var(--text-muted);
@@ -273,9 +354,9 @@
       letter-spacing: 0.5px;
       margin-bottom: 22px;
     }
- 
+
     .divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
- 
+
     /* ─── RESULT ROWS ─── */
     .result-row {
       display: flex;
@@ -284,19 +365,19 @@
       padding: 13px 0;
       border-bottom: 1px solid var(--cream-dark);
     }
- 
+
     .result-row:last-of-type { border-bottom: none; }
- 
+
     .result-dot {
       width: 11px; height: 11px;
       border-radius: 50%;
       flex-shrink: 0;
     }
- 
+
     .dot-needs   { background: var(--green); }
     .dot-wants   { background: var(--gold-mid); }
     .dot-savings { background: var(--teal); }
- 
+
     .result-label {
       font-size: 0.67rem;
       font-weight: 600;
@@ -305,7 +386,7 @@
       color: var(--label);
       flex: 1;
     }
- 
+
     .result-pct {
       font-size: 0.75rem;
       color: var(--text-muted);
@@ -313,7 +394,7 @@
       width: 34px;
       text-align: right;
     }
- 
+
     .result-amount {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
@@ -322,7 +403,7 @@
       text-align: right;
       min-width: 105px;
     }
- 
+
     .result-annual {
       font-size: 0.7rem;
       color: var(--text-muted);
@@ -330,17 +411,17 @@
       text-align: right;
       min-width: 85px;
     }
- 
+
     /* ─── BAR CHART ─── */
     .bar-section { margin: 16px 0; }
- 
+
     .bar-row {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 8px;
     }
- 
+
     .bar-label-sm {
       font-size: 0.65rem;
       letter-spacing: 1.2px;
@@ -349,7 +430,7 @@
       width: 52px;
       flex-shrink: 0;
     }
- 
+
     .bar-track {
       flex: 1;
       height: 7px;
@@ -357,17 +438,17 @@
       border-radius: 4px;
       overflow: hidden;
     }
- 
+
     .bar-fill {
       height: 100%;
       border-radius: 4px;
       transition: width 0.7s ease;
     }
- 
+
     .bar-needs   { background: var(--green); width: 50%; }
     .bar-wants   { background: var(--gold-mid); width: 30%; }
     .bar-savings { background: var(--teal); width: 20%; }
- 
+
     .bar-pct {
       font-size: 0.7rem;
       color: var(--text-muted);
@@ -375,7 +456,7 @@
       width: 28px;
       text-align: right;
     }
- 
+
     /* ─── TIP BOX ─── */
     .tip-box {
       background: var(--green-light);
@@ -387,10 +468,10 @@
       line-height: 1.6;
       margin-top: 16px;
     }
- 
+
     /* ─── FULL WIDTH SECTION ─── */
     .section { margin-bottom: 20px; }
- 
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -398,24 +479,24 @@
       color: var(--text);
       margin-bottom: 4px;
     }
- 
+
     .section-sub {
       font-size: 0.84rem;
       color: var(--text-muted);
       margin-bottom: 18px;
     }
- 
+
     /* ─── NEXT STEPS ─── */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
- 
+
     @media (max-width: 680px) {
       .steps-grid { grid-template-columns: 1fr; }
     }
- 
+
     .step-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -423,7 +504,7 @@
       padding: 20px 18px;
       position: relative;
     }
- 
+
     .step-card::before {
       content: attr(data-num);
       position: absolute;
@@ -435,9 +516,9 @@
       font-weight: 700;
       line-height: 1;
     }
- 
+
     .step-icon { font-size: 1.4rem; margin-bottom: 10px; }
- 
+
     .step-title {
       font-size: 0.9rem;
       font-weight: 600;
@@ -446,13 +527,13 @@
       line-height: 1.3;
       padding-right: 28px;
     }
- 
+
     .step-desc {
       font-size: 0.81rem;
       color: var(--text-muted);
       line-height: 1.65;
     }
- 
+
     .step-tag {
       display: inline-block;
       margin-top: 12px;
@@ -464,10 +545,10 @@
       border-bottom: 1px solid var(--green);
       padding-bottom: 1px;
     }
- 
+
     /* ─── HOW IT WORKS ─── */
     .how-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
- 
+
     .how-table th {
       font-size: 0.65rem;
       letter-spacing: 1.8px;
@@ -478,7 +559,7 @@
       border-bottom: 1px solid var(--border);
       font-weight: 600;
     }
- 
+
     .how-table td {
       padding: 11px 12px;
       border-bottom: 1px solid var(--cream-dark);
@@ -486,10 +567,10 @@
       vertical-align: top;
       line-height: 1.5;
     }
- 
+
     .how-table tr:last-child td { border-bottom: none; }
     .how-table .cat { font-weight: 600; color: var(--text); }
- 
+
     /* ─── AD MID ─── */
     .ad-mid {
       border: 1px dashed var(--border);
@@ -504,10 +585,10 @@
       color: var(--text-muted);
       text-transform: uppercase;
     }
- 
+
     /* ─── HIDDEN ─── */
     .hidden { display: none !important; }
- 
+
     /* ─── BOTTOM NAV ─── */
     .bottom-nav {
       position: fixed;
@@ -521,7 +602,7 @@
       padding: 8px 0 10px;
       z-index: 100;
     }
- 
+
     .bottom-nav a {
       display: flex;
       flex-direction: column;
@@ -535,11 +616,11 @@
       text-transform: uppercase;
       transition: color 0.15s;
     }
- 
+
     .bottom-nav a.active { color: var(--green); }
     .bottom-nav a:hover { color: var(--green); }
     .bottom-nav .nav-icon { font-size: 1.1rem; }
- 
+
     /* ─── FOOTER ─── */
     .site-footer {
       background: var(--cream-dark);
@@ -549,28 +630,28 @@
       font-size: 0.76rem;
       color: var(--text-muted);
     }
- 
+
     .site-footer a { color: var(--green); text-decoration: none; }
- 
+
     @media (min-width: 860px) {
       .bottom-nav { display: none; }
       body { padding-bottom: 0; }
     }
- 
+
     @media print {
       .bottom-nav, .ad-banner, .ad-mid, .btn-row, .btn-primary { display: none !important; }
     }
   </style>
 </head>
 <body>
- 
+
 <!-- HEADER -->
 <header class="site-header">
   <a href="index.html" class="logo">Sharpline<span class="logo-dot">.</span></a>
   <span class="header-pipe">|</span>
   <span class="header-sub">50/30/20 Budget Calculator &nbsp;·&nbsp; 503020.ca</span>
 </header>
- 
+
 <!-- AD TOP -->
 <div class="ad-banner">
   <ins class="adsbygoogle" style="display:block"
@@ -579,20 +660,20 @@
        data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
- 
+
 <main>
 <div class="container">
- 
+
   <h1 class="page-title">50/30/20 Budget Calculator</h1>
   <p class="page-sub">Enter your income below to see how to split it into Needs, Wants &amp; Savings.</p>
- 
+
   <!-- ── TWO-COLUMN: INPUT + RESULTS ── -->
   <div class="two-col">
- 
+
     <!-- LEFT: Input Card -->
     <div class="card">
       <div class="card-title">Your Income <div class="card-title-bar"></div></div>
- 
+
       <div class="form-group">
         <label class="form-label" for="currency">Currency</label>
         <select id="currency">
@@ -604,7 +685,7 @@
           <option value="A$">A$ AUD — Australian Dollar</option>
         </select>
       </div>
- 
+
       <div class="form-group">
         <label class="form-label" for="period">Income Period</label>
         <select id="period">
@@ -614,20 +695,20 @@
           <option value="biweekly">Bi-Weekly</option>
         </select>
       </div>
- 
+
       <div class="form-group">
         <label class="form-label" for="income">After-Tax Income</label>
         <input type="number" id="income" placeholder="e.g. 5000" min="0" step="any" />
       </div>
- 
+
       <p class="input-hint">✏️ Edit the fields above, then tap Calculate to see your personal budget breakdown.</p>
- 
+
       <button class="btn-primary" onclick="calculate()">Calculate My Budget →</button>
     </div>
- 
+
     <!-- RIGHT: Results Card -->
     <div class="card" id="resultsCard">
- 
+
       <!-- Placeholder state -->
       <div id="placeholder">
         <div class="card-title">Your Breakdown <div class="card-title-bar"></div></div>
@@ -636,12 +717,12 @@
           <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;">Enter your income on the left and click <strong>Calculate</strong> to see your 50/30/20 split.</div>
         </div>
       </div>
- 
+
       <!-- Results state -->
       <div id="resultsContent" class="hidden">
         <div class="results-name" id="resultsTitle">My Budget</div>
         <div class="results-sub" id="resultsSub"></div>
- 
+
         <!-- Bar chart -->
         <div class="bar-section">
           <div class="bar-row">
@@ -660,9 +741,9 @@
             <span class="bar-pct">20%</span>
           </div>
         </div>
- 
+
         <hr class="divider">
- 
+
         <!-- Result rows -->
         <div class="result-rows">
           <div class="result-row">
@@ -687,11 +768,11 @@
             <span class="result-annual" id="savingsY"></span>
           </div>
         </div>
- 
+
         <hr class="divider">
- 
+
         <div class="tip-box" id="tipBox"></div>
- 
+
         <div class="btn-row">
           <button class="btn-outline" onclick="window.print()">🖨️ Print Results</button>
           <button class="btn-gold" onclick="emailResults()">✉️ Email Results</button>
@@ -699,7 +780,7 @@
       </div>
     </div>
   </div><!-- end two-col -->
- 
+
   <!-- AD MID -->
   <div class="ad-mid">
     <ins class="adsbygoogle" style="display:block"
@@ -708,59 +789,59 @@
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
- 
+
   <!-- ── NEXT STEPS ── -->
   <div class="section" id="nextStepsSection">
     <div class="section-title">Next Steps</div>
     <p class="section-sub">Now that you know your numbers — here's how to put them to work.</p>
- 
+
     <div class="steps-grid">
- 
+
       <div class="step-card" data-num="1">
         <div class="step-icon">🏦</div>
         <div class="step-title">Compare Your Actual Spending</div>
         <div class="step-desc">Pull out your last 2–3 bank and credit card statements. Categorize each expense as a Need, Want, or Saving. How does your real spending compare to your 50/30/20 target?</div>
         <span class="step-tag">Do This First</span>
       </div>
- 
+
       <div class="step-card" data-num="2">
         <div class="step-icon">🛡️</div>
         <div class="step-title">Build Your Emergency Fund</div>
         <div class="step-desc">Aim to save 3–6 months of living expenses in a high-yield savings account. Start by directing a portion of your 20% savings bucket here before anything else.</div>
         <span class="step-tag">Priority Savings</span>
       </div>
- 
+
       <div class="step-card" data-num="3">
         <div class="step-icon">⚙️</div>
         <div class="step-title">Automate Your Savings</div>
         <div class="step-desc">Set up automatic transfers on payday so your savings move before you can spend them. Even a small automatic transfer every month builds powerful long-term habits.</div>
         <span class="step-tag">Pay Yourself First</span>
       </div>
- 
+
       <div class="step-card" data-num="4">
         <div class="step-icon">💳</div>
         <div class="step-title">Tackle High-Interest Debt</div>
         <div class="step-desc">If you carry credit card or high-interest debt, allocate part of your 20% to paying it down aggressively. Eliminating high-interest debt is the best guaranteed "return" you can get.</div>
         <span class="step-tag">Savings Category</span>
       </div>
- 
+
       <div class="step-card" data-num="5">
         <div class="step-icon">✂️</div>
         <div class="step-title">Trim Your Wants First</div>
         <div class="step-desc">If your Needs exceed 50%, focus on cutting Wants before touching Savings. Review subscriptions, dining out, and delivery apps — these are the easiest categories to reduce quickly.</div>
         <span class="step-tag">Quick Wins</span>
       </div>
- 
+
       <div class="step-card" data-num="6">
         <div class="step-icon">📈</div>
         <div class="step-title">Start Investing for Retirement</div>
         <div class="step-desc">Once your emergency fund is in place, direct part of your 20% toward retirement. Experts suggest aiming for 10–15% of pre-tax income. Even starting small today makes a big difference over time.</div>
         <span class="step-tag">Long-Term Wealth</span>
       </div>
- 
+
     </div>
   </div>
- 
+
   <!-- ── HOW IT WORKS ── -->
   <div class="section">
     <div class="card">
@@ -800,10 +881,10 @@
       </p>
     </div>
   </div>
- 
+
 </div><!-- end container -->
 </main>
- 
+
 <!-- FOOTER -->
 <footer class="site-footer">
   &copy; <span id="year"></span> <a href="index.html">Sharpline</a> &nbsp;·&nbsp;
@@ -813,7 +894,7 @@
   <a href="disclaimer.html">Disclaimer</a>
   &nbsp;·&nbsp; 503020.ca &nbsp;·&nbsp; Not financial advice.
 </footer>
- 
+
 <!-- BOTTOM NAV (mobile) -->
 <nav class="bottom-nav">
   <a href="index.html" class="active">
@@ -829,60 +910,60 @@
     <span class="nav-icon">✉️</span>Contact
   </a>
 </nav>
- 
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
- 
+
   function toMonthly(amount, period) {
     if (period === 'annual')   return amount / 12;
     if (period === 'weekly')   return amount * 52 / 12;
     if (period === 'biweekly') return amount * 26 / 12;
     return amount;
   }
- 
+
   function fmt(symbol, value) {
     return symbol + value.toLocaleString('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
     });
   }
- 
+
   function set(id, text) {
     var el = document.getElementById(id);
     if (el) el.textContent = text;
   }
- 
+
   function calculate() {
     var income = parseFloat(document.getElementById('income').value);
     var symbol = document.getElementById('currency').value;
     var period = document.getElementById('period').value;
- 
+
     if (!income || income <= 0) {
       alert('Please enter a valid income amount greater than zero.');
       return;
     }
- 
+
     var monthly  = toMonthly(income, period);
     var needs    = monthly * 0.50;
     var wants    = monthly * 0.30;
     var savings  = monthly * 0.20;
- 
+
     var periodLabel = { monthly: 'month', annual: 'year', weekly: 'week', biweekly: 'paycheck' };
- 
+
     // Results header
     set('resultsTitle', 'My Budget');
     set('resultsSub', fmt(symbol, income) + ' per ' + periodLabel[period] + '  ·  ' + fmt(symbol, monthly) + '/month');
- 
+
     // Amounts
     set('needsAmt',   fmt(symbol, needs));
     set('wantsAmt',   fmt(symbol, wants));
     set('savingsAmt', fmt(symbol, savings));
- 
+
     // Annual
     set('needsY',   fmt(symbol, needs * 12) + '/yr');
     set('wantsY',   fmt(symbol, wants * 12) + '/yr');
     set('savingsY', fmt(symbol, savings * 12) + '/yr');
- 
+
     // Tip box
     var tip = '';
     if (needs > monthly * 0.55) {
@@ -893,17 +974,17 @@
       tip = '✅ Great pace! You\'re on track with the 50/30/20 framework. Keep your savings automated and review your budget quarterly.';
     }
     set('tipBox', tip);
- 
+
     // Show results, hide placeholder
     document.getElementById('placeholder').classList.add('hidden');
     document.getElementById('resultsContent').classList.remove('hidden');
- 
+
     // Scroll on mobile
     if (window.innerWidth < 680) {
       document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
- 
+
   function emailResults() {
     var income = document.getElementById('income').value;
     var symbol = document.getElementById('currency').value;
@@ -923,11 +1004,11 @@
       + 'Calculated at 503020.ca';
     window.location.href = 'mailto:?subject=My 50/30/20 Budget&body=' + encodeURIComponent(body);
   }
- 
+
   document.getElementById('income').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') calculate();
   });
 </script>
- 
+
 </body>
 </html>
