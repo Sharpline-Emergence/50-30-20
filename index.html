@@ -1,4 +1,4 @@
-Index · HTML
+
 Copy
 
 <!DOCTYPE html>
@@ -6,7 +6,7 @@ Copy
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Free 50/30/20 Budget Calculator by Sharpline. Split your income into Needs, Wants, and Savings instantly." />
+  <meta name="description" content="Free 50/30/20 Budget Calculator by Sharpline. Split your income into Needs, Wants, and Savings instantly. Supports USD, BRL, GBP, EUR, CAD, and AUD." />
   <title>50/30/20 Budget Calculator | Sharpline</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
   <style>
@@ -17,14 +17,18 @@ Copy
       background: #f4f6fb;
       color: #222;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
  
     /* ── Header ── */
     .site-header {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      padding: 18px 32px;
+      padding: 18px 32px 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2);
     }
+ 
+    .header-top { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
  
     .logo {
       font-size: 1.7rem;
@@ -32,16 +36,29 @@ Copy
       letter-spacing: 2px;
       color: #e94560;
       text-transform: uppercase;
+      text-decoration: none;
       line-height: 1;
     }
  
     .logo span { color: #fff; }
  
-    .tagline {
-      font-size: 0.85rem;
+    .tagline { font-size: 0.85rem; color: #a8b2d8; }
+ 
+    /* ── Nav ── */
+    nav { display: flex; gap: 4px; flex-wrap: wrap; }
+ 
+    nav a {
       color: #a8b2d8;
-      margin-top: 2px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px 6px 0 0;
+      transition: background 0.15s, color 0.15s;
     }
+ 
+    nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    nav a.active { background: #f4f6fb; color: #0f3460; }
  
     /* ── Ad banner ── */
     .ad-banner {
@@ -53,6 +70,8 @@ Copy
     }
  
     /* ── Layout ── */
+    main { flex: 1; }
+ 
     .container {
       max-width: 760px;
       margin: 36px auto;
@@ -93,11 +112,7 @@ Copy
     }
  
     /* ── Inputs ── */
-    .input-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .input-row { display: flex; gap: 14px; flex-wrap: wrap; }
  
     .input-group {
       display: flex;
@@ -107,13 +122,9 @@ Copy
       min-width: 160px;
     }
  
-    label {
-      font-size: 0.87rem;
-      font-weight: 600;
-      color: #3a4060;
-    }
+    label { font-size: 0.87rem; font-weight: 600; color: #3a4060; }
  
-    select, input[type="number"] {
+    select, input[type="number"], input[type="text"], input[type="email"], textarea {
       padding: 11px 14px;
       border: 1.5px solid #d0d6e8;
       border-radius: 8px;
@@ -126,17 +137,18 @@ Copy
       transition: border-color 0.2s;
     }
  
-    select:focus, input[type="number"]:focus {
+    select:focus, input:focus, textarea:focus {
       border-color: #e94560;
       background: #fff;
     }
  
-    /* hide number spinners */
+    textarea { resize: vertical; min-height: 120px; }
+ 
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
     input[type="number"] { -moz-appearance: textfield; }
  
-    .calc-btn {
+    .calc-btn, .submit-btn {
       display: block;
       width: 100%;
       margin-top: 20px;
@@ -153,8 +165,8 @@ Copy
       transition: opacity 0.2s, transform 0.1s;
     }
  
-    .calc-btn:hover { opacity: 0.91; transform: translateY(-1px); }
-    .calc-btn:active { transform: translateY(0); }
+    .calc-btn:hover, .submit-btn:hover { opacity: 0.91; transform: translateY(-1px); }
+    .calc-btn:active, .submit-btn:active { transform: translateY(0); }
  
     /* ── Results grid ── */
     .results-grid {
@@ -181,11 +193,7 @@ Copy
     .rb-per  { font-size: 0.74rem; opacity: 0.7; margin-top: 4px; }
  
     /* ── Table ── */
-    .breakdown-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.93rem;
-    }
+    .breakdown-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
  
     .breakdown-table th {
       background: #f0f3fa;
@@ -230,7 +238,7 @@ Copy
  
     .tip-box strong { color: #0f3460; }
  
-    /* ── Info list ── */
+    /* ── Info ── */
     .info-intro { color: #3a4060; font-size: 0.95rem; line-height: 1.7; }
  
     .info-list {
@@ -240,18 +248,13 @@ Copy
       line-height: 2.1;
     }
  
-    .info-list .c-needs   { color: #0f3460; }
-    .info-list .c-wants   { color: #e94560; }
-    .info-list .c-savings { color: #16a085; }
+    .c-needs   { color: #0f3460; }
+    .c-wants   { color: #e94560; }
+    .c-savings { color: #16a085; }
  
-    .info-note {
-      margin-top: 14px;
-      color: #5a6480;
-      font-size: 0.87rem;
-      font-style: italic;
-    }
+    .info-note { margin-top: 14px; color: #5a6480; font-size: 0.87rem; font-style: italic; }
  
-    /* ── Mid ad ── */
+    /* ── Ad mid ── */
     .ad-mid {
       border: 1px solid #e0e4ef;
       border-radius: 12px;
@@ -264,16 +267,37 @@ Copy
  
     /* ── Footer ── */
     .site-footer {
+      background: #1a1a2e;
+      color: #a8b2d8;
       text-align: center;
-      color: #a0a8c0;
-      font-size: 0.82rem;
-      padding: 16px 0 8px;
+      padding: 20px 16px;
+      font-size: 0.83rem;
     }
  
-    .site-footer a { color: #e94560; text-decoration: none; }
+    .footer-links { margin-bottom: 8px; }
+    .footer-links a { color: #e94560; text-decoration: none; margin: 0 10px; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-copy { color: #6a7490; }
  
     /* ── Hidden ── */
     .hidden { display: none !important; }
+ 
+    /* ── Prose (for static pages) ── */
+    .prose h2 { font-size: 1.15rem; color: #0f3460; margin: 24px 0 10px; }
+    .prose p  { color: #3a4060; font-size: 0.95rem; line-height: 1.75; margin-bottom: 12px; }
+    .prose ul { margin: 0 0 12px 20px; color: #3a4060; font-size: 0.95rem; line-height: 1.9; }
+    .prose a  { color: #e94560; }
+ 
+    /* ── Contact form success ── */
+    .success-msg {
+      background: #e8f8f4;
+      border-left: 4px solid #1abc9c;
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: #16a085;
+      font-weight: 600;
+      margin-top: 16px;
+    }
  
     /* ── Responsive ── */
     @media (max-width: 580px) {
@@ -281,18 +305,26 @@ Copy
       .card { padding: 22px 18px; }
       .breakdown-table th:last-child,
       .breakdown-table td:last-child { display: none; }
+      .site-header { padding: 16px 18px 0; }
     }
   </style>
 </head>
 <body>
  
-<!-- HEADER -->
 <header class="site-header">
-  <div class="logo">Sharp<span>line</span></div>
-  <div class="tagline">Smart Financial Tools</div>
+  <div class="header-top">
+    <a href="index.html" class="logo">Sharp<span>line</span></a>
+    <span class="tagline">Smart Financial Tools</span>
+  </div>
+  <nav>
+    <a href="index.html" class="active">Calculator</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
 </header>
  
-<!-- AD TOP -->
 <div class="ad-banner">
   <ins class="adsbygoogle"
        style="display:block"
@@ -303,13 +335,12 @@ Copy
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
  
-<!-- MAIN -->
-<main class="container">
+<main>
+<div class="container">
  
   <h1 class="page-title">50/30/20 Budget Calculator</h1>
   <p class="page-sub">Split your income into Needs, Wants &amp; Savings — in seconds.</p>
  
-  <!-- Input card -->
   <div class="card">
     <div class="card-title">Enter Your Income</div>
     <div class="input-row">
@@ -345,7 +376,6 @@ Copy
     <button class="calc-btn" onclick="calculate()">Calculate My Budget</button>
   </div>
  
-  <!-- Results card -->
   <div class="card hidden" id="resultsCard">
     <div class="card-title">Your 50/30/20 Breakdown</div>
  
@@ -373,29 +403,23 @@ Copy
     <table class="breakdown-table">
       <thead>
         <tr>
-          <th>Category</th>
-          <th>Monthly</th>
-          <th>Annual</th>
-          <th>Examples</th>
+          <th>Category</th><th>Monthly</th><th>Annual</th><th>Examples</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><span class="tag needs">Needs 50%</span></td>
-          <td id="needsM"></td>
-          <td id="needsY"></td>
+          <td id="needsM"></td><td id="needsY"></td>
           <td>Rent, groceries, utilities, insurance</td>
         </tr>
         <tr>
           <td><span class="tag wants">Wants 30%</span></td>
-          <td id="wantsM"></td>
-          <td id="wantsY"></td>
+          <td id="wantsM"></td><td id="wantsY"></td>
           <td>Dining out, subscriptions, hobbies</td>
         </tr>
         <tr>
           <td><span class="tag savings">Savings 20%</span></td>
-          <td id="savingsM"></td>
-          <td id="savingsY"></td>
+          <td id="savingsM"></td><td id="savingsY"></td>
           <td>Emergency fund, investments, debt payoff</td>
         </tr>
       </tbody>
@@ -406,7 +430,6 @@ Copy
     </div>
   </div>
  
-  <!-- AD MID -->
   <div class="ad-mid">
     <ins class="adsbygoogle"
          style="display:block"
@@ -417,7 +440,6 @@ Copy
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
  
-  <!-- Info card -->
   <div class="card">
     <div class="card-title">How the 50/30/20 Rule Works</div>
     <p class="info-intro">
@@ -433,18 +455,22 @@ Copy
     </p>
   </div>
  
+</div>
 </main>
  
-<!-- FOOTER -->
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> <a href="#">Sharpline</a> &nbsp;|&nbsp; Smart Financial Tools &nbsp;|&nbsp; Not financial advice.</p>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+  <div class="footer-copy">&copy; <span id="year"></span> Sharpline &nbsp;|&nbsp; 503020.ca &nbsp;|&nbsp; Not financial advice.</div>
 </footer>
  
 <script>
-  // Auto year
   document.getElementById('year').textContent = new Date().getFullYear();
  
-  // Convert any period to monthly
   function toMonthly(amount, period) {
     if (period === 'annual')   return amount / 12;
     if (period === 'weekly')   return amount * 52 / 12;
@@ -452,20 +478,12 @@ Copy
     return amount;
   }
  
-  // Format number as currency string
   function fmt(symbol, value) {
-    return symbol + value.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+    return symbol + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
  
-  // Set element text by ID
-  function set(id, text) {
-    document.getElementById(id).textContent = text;
-  }
+  function set(id, text) { document.getElementById(id).textContent = text; }
  
-  // Main calculation
   function calculate() {
     var income = parseFloat(document.getElementById('income').value);
     var symbol = document.getElementById('currency').value;
@@ -481,26 +499,21 @@ Copy
     var wants    = monthly * 0.30;
     var savings  = monthly * 0.20;
  
-    // Summary boxes
     set('needsAmt',   fmt(symbol, needs));
     set('wantsAmt',   fmt(symbol, wants));
     set('savingsAmt', fmt(symbol, savings));
+    set('needsM',     fmt(symbol, needs));
+    set('needsY',     fmt(symbol, needs * 12));
+    set('wantsM',     fmt(symbol, wants));
+    set('wantsY',     fmt(symbol, wants * 12));
+    set('savingsM',   fmt(symbol, savings));
+    set('savingsY',   fmt(symbol, savings * 12));
  
-    // Table
-    set('needsM',   fmt(symbol, needs));
-    set('needsY',   fmt(symbol, needs * 12));
-    set('wantsM',   fmt(symbol, wants));
-    set('wantsY',   fmt(symbol, wants * 12));
-    set('savingsM', fmt(symbol, savings));
-    set('savingsY', fmt(symbol, savings * 12));
- 
-    // Show results
     var card = document.getElementById('resultsCard');
     card.classList.remove('hidden');
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
  
-  // Enter key support
   document.getElementById('income').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') calculate();
   });
