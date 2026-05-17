@@ -27,7 +27,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Schema: WebApplication (tells Google this is a financial calculator tool) -->
+  <!-- Schema: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,7 +50,7 @@
   }
   </script>
 
-  <!-- Schema: FAQPage (boosts Google rich results) -->
+  <!-- Schema: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -91,6 +91,7 @@
     ]
   }
   </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -122,7 +123,6 @@
       padding-bottom: 56px;
     }
 
-    /* ─── HEADER ─── */
     .site-header {
       background: var(--cream);
       border-bottom: 1px solid var(--border);
@@ -141,9 +141,7 @@
     }
 
     .logo-dot { color: var(--gold-mid); }
-
     .header-pipe { color: var(--border); margin: 0 4px; }
-
     .header-sub {
       font-size: 0.68rem;
       font-weight: 600;
@@ -152,7 +150,6 @@
       text-transform: uppercase;
     }
 
-    /* ─── AD BANNER ─── */
     .ad-banner {
       background: var(--cream-dark);
       border-bottom: 1px solid var(--border);
@@ -165,7 +162,6 @@
       text-transform: uppercase;
     }
 
-    /* ─── LAYOUT ─── */
     main { flex: 1; }
 
     .container {
@@ -189,7 +185,6 @@
       letter-spacing: 0.2px;
     }
 
-    /* ─── TWO COLUMN ─── */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -202,7 +197,6 @@
       .two-col { grid-template-columns: 1fr; }
     }
 
-    /* ─── CARD ─── */
     .card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -223,13 +217,8 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .card-title-bar {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .card-title-bar { flex: 1; height: 1px; background: var(--border); }
 
-    /* ─── FORM ─── */
     .form-group { margin-bottom: 16px; }
 
     .form-label {
@@ -275,7 +264,6 @@
       line-height: 1.5;
     }
 
-    /* ─── BUTTON ─── */
     .btn-primary {
       display: block;
       width: 100%;
@@ -336,10 +324,8 @@
     }
 
     .btn-gold:hover { background: var(--gold); }
-
     .btn-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
 
-    /* ─── RESULTS PANEL ─── */
     .results-name {
       font-family: 'Playfair Display', serif;
       font-style: italic;
@@ -358,7 +344,6 @@
 
     .divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
 
-    /* ─── RESULT ROWS ─── */
     .result-row {
       display: flex;
       align-items: center;
@@ -369,12 +354,7 @@
 
     .result-row:last-of-type { border-bottom: none; }
 
-    .result-dot {
-      width: 11px; height: 11px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .result-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
     .dot-needs   { background: var(--green); }
     .dot-wants   { background: var(--gold-mid); }
     .dot-savings { background: var(--teal); }
@@ -413,7 +393,6 @@
       min-width: 85px;
     }
 
-    /* ─── BAR CHART ─── */
     .bar-section { margin: 16px 0; }
 
     .bar-row {
@@ -432,20 +411,8 @@
       flex-shrink: 0;
     }
 
-    .bar-track {
-      flex: 1;
-      height: 7px;
-      background: var(--cream-dark);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.7s ease;
-    }
-
+    .bar-track { flex: 1; height: 7px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 4px; transition: width 0.7s ease; }
     .bar-needs   { background: var(--green); width: 50%; }
     .bar-wants   { background: var(--gold-mid); width: 30%; }
     .bar-savings { background: var(--teal); width: 20%; }
@@ -458,7 +425,6 @@
       text-align: right;
     }
 
-    /* ─── TIP BOX ─── */
     .tip-box {
       background: var(--green-light);
       border: 1px solid #b8d4c0;
@@ -470,7 +436,6 @@
       margin-top: 16px;
     }
 
-    /* ─── FULL WIDTH SECTION ─── */
     .section { margin-bottom: 20px; }
 
     .section-title {
@@ -487,7 +452,6 @@
       margin-bottom: 18px;
     }
 
-    /* ─── NEXT STEPS ─── */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -547,7 +511,6 @@
       padding-bottom: 1px;
     }
 
-    /* ─── HOW IT WORKS ─── */
     .how-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
 
     .how-table th {
@@ -572,7 +535,6 @@
     .how-table tr:last-child td { border-bottom: none; }
     .how-table .cat { font-weight: 600; color: var(--text); }
 
-    /* ─── AD MID ─── */
     .ad-mid {
       border: 1px dashed var(--border);
       border-radius: 4px;
@@ -587,10 +549,58 @@
       text-transform: uppercase;
     }
 
-    /* ─── HIDDEN ─── */
     .hidden { display: none !important; }
 
-    /* ─── BOTTOM NAV ─── */
+    /* ── TOOLS PANEL ── */
+    .tools-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 26px 24px;
+      margin-bottom: 20px;
+    }
+
+    .tools-panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 540px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+
+    .tool-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .tool-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 2px 8px rgba(45,90,61,0.1);
+    }
+
+    .tool-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .tool-name { font-size: 0.82rem; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+    .tool-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; }
+    .tool-link { font-size: 0.68rem; color: var(--gold-mid); font-weight: 600; }
+
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -622,7 +632,6 @@
     .bottom-nav a:hover { color: var(--green); }
     .bottom-nav .nav-icon { font-size: 1.1rem; }
 
-    /* ─── FOOTER ─── */
     .site-footer {
       background: var(--cream-dark);
       border-top: 1px solid var(--border);
@@ -640,20 +649,18 @@
     }
 
     @media print {
-      .bottom-nav, .ad-banner, .ad-mid, .btn-row, .btn-primary { display: none !important; }
+      .bottom-nav, .ad-banner, .ad-mid, .btn-row, .btn-primary, .tools-panel { display: none !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
   <a href="index.html" class="logo">Sharpline<span class="logo-dot">.</span></a>
   <span class="header-pipe">|</span>
   <span class="header-sub">50/30/20 Budget Calculator &nbsp;·&nbsp; 503020.ca</span>
 </header>
 
-<!-- AD TOP -->
 <div class="ad-banner">
   <ins class="adsbygoogle" style="display:block"
        data-ad-client="ca-pub-8775883855490271"
@@ -668,10 +675,8 @@
   <h1 class="page-title">50/30/20 Budget Calculator</h1>
   <p class="page-sub">Enter your income below to see how to split it into Needs, Wants &amp; Savings.</p>
 
-  <!-- ── TWO-COLUMN: INPUT + RESULTS ── -->
   <div class="two-col">
 
-    <!-- LEFT: Input Card -->
     <div class="card">
       <div class="card-title">Your Income <div class="card-title-bar"></div></div>
 
@@ -707,10 +712,7 @@
       <button class="btn-primary" onclick="calculate()">Calculate My Budget →</button>
     </div>
 
-    <!-- RIGHT: Results Card -->
     <div class="card" id="resultsCard">
-
-      <!-- Placeholder state -->
       <div id="placeholder">
         <div class="card-title">Your Breakdown <div class="card-title-bar"></div></div>
         <div style="text-align:center; padding: 40px 20px;">
@@ -719,12 +721,10 @@
         </div>
       </div>
 
-      <!-- Results state -->
       <div id="resultsContent" class="hidden">
         <div class="results-name" id="resultsTitle">My Budget</div>
         <div class="results-sub" id="resultsSub"></div>
 
-        <!-- Bar chart -->
         <div class="bar-section">
           <div class="bar-row">
             <span class="bar-label-sm">Needs</span>
@@ -745,7 +745,6 @@
 
         <hr class="divider">
 
-        <!-- Result rows -->
         <div class="result-rows">
           <div class="result-row">
             <div class="result-dot dot-needs"></div>
@@ -780,9 +779,8 @@
         </div>
       </div>
     </div>
-  </div><!-- end two-col -->
+  </div>
 
-  <!-- AD MID -->
   <div class="ad-mid">
     <ins class="adsbygoogle" style="display:block"
          data-ad-client="ca-pub-8775883855490271"
@@ -791,59 +789,50 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- ── NEXT STEPS ── -->
   <div class="section" id="nextStepsSection">
     <div class="section-title">Next Steps</div>
     <p class="section-sub">Now that you know your numbers — here's how to put them to work.</p>
 
     <div class="steps-grid">
-
       <div class="step-card" data-num="1">
         <div class="step-icon">🏦</div>
         <div class="step-title">Compare Your Actual Spending</div>
         <div class="step-desc">Pull out your last 2–3 bank and credit card statements. Categorize each expense as a Need, Want, or Saving. How does your real spending compare to your 50/30/20 target?</div>
         <span class="step-tag">Do This First</span>
       </div>
-
       <div class="step-card" data-num="2">
         <div class="step-icon">🛡️</div>
         <div class="step-title">Build Your Emergency Fund</div>
         <div class="step-desc">Aim to save 3–6 months of living expenses in a high-yield savings account. Start by directing a portion of your 20% savings bucket here before anything else.</div>
         <span class="step-tag">Priority Savings</span>
       </div>
-
       <div class="step-card" data-num="3">
         <div class="step-icon">⚙️</div>
         <div class="step-title">Automate Your Savings</div>
         <div class="step-desc">Set up automatic transfers on payday so your savings move before you can spend them. Even a small automatic transfer every month builds powerful long-term habits.</div>
         <span class="step-tag">Pay Yourself First</span>
       </div>
-
       <div class="step-card" data-num="4">
         <div class="step-icon">💳</div>
         <div class="step-title">Tackle High-Interest Debt</div>
         <div class="step-desc">If you carry credit card or high-interest debt, allocate part of your 20% to paying it down aggressively. Eliminating high-interest debt is the best guaranteed "return" you can get.</div>
         <span class="step-tag">Savings Category</span>
       </div>
-
       <div class="step-card" data-num="5">
         <div class="step-icon">✂️</div>
         <div class="step-title">Trim Your Wants First</div>
         <div class="step-desc">If your Needs exceed 50%, focus on cutting Wants before touching Savings. Review subscriptions, dining out, and delivery apps — these are the easiest categories to reduce quickly.</div>
         <span class="step-tag">Quick Wins</span>
       </div>
-
       <div class="step-card" data-num="6">
         <div class="step-icon">📈</div>
         <div class="step-title">Start Investing for Retirement</div>
         <div class="step-desc">Once your emergency fund is in place, direct part of your 20% toward retirement. Experts suggest aiming for 10–15% of pre-tax income. Even starting small today makes a big difference over time.</div>
         <span class="step-tag">Long-Term Wealth</span>
       </div>
-
     </div>
   </div>
 
-  <!-- ── HOW IT WORKS ── -->
   <div class="section">
     <div class="card">
       <div class="card-title">How the 50/30/20 Rule Works <div class="card-title-bar"></div></div>
@@ -883,10 +872,28 @@
     </div>
   </div>
 
-</div><!-- end container -->
+  <!-- ── MORE FREE TOOLS CROSS-LINKS ── -->
+  <div class="tools-panel">
+    <div class="tools-panel-title">More Free Tools from Sharpline</div>
+    <div class="tools-grid">
+      <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">🎯</div>
+        <div class="tool-name">Savings Goal Tracker</div>
+        <div class="tool-desc">See exactly when you'll reach any savings goal — with milestone dates and compound interest included.</div>
+        <div class="tool-link">vaultgoal.com →</div>
+      </a>
+      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">💳</div>
+        <div class="tool-name">Debt Payoff Calculator</div>
+        <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and how much interest you'll save.</div>
+        <div class="tool-link">debtcrusher.ca →</div>
+      </a>
+    </div>
+  </div>
+
+</div>
 </main>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   &copy; <span id="year"></span> <a href="index.html">Sharpline</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
@@ -896,7 +903,6 @@
   &nbsp;·&nbsp; 503020.ca &nbsp;·&nbsp; Not financial advice.
 </footer>
 
-<!-- BOTTOM NAV (mobile) -->
 <nav class="bottom-nav">
   <a href="index.html" class="active">
     <span class="nav-icon">🏠</span>Calculator
@@ -951,21 +957,17 @@
 
     var periodLabel = { monthly: 'month', annual: 'year', weekly: 'week', biweekly: 'paycheck' };
 
-    // Results header
     set('resultsTitle', 'My Budget');
     set('resultsSub', fmt(symbol, income) + ' per ' + periodLabel[period] + '  ·  ' + fmt(symbol, monthly) + '/month');
 
-    // Amounts
     set('needsAmt',   fmt(symbol, needs));
     set('wantsAmt',   fmt(symbol, wants));
     set('savingsAmt', fmt(symbol, savings));
 
-    // Annual
     set('needsY',   fmt(symbol, needs * 12) + '/yr');
     set('wantsY',   fmt(symbol, wants * 12) + '/yr');
     set('savingsY', fmt(symbol, savings * 12) + '/yr');
 
-    // Tip box
     var tip = '';
     if (needs > monthly * 0.55) {
       tip = '⚠️ Your Needs are above 55% of income. Look for ways to reduce fixed costs like housing or subscriptions before cutting your Savings.';
@@ -976,11 +978,9 @@
     }
     set('tipBox', tip);
 
-    // Show results, hide placeholder
     document.getElementById('placeholder').classList.add('hidden');
     document.getElementById('resultsContent').classList.remove('hidden');
 
-    // Scroll on mobile
     if (window.innerWidth < 680) {
       document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
