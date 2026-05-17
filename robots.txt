@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://503020.ca/sitemap.xml
-
