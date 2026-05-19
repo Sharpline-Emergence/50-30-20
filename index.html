@@ -1,657 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta name="description" content="Free 50/30/20 budget calculator. Instantly split your income into Needs, Wants and Savings. Supports USD, CAD, GBP, BRL, EUR and AUD. No sign-up required." />
   <meta name="keywords" content="50 30 20 budget calculator, budget calculator, 50/30/20 rule, personal finance calculator, savings calculator, needs wants savings, budget split, income calculator, free budget tool" />
   <meta name="author" content="Sharpline" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://503020.ca/" />
-
-  <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://503020.ca/" />
   <meta property="og:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
   <meta property="og:description" content="Instantly split your income into Needs, Wants and Savings using the 50/30/20 rule. Free, no sign-up, multi-currency." />
   <meta property="og:site_name" content="Sharpline — 503020.ca" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
   <meta name="twitter:description" content="Instantly split your income into Needs, Wants and Savings. Free, no sign-up, multi-currency." />
-
   <title>Free 50/30/20 Budget Calculator — Split Income into Needs, Wants & Savings | Sharpline</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Schema: WebApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "50/30/20 Budget Calculator",
-    "url": "https://503020.ca/",
-    "description": "A free budget calculator that splits your income into Needs (50%), Wants (30%) and Savings (20%) using the 50/30/20 rule.",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "All",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Sharpline",
-      "url": "https://503020.ca"
-    }
-  }
-  </script>
-
-  <!-- Schema: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the 50/30/20 budget rule?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The 50/30/20 rule is a budgeting framework that divides your after-tax income into three categories: 50% for Needs (essential expenses), 30% for Wants (lifestyle spending), and 20% for Savings (emergency fund, investments, debt payoff)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I use the 50/30/20 calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Enter your income amount, select your currency and income period (monthly, annual, weekly or bi-weekly), then click Calculate. The calculator instantly shows your recommended Needs, Wants and Savings amounts."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is the 50/30/20 calculator free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, the Sharpline 50/30/20 Budget Calculator is completely free to use with no sign-up or account required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What currencies does the calculator support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The calculator supports US Dollar (USD), Brazilian Real (BRL), British Pound (GBP), Euro (EUR), Canadian Dollar (CAD), and Australian Dollar (AUD)."
-        }
-      }
-    ]
-  }
-  </script>
-
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"50/30/20 Budget Calculator","url":"https://503020.ca/","description":"A free budget calculator that splits your income into Needs (50%), Wants (30%) and Savings (20%) using the 50/30/20 rule.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Sharpline","url":"https://503020.ca"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 50/30/20 budget rule?","acceptedAnswer":{"@type":"Answer","text":"The 50/30/20 rule divides your after-tax income into 50% Needs, 30% Wants, and 20% Savings."}},{"@type":"Question","name":"Is the 50/30/20 calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no sign-up required."}}]}</script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream:        #f0ede6;
-      --cream-dark:   #e6e2d8;
-      --white:        #ffffff;
-      --green:        #2d5a3d;
-      --green-dark:   #1e3d2a;
-      --green-light:  #e8f0eb;
-      --gold:         #b8860b;
-      --gold-mid:     #c49a1a;
-      --gold-light:   #fdf6e3;
-      --teal:         #5ba08a;
-      --border:       #d8d3c8;
-      --text:         #1a1a1a;
-      --text-mid:     #3a3a3a;
-      --text-muted:   #7a7572;
-      --label:        #6b6760;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding-bottom: 56px;
-    }
-
-    .site-header {
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 28px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    .logo-dot { color: var(--gold-mid); }
-    .header-pipe { color: var(--border); margin: 0 4px; }
-    .header-sub {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .ad-banner {
-      background: var(--cream-dark);
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      padding: 8px 0;
-      min-height: 60px;
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    main { flex: 1; }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 36px 20px 60px;
-    }
-
-    .page-title {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 2rem;
-      color: var(--green);
-      margin-bottom: 4px;
-    }
-
-    .page-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      letter-spacing: 0.2px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: start;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 680px) {
-      .two-col { grid-template-columns: 1fr; }
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 26px 24px;
-    }
-
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .card-title-bar { flex: 1; height: 1px; background: var(--border); }
-
-    .form-group { margin-bottom: 16px; }
-
-    .form-label {
-      display: block;
-      font-size: 0.67rem;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--label);
-      margin-bottom: 7px;
-    }
-
-    select, input[type="number"] {
-      width: 100%;
-      padding: 11px 13px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      font-size: 0.97rem;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      outline: none;
-      transition: border-color 0.18s;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    select:focus, input[type="number"]:focus {
-      border-color: var(--green);
-      background: var(--white);
-    }
-
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
-    input[type="number"] { -moz-appearance: textfield; }
-
-    .input-hint {
-      font-size: 0.77rem;
-      color: var(--text-muted);
-      margin-top: 18px;
-      text-align: center;
-      font-style: italic;
-      line-height: 1.5;
-    }
-
-    .btn-primary {
-      display: block;
-      width: 100%;
-      margin-top: 20px;
-      padding: 13px;
-      background: var(--green);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.18s;
-    }
-
-    .btn-primary:hover { background: var(--green-dark); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 18px;
-      background: var(--white);
-      color: var(--green);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border: 1.5px solid var(--green);
-      border-radius: 3px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.18s;
-      text-decoration: none;
-    }
-
-    .btn-outline:hover { background: var(--green-light); }
-
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 18px;
-      background: var(--gold-mid);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.18s;
-    }
-
-    .btn-gold:hover { background: var(--gold); }
-    .btn-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-
-    .results-name {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.45rem;
-      color: var(--green);
-      margin-bottom: 3px;
-    }
-
-    .results-sub {
-      font-size: 0.73rem;
-      color: var(--text-muted);
-      font-family: 'Courier New', monospace;
-      letter-spacing: 0.5px;
-      margin-bottom: 22px;
-    }
-
-    .divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
-
-    .result-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--cream-dark);
-    }
-
-    .result-row:last-of-type { border-bottom: none; }
-
-    .result-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
-    .dot-needs   { background: var(--green); }
-    .dot-wants   { background: var(--gold-mid); }
-    .dot-savings { background: var(--teal); }
-
-    .result-label {
-      font-size: 0.67rem;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--label);
-      flex: 1;
-    }
-
-    .result-pct {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-family: 'Courier New', monospace;
-      width: 34px;
-      text-align: right;
-    }
-
-    .result-amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      text-align: right;
-      min-width: 105px;
-    }
-
-    .result-annual {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      font-family: 'Courier New', monospace;
-      text-align: right;
-      min-width: 85px;
-    }
-
-    .bar-section { margin: 16px 0; }
-
-    .bar-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .bar-label-sm {
-      font-size: 0.65rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--label);
-      width: 52px;
-      flex-shrink: 0;
-    }
-
-    .bar-track { flex: 1; height: 7px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 4px; transition: width 0.7s ease; }
-    .bar-needs   { background: var(--green); width: 50%; }
-    .bar-wants   { background: var(--gold-mid); width: 30%; }
-    .bar-savings { background: var(--teal); width: 20%; }
-
-    .bar-pct {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      font-family: 'Courier New', monospace;
-      width: 28px;
-      text-align: right;
-    }
-
-    .tip-box {
-      background: var(--green-light);
-      border: 1px solid #b8d4c0;
-      border-radius: 4px;
-      padding: 13px 15px;
-      font-size: 0.85rem;
-      color: var(--green-dark);
-      line-height: 1.6;
-      margin-top: 16px;
-    }
-
-    .section { margin-bottom: 20px; }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .section-sub {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    @media (max-width: 680px) {
-      .steps-grid { grid-template-columns: 1fr; }
-    }
-
-    .step-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 20px 18px;
-      position: relative;
-    }
-
-    .step-card::before {
-      content: attr(data-num);
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--cream-dark);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .step-icon { font-size: 1.4rem; margin-bottom: 10px; }
-
-    .step-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.3;
-      padding-right: 28px;
-    }
-
-    .step-desc {
-      font-size: 0.81rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .step-tag {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.67rem;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--green);
-      border-bottom: 1px solid var(--green);
-      padding-bottom: 1px;
-    }
-
-    .how-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
-
-    .how-table th {
-      font-size: 0.65rem;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--label);
-      padding: 8px 12px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      font-weight: 600;
-    }
-
-    .how-table td {
-      padding: 11px 12px;
-      border-bottom: 1px solid var(--cream-dark);
-      color: var(--text-mid);
-      vertical-align: top;
-      line-height: 1.5;
-    }
-
-    .how-table tr:last-child td { border-bottom: none; }
-    .how-table .cat { font-weight: 600; color: var(--text); }
-
-    .ad-mid {
-      border: 1px dashed var(--border);
-      border-radius: 4px;
-      text-align: center;
-      background: var(--cream-dark);
-      min-height: 60px;
-      margin-bottom: 20px;
-      padding: 8px 0;
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .hidden { display: none !important; }
-
-    /* ── TOOLS PANEL ── */
-    .tools-panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 26px 24px;
-      margin-bottom: 20px;
-    }
-
-    .tools-panel-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 540px) {
-      .tools-grid { grid-template-columns: 1fr; }
-    }
-
-    .tool-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 16px;
-      text-decoration: none;
-      color: var(--text);
-      display: block;
-      transition: border-color 0.18s, box-shadow 0.18s;
-    }
-
-    .tool-card:hover {
-      border-color: var(--green);
-      box-shadow: 0 2px 8px rgba(45,90,61,0.1);
-    }
-
-    .tool-icon { font-size: 1.4rem; margin-bottom: 6px; }
-    .tool-name { font-size: 0.82rem; font-weight: 600; color: var(--green); margin-bottom: 4px; }
-    .tool-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; }
-    .tool-link { font-size: 0.68rem; color: var(--gold-mid); font-weight: 600; }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0 10px;
-      z-index: 100;
-    }
-
-    .bottom-nav a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-
-    .bottom-nav a.active { color: var(--green); }
-    .bottom-nav a:hover { color: var(--green); }
-    .bottom-nav .nav-icon { font-size: 1.1rem; }
-
-    .site-footer {
-      background: var(--cream-dark);
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 16px;
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    .site-footer a { color: var(--green); text-decoration: none; }
-
-    @media (min-width: 860px) {
-      .bottom-nav { display: none; }
-      body { padding-bottom: 0; }
-    }
-
-    @media print {
-      .bottom-nav, .ad-banner, .ad-mid, .btn-row, .btn-primary, .tools-panel { display: none !important; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--cream:#f0ede6;--cream-dark:#e6e2d8;--white:#ffffff;--green:#2d5a3d;--green-dark:#1e3d2a;--green-light:#e8f0eb;--gold:#b8860b;--gold-mid:#c49a1a;--gold-light:#fdf6e3;--teal:#5ba08a;--border:#d8d3c8;--text:#1a1a1a;--text-mid:#3a3a3a;--text-muted:#7a7572;--label:#6b6760;}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;padding-bottom:56px;}
+    .site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;gap:12px;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--green);text-decoration:none;}
+    .logo-dot{color:var(--gold-mid);}
+    .header-pipe{color:var(--border);margin:0 4px;}
+    .header-sub{font-size:0.68rem;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;}
+    .ad-banner{background:var(--cream-dark);border-bottom:1px solid var(--border);text-align:center;padding:8px 0;min-height:60px;font-size:0.65rem;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;}
+    main{flex:1;}
+    .container{max-width:860px;margin:0 auto;padding:36px 20px 60px;}
+    .page-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;color:var(--green);margin-bottom:4px;}
+    .page-sub{font-size:0.85rem;color:var(--text-muted);margin-bottom:32px;letter-spacing:0.2px;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-bottom:20px;}
+    @media(max-width:680px){.two-col{grid-template-columns:1fr;}}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:26px 24px;}
+    .card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+    .card-title-bar{flex:1;height:1px;background:var(--border);}
+    .form-group{margin-bottom:16px;}
+    .form-label{display:block;font-size:0.67rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);margin-bottom:7px;}
+    select,input[type="number"]{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:3px;font-size:0.97rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);outline:none;transition:border-color 0.18s;-webkit-appearance:none;appearance:none;}
+    select:focus,input[type="number"]:focus{border-color:var(--green);background:var(--white);}
+    input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;}
+    input[type="number"]{-moz-appearance:textfield;}
+    .input-hint{font-size:0.77rem;color:var(--text-muted);margin-top:18px;text-align:center;font-style:italic;line-height:1.5;}
+    .btn-primary{display:block;width:100%;margin-top:20px;padding:13px;background:var(--green);color:#fff;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;transition:background 0.18s;}
+    .btn-primary:hover{background:var(--green-dark);}
+    .btn-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:var(--white);color:var(--green);font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--green);border-radius:3px;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.18s;text-decoration:none;}
+    .btn-outline:hover{background:var(--green-light);}
+    .btn-gold{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:var(--gold-mid);color:#fff;font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.18s;}
+    .btn-gold:hover{background:var(--gold);}
+    .btn-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+    .results-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.45rem;color:var(--green);margin-bottom:3px;}
+    .results-sub{font-size:0.73rem;color:var(--text-muted);font-family:'Courier New',monospace;letter-spacing:0.5px;margin-bottom:22px;}
+    .divider{border:none;border-top:1px solid var(--border);margin:18px 0;}
+    .result-row{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--cream-dark);}
+    .result-row:last-of-type{border-bottom:none;}
+    .result-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+    .dot-needs{background:var(--green);}
+    .dot-wants{background:var(--gold-mid);}
+    .dot-savings{background:var(--teal);}
+    .result-label{font-size:0.67rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);flex:1;}
+    .result-pct{font-size:0.75rem;color:var(--text-muted);font-family:'Courier New',monospace;width:34px;text-align:right;}
+    .result-amount{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);text-align:right;min-width:105px;}
+    .result-annual{font-size:0.7rem;color:var(--text-muted);font-family:'Courier New',monospace;text-align:right;min-width:85px;}
+    .bar-section{margin:16px 0;}
+    .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+    .bar-label-sm{font-size:0.65rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--label);width:52px;flex-shrink:0;}
+    .bar-track{flex:1;height:7px;background:var(--cream-dark);border-radius:4px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:4px;transition:width 0.7s ease;}
+    .bar-needs{background:var(--green);width:50%;}
+    .bar-wants{background:var(--gold-mid);width:30%;}
+    .bar-savings{background:var(--teal);width:20%;}
+    .bar-pct{font-size:0.7rem;color:var(--text-muted);font-family:'Courier New',monospace;width:28px;text-align:right;}
+    .tip-box{background:var(--green-light);border:1px solid #b8d4c0;border-radius:4px;padding:13px 15px;font-size:0.85rem;color:var(--green-dark);line-height:1.6;margin-top:16px;}
+    .section{margin-bottom:20px;}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+    .section-sub{font-size:0.84rem;color:var(--text-muted);margin-bottom:18px;}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    @media(max-width:680px){.steps-grid{grid-template-columns:1fr;}}
+    .step-card{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:20px 18px;position:relative;}
+    .step-card::before{content:attr(data-num);position:absolute;top:16px;right:18px;font-family:'Playfair Display',serif;font-size:2rem;color:var(--cream-dark);font-weight:700;line-height:1;}
+    .step-icon{font-size:1.4rem;margin-bottom:10px;}
+    .step-title{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.3;padding-right:28px;}
+    .step-desc{font-size:0.81rem;color:var(--text-muted);line-height:1.65;}
+    .step-tag{display:inline-block;margin-top:12px;font-size:0.67rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--green);padding-bottom:1px;}
+    .how-table{width:100%;border-collapse:collapse;font-size:0.87rem;}
+    .how-table th{font-size:0.65rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);font-weight:600;}
+    .how-table td{padding:11px 12px;border-bottom:1px solid var(--cream-dark);color:var(--text-mid);vertical-align:top;line-height:1.5;}
+    .how-table tr:last-child td{border-bottom:none;}
+    .how-table .cat{font-weight:600;color:var(--text);}
+    .ad-mid{border:1px dashed var(--border);border-radius:4px;text-align:center;background:var(--cream-dark);min-height:60px;margin-bottom:20px;padding:8px 0;font-size:0.65rem;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;}
+    .hidden{display:none !important;}
+    .tools-panel{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:26px 24px;margin-bottom:20px;}
+    .tools-panel-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+    .tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+    @media(max-width:680px){.tools-grid{grid-template-columns:1fr;}}
+    .tool-card{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:16px;text-decoration:none;color:var(--text);display:block;transition:border-color 0.18s,box-shadow 0.18s;}
+    .tool-card:hover{border-color:var(--green);box-shadow:0 2px 8px rgba(45,90,61,0.1);}
+    .tool-icon{font-size:1.4rem;margin-bottom:6px;}
+    .tool-name{font-size:0.82rem;font-weight:600;color:var(--green);margin-bottom:4px;}
+    .tool-desc{font-size:0.72rem;color:var(--text-muted);line-height:1.6;margin-bottom:6px;}
+    .tool-link{font-size:0.68rem;color:var(--gold-mid);font-weight:600;}
+    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 10px;z-index:100;}
+    .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--text-muted);font-size:0.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:color 0.15s;}
+    .bottom-nav a.active{color:var(--green);}
+    .bottom-nav a:hover{color:var(--green);}
+    .bottom-nav .nav-icon{font-size:1.1rem;}
+    .site-footer{background:var(--cream-dark);border-top:1px solid var(--border);text-align:center;padding:16px;font-size:0.76rem;color:var(--text-muted);}
+    .site-footer a{color:var(--green);text-decoration:none;}
+    @media(min-width:860px){.bottom-nav{display:none;}body{padding-bottom:0;}}
+    @media print{.bottom-nav,.ad-banner,.ad-mid,.btn-row,.btn-primary,.tools-panel{display:none !important;}}
   </style>
 </head>
 <body>
@@ -663,10 +126,7 @@
 </header>
 
 <div class="ad-banner">
-  <ins class="adsbygoogle" style="display:block"
-       data-ad-client="ca-pub-8775883855490271"
-       data-ad-slot="auto" data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
@@ -677,10 +137,8 @@
   <p class="page-sub">Enter your income below to see how to split it into Needs, Wants &amp; Savings.</p>
 
   <div class="two-col">
-
     <div class="card">
       <div class="card-title">Your Income <div class="card-title-bar"></div></div>
-
       <div class="form-group">
         <label class="form-label" for="currency">Currency</label>
         <select id="currency">
@@ -692,7 +150,6 @@
           <option value="A$">A$ AUD — Australian Dollar</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label" for="period">Income Period</label>
         <select id="period">
@@ -702,78 +159,38 @@
           <option value="biweekly">Bi-Weekly</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label" for="income">After-Tax Income</label>
         <input type="number" id="income" placeholder="e.g. 5000" min="0" step="any" />
       </div>
-
       <p class="input-hint">✏️ Edit the fields above, then tap Calculate to see your personal budget breakdown.</p>
-
       <button class="btn-primary" onclick="calculate()">Calculate My Budget →</button>
     </div>
 
     <div class="card" id="resultsCard">
       <div id="placeholder">
         <div class="card-title">Your Breakdown <div class="card-title-bar"></div></div>
-        <div style="text-align:center; padding: 40px 20px;">
-          <div style="font-size:2.5rem; margin-bottom:12px;">📊</div>
-          <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;">Enter your income on the left and click <strong>Calculate</strong> to see your 50/30/20 split.</div>
+        <div style="text-align:center;padding:40px 20px;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">📊</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;">Enter your income on the left and click <strong>Calculate</strong> to see your 50/30/20 split.</div>
         </div>
       </div>
-
       <div id="resultsContent" class="hidden">
         <div class="results-name" id="resultsTitle">My Budget</div>
         <div class="results-sub" id="resultsSub"></div>
-
         <div class="bar-section">
-          <div class="bar-row">
-            <span class="bar-label-sm">Needs</span>
-            <div class="bar-track"><div class="bar-fill bar-needs"></div></div>
-            <span class="bar-pct">50%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label-sm">Wants</span>
-            <div class="bar-track"><div class="bar-fill bar-wants"></div></div>
-            <span class="bar-pct">30%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label-sm">Savings</span>
-            <div class="bar-track"><div class="bar-fill bar-savings"></div></div>
-            <span class="bar-pct">20%</span>
-          </div>
+          <div class="bar-row"><span class="bar-label-sm">Needs</span><div class="bar-track"><div class="bar-fill bar-needs"></div></div><span class="bar-pct">50%</span></div>
+          <div class="bar-row"><span class="bar-label-sm">Wants</span><div class="bar-track"><div class="bar-fill bar-wants"></div></div><span class="bar-pct">30%</span></div>
+          <div class="bar-row"><span class="bar-label-sm">Savings</span><div class="bar-track"><div class="bar-fill bar-savings"></div></div><span class="bar-pct">20%</span></div>
         </div>
-
         <hr class="divider">
-
         <div class="result-rows">
-          <div class="result-row">
-            <div class="result-dot dot-needs"></div>
-            <span class="result-label">Needs</span>
-            <span class="result-pct">50%</span>
-            <span class="result-amount" id="needsAmt"></span>
-            <span class="result-annual" id="needsY"></span>
-          </div>
-          <div class="result-row">
-            <div class="result-dot dot-wants"></div>
-            <span class="result-label">Wants</span>
-            <span class="result-pct">30%</span>
-            <span class="result-amount" id="wantsAmt"></span>
-            <span class="result-annual" id="wantsY"></span>
-          </div>
-          <div class="result-row">
-            <div class="result-dot dot-savings"></div>
-            <span class="result-label">Savings</span>
-            <span class="result-pct">20%</span>
-            <span class="result-amount" id="savingsAmt"></span>
-            <span class="result-annual" id="savingsY"></span>
-          </div>
+          <div class="result-row"><div class="result-dot dot-needs"></div><span class="result-label">Needs</span><span class="result-pct">50%</span><span class="result-amount" id="needsAmt"></span><span class="result-annual" id="needsY"></span></div>
+          <div class="result-row"><div class="result-dot dot-wants"></div><span class="result-label">Wants</span><span class="result-pct">30%</span><span class="result-amount" id="wantsAmt"></span><span class="result-annual" id="wantsY"></span></div>
+          <div class="result-row"><div class="result-dot dot-savings"></div><span class="result-label">Savings</span><span class="result-pct">20%</span><span class="result-amount" id="savingsAmt"></span><span class="result-annual" id="savingsY"></span></div>
         </div>
-
         <hr class="divider">
-
         <div class="tip-box" id="tipBox"></div>
-
         <div class="btn-row">
           <button class="btn-outline" onclick="window.print()">🖨️ Print Results</button>
           <button class="btn-gold" onclick="emailResults()">✉️ Email Results</button>
@@ -783,54 +200,20 @@
   </div>
 
   <div class="ad-mid">
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-8775883855490271"
-         data-ad-slot="auto" data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <div class="section" id="nextStepsSection">
     <div class="section-title">Next Steps</div>
     <p class="section-sub">Now that you know your numbers — here's how to put them to work.</p>
-
     <div class="steps-grid">
-      <div class="step-card" data-num="1">
-        <div class="step-icon">🏦</div>
-        <div class="step-title">Compare Your Actual Spending</div>
-        <div class="step-desc">Pull out your last 2–3 bank and credit card statements. Categorize each expense as a Need, Want, or Saving. How does your real spending compare to your 50/30/20 target?</div>
-        <span class="step-tag">Do This First</span>
-      </div>
-      <div class="step-card" data-num="2">
-        <div class="step-icon">🛡️</div>
-        <div class="step-title">Build Your Emergency Fund</div>
-        <div class="step-desc">Aim to save 3–6 months of living expenses in a high-yield savings account. Start by directing a portion of your 20% savings bucket here before anything else.</div>
-        <span class="step-tag">Priority Savings</span>
-      </div>
-      <div class="step-card" data-num="3">
-        <div class="step-icon">⚙️</div>
-        <div class="step-title">Automate Your Savings</div>
-        <div class="step-desc">Set up automatic transfers on payday so your savings move before you can spend them. Even a small automatic transfer every month builds powerful long-term habits.</div>
-        <span class="step-tag">Pay Yourself First</span>
-      </div>
-      <div class="step-card" data-num="4">
-        <div class="step-icon">💳</div>
-        <div class="step-title">Tackle High-Interest Debt</div>
-        <div class="step-desc">If you carry credit card or high-interest debt, allocate part of your 20% to paying it down aggressively. Eliminating high-interest debt is the best guaranteed "return" you can get.</div>
-        <span class="step-tag">Savings Category</span>
-      </div>
-      <div class="step-card" data-num="5">
-        <div class="step-icon">✂️</div>
-        <div class="step-title">Trim Your Wants First</div>
-        <div class="step-desc">If your Needs exceed 50%, focus on cutting Wants before touching Savings. Review subscriptions, dining out, and delivery apps — these are the easiest categories to reduce quickly.</div>
-        <span class="step-tag">Quick Wins</span>
-      </div>
-      <div class="step-card" data-num="6">
-        <div class="step-icon">📈</div>
-        <div class="step-title">Start Investing for Retirement</div>
-        <div class="step-desc">Once your emergency fund is in place, direct part of your 20% toward retirement. Experts suggest aiming for 10–15% of pre-tax income. Even starting small today makes a big difference over time.</div>
-        <span class="step-tag">Long-Term Wealth</span>
-      </div>
+      <div class="step-card" data-num="1"><div class="step-icon">🏦</div><div class="step-title">Compare Your Actual Spending</div><div class="step-desc">Pull out your last 2–3 bank and credit card statements. Categorize each expense as a Need, Want, or Saving. How does your real spending compare to your 50/30/20 target?</div><span class="step-tag">Do This First</span></div>
+      <div class="step-card" data-num="2"><div class="step-icon">🛡️</div><div class="step-title">Build Your Emergency Fund</div><div class="step-desc">Aim to save 3–6 months of living expenses in a high-yield savings account. Start by directing a portion of your 20% savings bucket here before anything else.</div><span class="step-tag">Priority Savings</span></div>
+      <div class="step-card" data-num="3"><div class="step-icon">⚙️</div><div class="step-title">Automate Your Savings</div><div class="step-desc">Set up automatic transfers on payday so your savings move before you can spend them. Even a small automatic transfer every month builds powerful long-term habits.</div><span class="step-tag">Pay Yourself First</span></div>
+      <div class="step-card" data-num="4"><div class="step-icon">💳</div><div class="step-title">Tackle High-Interest Debt</div><div class="step-desc">If you carry credit card or high-interest debt, allocate part of your 20% to paying it down aggressively. Eliminating high-interest debt is the best guaranteed "return" you can get.</div><span class="step-tag">Savings Category</span></div>
+      <div class="step-card" data-num="5"><div class="step-icon">✂️</div><div class="step-title">Trim Your Wants First</div><div class="step-desc">If your Needs exceed 50%, focus on cutting Wants before touching Savings. Review subscriptions, dining out, and delivery apps — these are the easiest categories to reduce quickly.</div><span class="step-tag">Quick Wins</span></div>
+      <div class="step-card" data-num="6"><div class="step-icon">📈</div><div class="step-title">Start Investing for Retirement</div><div class="step-desc">Once your emergency fund is in place, direct part of your 20% toward retirement. Experts suggest aiming for 10–15% of pre-tax income. Even starting small today makes a big difference over time.</div><span class="step-tag">Long-Term Wealth</span></div>
     </div>
   </div>
 
@@ -838,42 +221,18 @@
     <div class="card">
       <div class="card-title">How the 50/30/20 Rule Works <div class="card-title-bar"></div></div>
       <table class="how-table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Split</th>
-            <th>What It Covers</th>
-            <th>Examples</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Category</th><th>Split</th><th>What It Covers</th><th>Examples</th></tr></thead>
         <tbody>
-          <tr>
-            <td><span class="cat">Needs</span></td>
-            <td>50%</td>
-            <td>Essential, unavoidable expenses</td>
-            <td>Rent, groceries, utilities, insurance, minimum debt payments</td>
-          </tr>
-          <tr>
-            <td><span class="cat">Wants</span></td>
-            <td>30%</td>
-            <td>Lifestyle and discretionary spending</td>
-            <td>Dining out, streaming, travel, hobbies, gym memberships</td>
-          </tr>
-          <tr>
-            <td><span class="cat">Savings</span></td>
-            <td>20%</td>
-            <td>Future security and debt payoff</td>
-            <td>Emergency fund, retirement (RRSP/401k), investments, extra debt payments</td>
-          </tr>
+          <tr><td><span class="cat">Needs</span></td><td>50%</td><td>Essential, unavoidable expenses</td><td>Rent, groceries, utilities, insurance, minimum debt payments</td></tr>
+          <tr><td><span class="cat">Wants</span></td><td>30%</td><td>Lifestyle and discretionary spending</td><td>Dining out, streaming, travel, hobbies, gym memberships</td></tr>
+          <tr><td><span class="cat">Savings</span></td><td>20%</td><td>Future security and debt payoff</td><td>Emergency fund, retirement (RRSP/401k), investments, extra debt payments</td></tr>
         </tbody>
       </table>
-      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:14px; font-style:italic; line-height:1.6;">
-        The 50/30/20 rule was popularized by Senator Elizabeth Warren. It's a guideline, not a strict rule — your situation may call for adjustments. All figures shown are based on your after-tax (take-home) income. Results are estimates only and do not constitute financial advice.
-      </p>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin-top:14px;font-style:italic;line-height:1.6;">The 50/30/20 rule was popularized by Senator Elizabeth Warren. It's a guideline, not a strict rule — your situation may call for adjustments. All figures shown are based on your after-tax (take-home) income. Results are estimates only and do not constitute financial advice.</p>
     </div>
   </div>
 
-  <!-- ── MORE FREE TOOLS CROSS-LINKS ── -->
+  <!-- ── MORE FREE TOOLS — 3 sites ── -->
   <div class="tools-panel">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
@@ -888,6 +247,12 @@
         <div class="tool-name">Debt Payoff Calculator</div>
         <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and how much interest you'll save.</div>
         <div class="tool-link">debtcrusher.ca →</div>
+      </a>
+      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">🏠</div>
+        <div class="tool-name">Canadian Mortgage Calculator</div>
+        <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison. Built for Canada.</div>
+        <div class="tool-link">mortgagemasher.com →</div>
       </a>
     </div>
   </div>
@@ -905,18 +270,10 @@
 </footer>
 
 <nav class="bottom-nav">
-  <a href="index.html" class="active">
-    <span class="nav-icon">🏠</span>Calculator
-  </a>
-  <a href="about.html">
-    <span class="nav-icon">ℹ️</span>About
-  </a>
-  <a href="privacy.html">
-    <span class="nav-icon">🔒</span>Privacy
-  </a>
-  <a href="contact.html">
-    <span class="nav-icon">✉️</span>Contact
-  </a>
+  <a href="index.html" class="active"><span class="nav-icon">🏠</span>Calculator</a>
+  <a href="about.html"><span class="nav-icon">ℹ️</span>About</a>
+  <a href="privacy.html"><span class="nav-icon">🔒</span>Privacy</a>
+  <a href="contact.html"><span class="nav-icon">✉️</span>Contact</a>
 </nav>
 
 <script>
@@ -930,10 +287,7 @@
   }
 
   function fmt(symbol, value) {
-    return symbol + value.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+    return symbol + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   function set(id, text) {
@@ -945,30 +299,20 @@
     var income = parseFloat(document.getElementById('income').value);
     var symbol = document.getElementById('currency').value;
     var period = document.getElementById('period').value;
-
-    if (!income || income <= 0) {
-      alert('Please enter a valid income amount greater than zero.');
-      return;
-    }
-
+    if (!income || income <= 0) { alert('Please enter a valid income amount greater than zero.'); return; }
     var monthly  = toMonthly(income, period);
     var needs    = monthly * 0.50;
     var wants    = monthly * 0.30;
     var savings  = monthly * 0.20;
-
     var periodLabel = { monthly: 'month', annual: 'year', weekly: 'week', biweekly: 'paycheck' };
-
     set('resultsTitle', 'My Budget');
     set('resultsSub', fmt(symbol, income) + ' per ' + periodLabel[period] + '  ·  ' + fmt(symbol, monthly) + '/month');
-
     set('needsAmt',   fmt(symbol, needs));
     set('wantsAmt',   fmt(symbol, wants));
     set('savingsAmt', fmt(symbol, savings));
-
     set('needsY',   fmt(symbol, needs * 12) + '/yr');
     set('wantsY',   fmt(symbol, wants * 12) + '/yr');
     set('savingsY', fmt(symbol, savings * 12) + '/yr');
-
     var tip = '';
     if (needs > monthly * 0.55) {
       tip = '⚠️ Your Needs are above 55% of income. Look for ways to reduce fixed costs like housing or subscriptions before cutting your Savings.';
@@ -978,10 +322,8 @@
       tip = '✅ Great pace! You\'re on track with the 50/30/20 framework. Keep your savings automated and review your budget quarterly.';
     }
     set('tipBox', tip);
-
     document.getElementById('placeholder').classList.add('hidden');
     document.getElementById('resultsContent').classList.remove('hidden');
-
     if (window.innerWidth < 680) {
       document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -1011,6 +353,5 @@
     if (e.key === 'Enter') calculate();
   });
 </script>
-
 </body>
 </html>
