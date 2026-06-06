@@ -1,358 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-adsense-account" content="ca-pub-8775883855490271">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Free 50/30/20 budget calculator. Instantly split your income into Needs, Wants and Savings. Supports USD, CAD, GBP, BRL, EUR and AUD. No sign-up required." />
-  <meta name="keywords" content="50 30 20 budget calculator, budget calculator, 50/30/20 rule, personal finance calculator, savings calculator, needs wants savings, budget split, income calculator, free budget tool" />
-  <meta name="author" content="Sharpline" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://503020.ca/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://503020.ca/" />
-  <meta property="og:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
-  <meta property="og:description" content="Instantly split your income into Needs, Wants and Savings using the 50/30/20 rule. Free, no sign-up, multi-currency." />
-  <meta property="og:site_name" content="Sharpline — 503020.ca" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Free 50/30/20 Budget Calculator | Sharpline" />
-  <meta name="twitter:description" content="Instantly split your income into Needs, Wants and Savings. Free, no sign-up, multi-currency." />
-  <title>Free 50/30/20 Budget Calculator — Split Income into Needs, Wants & Savings | Sharpline</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"50/30/20 Budget Calculator","url":"https://503020.ca/","description":"A free budget calculator that splits your income into Needs (50%), Wants (30%) and Savings (20%) using the 50/30/20 rule.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Sharpline","url":"https://503020.ca"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 50/30/20 budget rule?","acceptedAnswer":{"@type":"Answer","text":"The 50/30/20 rule divides your after-tax income into 50% Needs, 30% Wants, and 20% Savings."}},{"@type":"Question","name":"Is the 50/30/20 calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no sign-up required."}}]}</script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--cream:#f0ede6;--cream-dark:#e6e2d8;--white:#ffffff;--green:#2d5a3d;--green-dark:#1e3d2a;--green-light:#e8f0eb;--gold:#b8860b;--gold-mid:#c49a1a;--gold-light:#fdf6e3;--teal:#5ba08a;--border:#d8d3c8;--text:#1a1a1a;--text-mid:#3a3a3a;--text-muted:#7a7572;--label:#6b6760;}
-    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;padding-bottom:56px;}
-    .site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;gap:12px;}
-    .logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--green);text-decoration:none;}
-    .logo-dot{color:var(--gold-mid);}
-    .header-pipe{color:var(--border);margin:0 4px;}
-    .header-sub{font-size:0.68rem;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;}
-    .ad-banner{background:var(--cream-dark);border-bottom:1px solid var(--border);text-align:center;padding:8px 0;min-height:60px;font-size:0.65rem;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;}
-    main{flex:1;}
-    .container{max-width:860px;margin:0 auto;padding:36px 20px 60px;}
-    .page-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;color:var(--green);margin-bottom:4px;}
-    .page-sub{font-size:0.85rem;color:var(--text-muted);margin-bottom:32px;letter-spacing:0.2px;}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-bottom:20px;}
-    @media(max-width:680px){.two-col{grid-template-columns:1fr;}}
-    .card{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:26px 24px;}
-    .card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
-    .card-title-bar{flex:1;height:1px;background:var(--border);}
-    .form-group{margin-bottom:16px;}
-    .form-label{display:block;font-size:0.67rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);margin-bottom:7px;}
-    select,input[type="number"]{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:3px;font-size:0.97rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);outline:none;transition:border-color 0.18s;-webkit-appearance:none;appearance:none;}
-    select:focus,input[type="number"]:focus{border-color:var(--green);background:var(--white);}
-    input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;}
-    input[type="number"]{-moz-appearance:textfield;}
-    .input-hint{font-size:0.77rem;color:var(--text-muted);margin-top:18px;text-align:center;font-style:italic;line-height:1.5;}
-    .btn-primary{display:block;width:100%;margin-top:20px;padding:13px;background:var(--green);color:#fff;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;transition:background 0.18s;}
-    .btn-primary:hover{background:var(--green-dark);}
-    .btn-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:var(--white);color:var(--green);font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--green);border-radius:3px;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.18s;text-decoration:none;}
-    .btn-outline:hover{background:var(--green-light);}
-    .btn-gold{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:var(--gold-mid);color:#fff;font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.18s;}
-    .btn-gold:hover{background:var(--gold);}
-    .btn-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
-    .results-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.45rem;color:var(--green);margin-bottom:3px;}
-    .results-sub{font-size:0.73rem;color:var(--text-muted);font-family:'Courier New',monospace;letter-spacing:0.5px;margin-bottom:22px;}
-    .divider{border:none;border-top:1px solid var(--border);margin:18px 0;}
-    .result-row{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--cream-dark);}
-    .result-row:last-of-type{border-bottom:none;}
-    .result-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
-    .dot-needs{background:var(--green);}
-    .dot-wants{background:var(--gold-mid);}
-    .dot-savings{background:var(--teal);}
-    .result-label{font-size:0.67rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);flex:1;}
-    .result-pct{font-size:0.75rem;color:var(--text-muted);font-family:'Courier New',monospace;width:34px;text-align:right;}
-    .result-amount{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);text-align:right;min-width:105px;}
-    .result-annual{font-size:0.7rem;color:var(--text-muted);font-family:'Courier New',monospace;text-align:right;min-width:85px;}
-    .bar-section{margin:16px 0;}
-    .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-    .bar-label-sm{font-size:0.65rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--label);width:52px;flex-shrink:0;}
-    .bar-track{flex:1;height:7px;background:var(--cream-dark);border-radius:4px;overflow:hidden;}
-    .bar-fill{height:100%;border-radius:4px;transition:width 0.7s ease;}
-    .bar-needs{background:var(--green);width:50%;}
-    .bar-wants{background:var(--gold-mid);width:30%;}
-    .bar-savings{background:var(--teal);width:20%;}
-    .bar-pct{font-size:0.7rem;color:var(--text-muted);font-family:'Courier New',monospace;width:28px;text-align:right;}
-    .tip-box{background:var(--green-light);border:1px solid #b8d4c0;border-radius:4px;padding:13px 15px;font-size:0.85rem;color:var(--green-dark);line-height:1.6;margin-top:16px;}
-    .section{margin-bottom:20px;}
-    .section-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:4px;}
-    .section-sub{font-size:0.84rem;color:var(--text-muted);margin-bottom:18px;}
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-    @media(max-width:680px){.steps-grid{grid-template-columns:1fr;}}
-    .step-card{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:20px 18px;position:relative;}
-    .step-card::before{content:attr(data-num);position:absolute;top:16px;right:18px;font-family:'Playfair Display',serif;font-size:2rem;color:var(--cream-dark);font-weight:700;line-height:1;}
-    .step-icon{font-size:1.4rem;margin-bottom:10px;}
-    .step-title{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.3;padding-right:28px;}
-    .step-desc{font-size:0.81rem;color:var(--text-muted);line-height:1.65;}
-    .step-tag{display:inline-block;margin-top:12px;font-size:0.67rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--green);padding-bottom:1px;}
-    .how-table{width:100%;border-collapse:collapse;font-size:0.87rem;}
-    .how-table th{font-size:0.65rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--label);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);font-weight:600;}
-    .how-table td{padding:11px 12px;border-bottom:1px solid var(--cream-dark);color:var(--text-mid);vertical-align:top;line-height:1.5;}
-    .how-table tr:last-child td{border-bottom:none;}
-    .how-table .cat{font-weight:600;color:var(--text);}
-    .ad-mid{border:1px dashed var(--border);border-radius:4px;text-align:center;background:var(--cream-dark);min-height:60px;margin-bottom:20px;padding:8px 0;font-size:0.65rem;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;}
-    .hidden{display:none !important;}
-    .tools-panel{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:26px 24px;margin-bottom:20px;}
-    .tools-panel-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
-    .tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-    @media(max-width:680px){.tools-grid{grid-template-columns:1fr;}}
-    .tool-card{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:16px;text-decoration:none;color:var(--text);display:block;transition:border-color 0.18s,box-shadow 0.18s;}
-    .tool-card:hover{border-color:var(--green);box-shadow:0 2px 8px rgba(45,90,61,0.1);}
-    .tool-icon{font-size:1.4rem;margin-bottom:6px;}
-    .tool-name{font-size:0.82rem;font-weight:600;color:var(--green);margin-bottom:4px;}
-    .tool-desc{font-size:0.72rem;color:var(--text-muted);line-height:1.6;margin-bottom:6px;}
-    .tool-link{font-size:0.68rem;color:var(--gold-mid);font-weight:600;}
-    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 10px;z-index:100;}
-    .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--text-muted);font-size:0.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:color 0.15s;}
-    .bottom-nav a.active{color:var(--green);}
-    .bottom-nav a:hover{color:var(--green);}
-    .bottom-nav .nav-icon{font-size:1.1rem;}
-    .site-footer{background:var(--cream-dark);border-top:1px solid var(--border);text-align:center;padding:16px;font-size:0.76rem;color:var(--text-muted);}
-    .site-footer a{color:var(--green);text-decoration:none;}
-    @media(min-width:860px){.bottom-nav{display:none;}body{padding-bottom:0;}}
-    @media print{.bottom-nav,.ad-banner,.ad-mid,.btn-row,.btn-primary,.tools-panel{display:none !important;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free 50/30/20 Budget Calculator 2026 — Needs, Wants &amp; Savings | Sharpline</title>
+<meta name="description" content="Free 50/30/20 budget calculator for US and Canadian budgets. Split your income into needs, wants and savings instantly. Works with USD, CAD and more. No sign-up required.">
+<meta name="keywords" content="50/30/20 rule, 50/30/20 budget calculator, budget calculator, needs wants savings, 50 30 20 budget, budgeting rule, monthly budget calculator, personal budget calculator, US budget calculator, Canadian budget calculator">
+<meta name="author" content="Sharpline">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://503020.ca/">
+<meta property="og:title" content="Free 50/30/20 Budget Calculator | Sharpline">
+<meta property="og:description" content="Split your take-home income into needs, wants and savings instantly. Works for US and Canadian budgets. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://503020.ca/">
+<meta property="og:site_name" content="Sharpline — 503020.ca">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free 50/30/20 Budget Calculator | Sharpline">
+<meta name="twitter:description" content="Needs, wants and savings — see your budget split instantly. Free, no sign-up.">
+<meta name="google-adsense-account" content="ca-pub-8775883855490271">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is the 50/30/20 rule?","acceptedAnswer":{"@type":"Answer","text":"The 50/30/20 rule is a simple budgeting framework that divides your after-tax take-home income into three categories: 50% for needs (essential expenses you cannot avoid), 30% for wants (discretionary spending that improves your life but isn't essential), and 20% for savings and debt repayment. It was popularized by US Senator Elizabeth Warren in her book 'All Your Worth' and has become the most widely recommended personal budgeting framework in both the US and Canada because of its simplicity and flexibility."}},
+    {"@type":"Question","name":"What counts as a need vs a want?","acceptedAnswer":{"@type":"Answer","text":"Needs are expenses you cannot reasonably avoid — rent or mortgage payments, groceries, utilities, minimum debt payments, health insurance, car payments if required for work, and basic clothing. Wants are expenses that improve quality of life but are not strictly essential — dining out, streaming subscriptions, gym memberships, vacations, entertainment, and clothing beyond the basics. The distinction can be subjective: a smartphone is arguably a need in 2026, but a premium data plan upgrade is a want."}},
+    {"@type":"Question","name":"What if my needs exceed 50% of my income?","acceptedAnswer":{"@type":"Answer","text":"This is very common, especially in high cost-of-living cities like Toronto, Vancouver, New York or San Francisco where housing alone can consume 40-50% of take-home pay. If your needs genuinely exceed 50%, adjust the framework rather than abandoning it. A 60/20/20 or 70/20/10 split may be more realistic for your situation. The core principle — spending less than you earn and consistently saving something — matters more than hitting the exact percentages."}},
+    {"@type":"Question","name":"Should I use gross or take-home income for the 50/30/20 rule?","acceptedAnswer":{"@type":"Answer","text":"Always use your take-home (after-tax) income, not your gross income. Take-home pay is the money you actually have available to spend and save. Using gross income would produce budget targets you cannot actually meet since taxes are deducted before you receive your pay. Your take-home pay is the amount deposited into your bank account each pay period."}},
+    {"@type":"Question","name":"Does the 50/30/20 rule work in Canada?","acceptedAnswer":{"@type":"Answer","text":"Yes — the 50/30/20 rule works well for Canadian budgets. The savings category (20%) aligns perfectly with Canada's registered accounts: TFSA, RRSP and FHSA contributions all qualify as savings. Canadians typically benefit from lower healthcare costs than Americans due to provincial health coverage, which can make the needs category easier to manage. Use your after-tax take-home pay as the starting figure."}},
+    {"@type":"Question","name":"How do I handle irregular income with the 50/30/20 rule?","acceptedAnswer":{"@type":"Answer","text":"For irregular income — freelancers, contractors, commission-based earners — use your lowest expected monthly income as your budget baseline. In higher-income months, direct the extra toward savings or debt payoff. Another approach is to calculate your average annual income, divide by 12, and use that as your monthly figure. The key is to avoid lifestyle inflation in high-income months and maintain consistent savings regardless of monthly variation."}},
+    {"@type":"Question","name":"Should debt payments count as needs or savings?","acceptedAnswer":{"@type":"Answer","text":"Minimum debt payments are needs — you cannot avoid them without penalty. Any debt payments above the minimum are savings, because paying down debt is equivalent to earning a guaranteed return equal to your debt's interest rate. For example, paying an extra $200/month on a credit card at 19.99% is equivalent to earning 19.99% on that $200. The 20% savings category should include both above-minimum debt payments and traditional savings like 401(k), RRSP, TFSA or emergency fund contributions."}},
+    {"@type":"Question","name":"Is saving 20% realistic for most people?","acceptedAnswer":{"@type":"Answer","text":"For many people, especially early in their careers or in expensive cities, saving 20% is challenging. Start with whatever percentage is achievable — even 5% or 10% — and increase it by 1-2% each time your income rises. The most important habit is consistent saving, not hitting a specific percentage immediately. Automating your savings transfer on payday before spending is the most effective strategy regardless of the target percentage."}}
+  ]
+}
+</script>
+<style>
+  :root{--ink:#0f1a0f;--paper:#f5f0e8;--sage:#4a7c59;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--cream:#faf7f0;--muted:#8a8a7a;--border:#d8d0c0;--needs:#4a7c59;--wants:#c8922a;--savings:#3a6b8a;--needs-pale:#d4e8da;--wants-pale:#fdf3e0;--savings-pale:#c8dce8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:5rem;}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
+  header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
+  .logo span{color:var(--gold);}
+  .tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+  nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
+  nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  nav a:hover{color:var(--gold);}
+  .calc-wrap{max-width:860px;margin:2.5rem auto;padding:0 2rem;}
+  .hero{text-align:center;margin-bottom:2.5rem;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;}
+  .hero h1 span{color:var(--sage);font-style:italic;}
+  .hero p{font-size:0.78rem;color:var(--muted);line-height:1.8;max-width:540px;margin:0 auto 0.8rem;}
+  .market-badge{display:inline-flex;align-items:center;gap:0.6rem;background:var(--cream);border:1px solid var(--border);border-radius:3px;padding:0.5rem 1rem;font-size:0.68rem;color:var(--muted);}
+  .input-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.5rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
+  .panel-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .input-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;align-items:end;}
+  label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+  .input-wrap{position:relative;}
+  .input-wrap .prefix{position:absolute;left:0.7rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:0.78rem;pointer-events:none;}
+  input[type="number"],select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.92rem;color:var(--ink);outline:none;transition:border-color 0.2s,box-shadow 0.2s;-moz-appearance:textfield;}
+  input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .has-prefix input{padding-left:2rem;}
+  input:focus,select:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .calc-btn{width:100%;background:var(--sage);color:white;border:none;border-radius:2px;padding:1rem;font-family:'DM Mono',monospace;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.1s;margin-top:0.5rem;}
+  .calc-btn:hover{background:#3d6849;}
+  .calc-btn:active{transform:scale(0.99);}
+  .results{opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s;}
+  .results.visible{opacity:1;transform:translateY(0);}
+  .budget-bar-wrap{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .budget-bar{display:flex;height:32px;border-radius:4px;overflow:hidden;margin-bottom:1.5rem;}
+  .bar-needs{background:var(--needs);transition:width 0.8s cubic-bezier(0.4,0,0.2,1);}
+  .bar-wants{background:var(--wants);transition:width 0.8s cubic-bezier(0.4,0,0.2,1);}
+  .bar-savings{background:var(--savings);transition:width 0.8s cubic-bezier(0.4,0,0.2,1);}
+  .budget-cats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;}
+  .cat-card{border-radius:4px;padding:1.4rem;animation:fadeUp 0.4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .cat-card.needs{background:var(--needs-pale);border:1px solid var(--needs);}
+  .cat-card.wants{background:var(--wants-pale);border:1px solid var(--wants);}
+  .cat-card.savings{background:var(--savings-pale);border:1px solid var(--savings);}
+  .cat-label{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.2rem;}
+  .cat-pct{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.1rem;}
+  .cat-card.needs .cat-pct{color:var(--needs);}
+  .cat-card.wants .cat-pct{color:var(--wants);}
+  .cat-card.savings .cat-pct{color:var(--savings);}
+  .cat-amount{font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:0.3rem;}
+  .cat-sub{font-size:0.65rem;color:var(--muted);line-height:1.5;}
+  .next-steps{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .next-steps-title{font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;}
+  .next-steps-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .next-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .next-card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:1rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s;display:block;}
+  .next-card:hover{border-color:var(--sage);}
+  .next-icon{font-size:1.2rem;margin-bottom:0.3rem;}
+  .next-title{font-size:0.75rem;font-weight:500;color:var(--sage);margin-bottom:0.2rem;}
+  .next-desc{font-size:0.65rem;color:var(--muted);line-height:1.6;}
+  .tip-box{background:var(--sage-pale);border-left:3px solid var(--sage);padding:1rem 1.2rem;border-radius:0 2px 2px 0;font-size:0.78rem;color:var(--sage);line-height:1.6;margin-bottom:1.5rem;}
+  .tip-box strong{color:var(--ink);}
+  .share-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem;}
+  .btn-secondary{width:100%;background:transparent;color:var(--sage);border:1px solid var(--sage);border-radius:2px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-secondary:hover{background:var(--sage-pale);}
+  .btn-gold{width:100%;background:var(--gold);color:white;border:none;border-radius:2px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-gold:hover{background:#b07820;}
+  .content-wrap{max-width:860px;margin:0 auto;padding:0 2rem;}
+  .ad-slot{background:var(--cream);border:1px dashed var(--border);text-align:center;padding:0.8rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin:2rem 0;}
+  .ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.3rem;color:var(--muted);font-size:0.7rem;}
+  .section{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .section h2{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage);margin:1.2rem 0 0.5rem;}
+  .section p{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.8rem;}
+  .section ul{margin:0.5rem 0 0.8rem 1.2rem;}
+  .section ul li{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.4rem;}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0;}
+  .step-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;}
+  .step-number{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--border);line-height:1;margin-bottom:0.4rem;}
+  .step-title{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.4rem;}
+  .step-desc{font-size:0.72rem;color:var(--muted);line-height:1.7;}
+  .cat-explainer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin:1.2rem 0;}
+  .cat-box{border-radius:4px;padding:1.4rem;}
+  .cat-box.needs{background:var(--needs-pale);border:1px solid var(--needs);}
+  .cat-box.wants{background:var(--wants-pale);border:1px solid var(--wants);}
+  .cat-box.savings{background:var(--savings-pale);border:1px solid var(--savings);}
+  .cat-box h3{margin-top:0;font-size:0.9rem;}
+  .cat-box.needs h3{color:var(--needs);}
+  .cat-box.wants h3{color:var(--wants);}
+  .cat-box.savings h3{color:var(--savings);}
+  .cat-box ul{margin:0.5rem 0 0 1rem;}
+  .cat-box ul li{font-size:0.72rem;color:var(--ink);line-height:1.8;}
+  .tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+  .tip-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;}
+  .tip-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+  .tip-title{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.4rem;}
+  .tip-text{font-size:0.72rem;color:var(--muted);line-height:1.7;}
+  .faq-item{border-bottom:1px solid var(--border);padding:1rem 0;}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{font-size:0.88rem;font-weight:500;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .faq-q::after{content:'＋';color:var(--sage);font-size:1rem;flex-shrink:0;}
+  .faq-item.open .faq-q::after{content:'－';}
+  .faq-a{font-size:0.8rem;line-height:1.9;color:var(--muted);display:none;padding-top:0.6rem;}
+  .faq-item.open .faq-a{display:block;}
+  .planner-section{background:#fdf3e0;border:1px solid var(--gold);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .planner-section h2{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--gold);margin-bottom:0.8rem;}
+  .planner-section p{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.8rem;}
+  .planner-points{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+  .planner-point{background:white;border-radius:4px;padding:1rem;font-size:0.78rem;line-height:1.7;color:var(--ink);}
+  .planner-point strong{color:var(--gold);display:block;margin-bottom:0.2rem;}
+  .tools-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
+  .tools-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--ink);padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .tool-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s;display:block;}
+  .tool-card:hover{border-color:var(--sage);box-shadow:0 2px 8px rgba(74,124,89,0.12);}
+  .tool-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+  .tool-name{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
+  .tool-desc{font-size:0.65rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
+  .tool-link{font-size:0.63rem;color:var(--gold);letter-spacing:0.05em;}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,15,0.5);z-index:200;align-items:center;justify-content:center;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;width:100%;max-width:420px;margin:1rem;}
+  .modal-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--sage);}
+  .modal-close{float:right;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;width:auto;padding:0;margin:0;line-height:1;}
+  .modal-close:hover{color:var(--ink);}
+  .modal input{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.88rem;color:var(--ink);outline:none;margin-bottom:1rem;}
+  .modal input:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .modal label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+  .modal-note{font-size:0.65rem;color:var(--muted);margin-top:0.8rem;line-height:1.5;}
+  footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
+  footer a{color:var(--sage);text-decoration:none;}
+  footer a:hover{color:var(--gold);}
+  @media(max-width:680px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.input-row{grid-template-columns:1fr;}.budget-cats{grid-template-columns:1fr;}.next-grid{grid-template-columns:1fr;}.cat-explainer{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.steps-grid{grid-template-columns:1fr;}.planner-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr 1fr;}.share-row{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media(max-width:400px){.tools-grid{grid-template-columns:1fr;}}
+  @media print{body::before,nav,.ad-slot,.share-row,.tools-panel,.calc-btn{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="logo">Sharpline<span class="logo-dot">.</span></a>
-  <span class="header-pipe">|</span>
-  <span class="header-sub">50/30/20 Budget Calculator &nbsp;·&nbsp; 503020.ca</span>
+<header>
+  <div class="logo">Sharpline<span>.</span></div>
+  <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
 </header>
 
-<div class="ad-banner">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+<div class="calc-wrap">
+  <div class="hero">
+    <h1>Your <span>50/30/20</span> Budget</h1>
+    <p>Enter your take-home income and instantly see your needs, wants and savings targets. Works for US and Canadian budgets — any income, any pay period.</p>
+    <div class="market-badge">🇺🇸 US &amp; 🇨🇦 Canadian budgets · USD, CAD and more · Any pay period</div>
+  </div>
 
-<main>
-<div class="container">
-
-  <h1 class="page-title">50/30/20 Budget Calculator</h1>
-  <p class="page-sub">Enter your income below to see how to split it into Needs, Wants &amp; Savings.</p>
-
-  <div class="two-col">
-    <div class="card">
-      <div class="card-title">Your Income <div class="card-title-bar"></div></div>
-      <div class="form-group">
-        <label class="form-label" for="currency">Currency</label>
-        <select id="currency">
-          <option value="$" selected>$ USD — US Dollar</option>
-          <option value="R$">R$ BRL — Brazilian Real</option>
-          <option value="£">£ GBP — UK Pound</option>
-          <option value="€">€ EUR — Euro</option>
-          <option value="CA$">CA$ CAD — Canadian Dollar</option>
-          <option value="A$">A$ AUD — Australian Dollar</option>
-        </select>
+  <div class="input-panel">
+    <div class="panel-title">Your Income</div>
+    <div class="input-row">
+      <div>
+        <label>Take-Home Income (after tax)</label>
+        <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="income" placeholder="5,000" min="0" value="5000" /></div>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="period">Income Period</label>
+      <div>
+        <label>Pay Period</label>
         <select id="period">
           <option value="monthly" selected>Monthly</option>
           <option value="annual">Annual</option>
-          <option value="weekly">Weekly</option>
           <option value="biweekly">Bi-Weekly</option>
+          <option value="weekly">Weekly</option>
         </select>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="income">After-Tax Income</label>
-        <input type="number" id="income" placeholder="e.g. 5000" min="0" step="any" />
-      </div>
-      <p class="input-hint">✏️ Edit the fields above, then tap Calculate to see your personal budget breakdown.</p>
-      <button class="btn-primary" onclick="calculate()">Calculate My Budget →</button>
-    </div>
-
-    <div class="card" id="resultsCard">
-      <div id="placeholder">
-        <div class="card-title">Your Breakdown <div class="card-title-bar"></div></div>
-        <div style="text-align:center;padding:40px 20px;">
-          <div style="font-size:2.5rem;margin-bottom:12px;">📊</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;">Enter your income on the left and click <strong>Calculate</strong> to see your 50/30/20 split.</div>
-        </div>
-      </div>
-      <div id="resultsContent" class="hidden">
-        <div class="results-name" id="resultsTitle">My Budget</div>
-        <div class="results-sub" id="resultsSub"></div>
-        <div class="bar-section">
-          <div class="bar-row"><span class="bar-label-sm">Needs</span><div class="bar-track"><div class="bar-fill bar-needs"></div></div><span class="bar-pct">50%</span></div>
-          <div class="bar-row"><span class="bar-label-sm">Wants</span><div class="bar-track"><div class="bar-fill bar-wants"></div></div><span class="bar-pct">30%</span></div>
-          <div class="bar-row"><span class="bar-label-sm">Savings</span><div class="bar-track"><div class="bar-fill bar-savings"></div></div><span class="bar-pct">20%</span></div>
-        </div>
-        <hr class="divider">
-        <div class="result-rows">
-          <div class="result-row"><div class="result-dot dot-needs"></div><span class="result-label">Needs</span><span class="result-pct">50%</span><span class="result-amount" id="needsAmt"></span><span class="result-annual" id="needsY"></span></div>
-          <div class="result-row"><div class="result-dot dot-wants"></div><span class="result-label">Wants</span><span class="result-pct">30%</span><span class="result-amount" id="wantsAmt"></span><span class="result-annual" id="wantsY"></span></div>
-          <div class="result-row"><div class="result-dot dot-savings"></div><span class="result-label">Savings</span><span class="result-pct">20%</span><span class="result-amount" id="savingsAmt"></span><span class="result-annual" id="savingsY"></span></div>
-        </div>
-        <hr class="divider">
-        <div class="tip-box" id="tipBox"></div>
-        <div class="btn-row">
-          <button class="btn-outline" onclick="window.print()">🖨️ Print Results</button>
-          <button class="btn-gold" onclick="emailResults()">✉️ Email Results</button>
-        </div>
+      <div>
+        <label>Currency</label>
+        <select id="currency">
+          <option value="$" selected>$ — US Dollar</option>
+          <option value="CA$">CA$ — Canadian Dollar</option>
+          <option value="£">£ — British Pound</option>
+          <option value="€">€ — Euro</option>
+          <option value="A$">A$ — Australian Dollar</option>
+          <option value="R$">R$ — Brazilian Real</option>
+        </select>
       </div>
     </div>
+    <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:0.8rem;line-height:1.6;">✏️ Enter your after-tax take-home pay above then tap Calculate.</p>
+    <button class="calc-btn" onclick="calculate()">Calculate My Budget →</button>
   </div>
 
-  <div class="ad-mid">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  <div class="results" id="results">
+    <div class="budget-bar-wrap">
+      <div class="panel-title" id="resultsTitle">Your Monthly Budget Split</div>
+      <div class="budget-bar">
+        <div class="bar-needs" id="barNeeds" style="width:50%"></div>
+        <div class="bar-wants" id="barWants" style="width:30%"></div>
+        <div class="bar-savings" id="barSavings" style="width:20%"></div>
+      </div>
+      <div class="budget-cats">
+        <div class="cat-card needs" style="animation-delay:0s">
+          <div class="cat-label">Needs — 50%</div>
+          <div class="cat-pct">50%</div>
+          <div class="cat-amount" id="needsAmt">$2,500</div>
+          <div class="cat-sub">Housing, groceries, utilities, insurance, minimum debt payments</div>
+        </div>
+        <div class="cat-card wants" style="animation-delay:0.1s">
+          <div class="cat-label">Wants — 30%</div>
+          <div class="cat-pct">30%</div>
+          <div class="cat-amount" id="wantsAmt">$1,500</div>
+          <div class="cat-sub">Dining out, entertainment, subscriptions, travel, personal care</div>
+        </div>
+        <div class="cat-card savings" style="animation-delay:0.2s">
+          <div class="cat-label">Savings — 20%</div>
+          <div class="cat-pct">20%</div>
+          <div class="cat-amount" id="savingsAmt">$1,000</div>
+          <div class="cat-sub">Emergency fund, 401(k)/RRSP, IRA/TFSA, investments, extra debt payments</div>
+        </div>
+      </div>
+    </div>
 
-  <div class="section" id="nextStepsSection">
-    <div class="section-title">Next Steps</div>
-    <p class="section-sub">Now that you know your numbers — here's how to put them to work.</p>
+    <div class="next-steps">
+      <div class="next-steps-title">Put Your Budget to Work</div>
+      <div class="next-grid">
+        <a href="https://vaultgoal.com" class="next-card" target="_blank" rel="noopener">
+          <div class="next-icon">🎯</div>
+          <div class="next-title">Track Your Savings Goal</div>
+          <div class="next-desc">Use your 20% savings amount as a monthly contribution and see exactly when you'll reach any goal.</div>
+        </a>
+        <a href="https://debtcrusher.ca" class="next-card" target="_blank" rel="noopener">
+          <div class="next-icon">💳</div>
+          <div class="next-title">Crush Your Debt</div>
+          <div class="next-desc">Direct your savings toward debt payoff. See how fast Snowball or Avalanche gets you debt free.</div>
+        </a>
+        <a href="https://mortgagemasher.com" class="next-card" target="_blank" rel="noopener">
+          <div class="next-icon">🏠</div>
+          <div class="next-title">US Mortgage Calculator</div>
+          <div class="next-desc">Check if a mortgage payment fits within your 50% Needs budget — built for US mortgages.</div>
+        </a>
+        <a href="https://mortgagemasher.ca" class="next-card" target="_blank" rel="noopener">
+          <div class="next-icon">🍁</div>
+          <div class="next-title">Canadian Mortgage Calculator</div>
+          <div class="next-desc">Canadian mortgage math — CMHC, semi-annual compounding, FHSA. Built for Canadian buyers.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="tip-box" id="tipBox"></div>
+    <div class="share-row">
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print Results</button>
+      <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90 Leaderboard</div></div>
+
+  <div class="section">
+    <h2>How the 50/30/20 Budget Calculator Works</h2>
+    <p>Enter your take-home income for any pay period — monthly, annual, bi-weekly or weekly — select your currency, and the calculator instantly splits your income into three categories: 50% for needs, 30% for wants, and 20% for savings. It works for both US and Canadian budgets and supports multiple currencies.</p>
     <div class="steps-grid">
-      <div class="step-card" data-num="1"><div class="step-icon">🏦</div><div class="step-title">Compare Your Actual Spending</div><div class="step-desc">Pull out your last 2–3 bank and credit card statements. Categorize each expense as a Need, Want, or Saving. How does your real spending compare to your 50/30/20 target?</div><span class="step-tag">Do This First</span></div>
-      <div class="step-card" data-num="2"><div class="step-icon">🛡️</div><div class="step-title">Build Your Emergency Fund</div><div class="step-desc">Aim to save 3–6 months of living expenses in a high-yield savings account. Start by directing a portion of your 20% savings bucket here before anything else.</div><span class="step-tag">Priority Savings</span></div>
-      <div class="step-card" data-num="3"><div class="step-icon">⚙️</div><div class="step-title">Automate Your Savings</div><div class="step-desc">Set up automatic transfers on payday so your savings move before you can spend them. Even a small automatic transfer every month builds powerful long-term habits.</div><span class="step-tag">Pay Yourself First</span></div>
-      <div class="step-card" data-num="4"><div class="step-icon">💳</div><div class="step-title">Tackle High-Interest Debt</div><div class="step-desc">If you carry credit card or high-interest debt, allocate part of your 20% to paying it down aggressively. Eliminating high-interest debt is the best guaranteed "return" you can get.</div><span class="step-tag">Savings Category</span></div>
-      <div class="step-card" data-num="5"><div class="step-icon">✂️</div><div class="step-title">Trim Your Wants First</div><div class="step-desc">If your Needs exceed 50%, focus on cutting Wants before touching Savings. Review subscriptions, dining out, and delivery apps — these are the easiest categories to reduce quickly.</div><span class="step-tag">Quick Wins</span></div>
-      <div class="step-card" data-num="6"><div class="step-icon">📈</div><div class="step-title">Start Investing for Retirement</div><div class="step-desc">Once your emergency fund is in place, direct part of your 20% toward retirement. Experts suggest aiming for 10–15% of pre-tax income. Even starting small today makes a big difference over time.</div><span class="step-tag">Long-Term Wealth</span></div>
+      <div class="step-card"><div class="step-number">01</div><div class="step-title">Enter Take-Home Income</div><div class="step-desc">Use your after-tax income — the amount actually deposited in your bank account each pay period. Select your pay period and currency. The calculator converts any period to monthly figures automatically.</div></div>
+      <div class="step-card"><div class="step-number">02</div><div class="step-title">See Your Budget Targets</div><div class="step-desc">Instantly see your exact dollar targets for needs, wants and savings at your income level. The colour bar gives you an at-a-glance view of how your income should be allocated across the three categories.</div></div>
+      <div class="step-card"><div class="step-number">03</div><div class="step-title">Take Action</div><div class="step-desc">Use your needs target to evaluate housing costs, your wants budget to identify overspending, and your savings target to set up automatic transfers on payday into your 401(k), RRSP, TFSA or savings account.</div></div>
+    </div>
+
+    <h3>What is the 50/30/20 Rule?</h3>
+    <p>The 50/30/20 rule is the most widely adopted personal budgeting framework in both the US and Canada. It divides your after-tax income into three simple categories: half for needs, 30% for wants, and 20% for savings and debt repayment. The rule was popularized by US Senator Elizabeth Warren and her daughter Amelia Warren Tyagi in their 2005 book "All Your Worth: The Ultimate Lifetime Money Plan." It gained widespread adoption because of its simplicity — three categories instead of dozens of line items — and its flexibility to adapt to different income levels, life stages and financial situations on either side of the border.</p>
+    <p>The core insight behind the 50/30/20 rule is that most financial stress comes from one of three problems: spending too much on needs (usually housing), overspending on wants relative to income, or consistently failing to save. By assigning each category a specific percentage target, the rule makes it immediately visible which area needs attention in your personal budget.</p>
+
+    <h3>Why Use Take-Home Pay — Not Gross Income?</h3>
+    <p>The 50/30/20 rule is always applied to take-home (after-tax) income — not your gross salary or hourly rate multiplied by hours. Taxes are deducted before you receive your pay in both the US and Canada and are not available to spend or save. Using gross income would produce budget targets that are impossible to meet in practice. Your take-home pay is the real number — the amount deposited in your bank account each pay period — and that is the correct starting point for any budgeting exercise regardless of which country you live in.</p>
+  </div>
+
+  <div class="section">
+    <h2>What Counts as Needs, Wants and Savings?</h2>
+    <p>The most common question about the 50/30/20 rule is where specific expenses belong. Here is a clear breakdown with examples for both US and Canadian households — including the grey areas.</p>
+    <div class="cat-explainer">
+      <div class="cat-box needs">
+        <h3>🏠 Needs — 50%</h3>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Expenses you cannot reasonably avoid without serious consequences.</p>
+        <ul>
+          <li>Rent or mortgage payment</li>
+          <li>Groceries (basic food)</li>
+          <li>Utilities — electricity, gas, water</li>
+          <li>Internet (essential in 2026)</li>
+          <li>Basic phone plan</li>
+          <li>Health insurance premiums (US)</li>
+          <li>Car payment (if required for work)</li>
+          <li>Gas and basic car maintenance</li>
+          <li>Minimum debt payments</li>
+          <li>Prescription medications</li>
+          <li>Basic clothing and personal care</li>
+          <li>Child care (if required to work)</li>
+        </ul>
+      </div>
+      <div class="cat-box wants">
+        <h3>🎯 Wants — 30%</h3>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Expenses that improve quality of life but aren't strictly essential.</p>
+        <ul>
+          <li>Dining out and takeout</li>
+          <li>Streaming subscriptions</li>
+          <li>Gym membership</li>
+          <li>Entertainment and hobbies</li>
+          <li>Vacations and travel</li>
+          <li>Clothing beyond basics</li>
+          <li>Coffee shops</li>
+          <li>Premium phone plan upgrades</li>
+          <li>Sporting events, concerts</li>
+          <li>Home décor and upgrades</li>
+          <li>Personal care beyond basics</li>
+          <li>Gifts and charitable giving</li>
+        </ul>
+      </div>
+      <div class="cat-box savings">
+        <h3>💰 Savings — 20%</h3>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Money set aside to build financial security and long-term freedom.</p>
+        <ul>
+          <li>Emergency fund contributions</li>
+          <li>401(k) contributions (US)</li>
+          <li>IRA / Roth IRA (US)</li>
+          <li>RRSP contributions (Canada)</li>
+          <li>TFSA contributions (Canada)</li>
+          <li>FHSA contributions (Canada)</li>
+          <li>Investment accounts</li>
+          <li>Extra debt payments (above min)</li>
+          <li>Down payment savings</li>
+          <li>Education savings — 529 / RESP</li>
+          <li>Pension contributions</li>
+          <li>Sinking funds for big expenses</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Grey Areas — Where Do These Go?</h3>
+    <p><strong>Car payment:</strong> A need if your car is genuinely required to get to work and public transit is not a realistic option. A want if you chose a more expensive vehicle than necessary for basic transportation.</p>
+    <p><strong>Health insurance (US):</strong> Clearly a need in the US where coverage is not universal. The premium itself is a need; upgrading to a premium plan for non-essential extras is a want.</p>
+    <p><strong>Internet:</strong> A need in 2026 for most working adults — remote work, banking, job searching and essential communications all require it. A premium speed upgrade beyond what you actually need is a want.</p>
+    <p><strong>Employer 401(k) or RRSP matching:</strong> Always capture any employer matching contribution first — this is an immediate 50-100% guaranteed return. These contributions count toward your 20% savings target and should be prioritized before all other savings.</p>
+  </div>
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+
+  <div class="section">
+    <h2>Adjusting the 50/30/20 Rule for Your Situation</h2>
+    <p>The 50/30/20 rule is a framework, not a rigid rule. It is designed to adapt to your specific income, location and life stage. Here is how to adjust it when the standard percentages don't fit.</p>
+
+    <h3>When Needs Exceed 50% — High Cost of Living</h3>
+    <p>In cities like Toronto, Vancouver, New York, San Francisco or Los Angeles, housing alone can consume 40-50% of take-home pay for average earners — before groceries, utilities or any other needs. If your needs genuinely exceed 50%, adjust the percentages rather than abandoning the framework entirely.</p>
+    <p>A <strong>60/20/20 split</strong> (60% needs, 20% wants, 20% savings) is realistic for moderate cost-of-living situations. A <strong>70/20/10 split</strong> may be necessary for very high-cost areas or lower incomes — with an explicit plan to improve the ratio over time. The most important adjustment is to protect the savings percentage as much as possible even when needs are high.</p>
+
+    <h3>US vs Canadian Savings Accounts — Where to Put Your 20%</h3>
+    <p><strong>In the US:</strong> Prioritize capturing your full employer 401(k) match first — it's free money. Then fund a Roth IRA (if income-eligible) for tax-free growth. Keep 3-6 months of expenses in a high-yield savings account (HYSA) as your emergency fund. Currently earning 4-5% APY at most online banks.</p>
+    <p><strong>In Canada:</strong> Prioritize capturing any employer RRSP match. Then maximize your FHSA if you are a first-time buyer (up to $8,000/year tax-deductible and tax-free at withdrawal). Use your TFSA for emergency funds and non-registered savings — interest and growth inside a TFSA is completely tax-free. RRSP contributions make sense when your income puts you in a high marginal tax bracket.</p>
+
+    <h3>Modified Versions for Different Life Stages</h3>
+    <p><strong>Aggressive debt payoff:</strong> Temporarily shift to 50/20/30 — reducing wants to 20% and directing 30% toward high-interest debt elimination. Return to standard 50/30/20 once high-interest debt is cleared.</p>
+    <p><strong>Early career / lower income:</strong> A 60/30/10 split is realistic when starting out. Focus on building a $1,000 starter emergency fund first, then gradually increase savings with each income increase.</p>
+    <p><strong>High income / FIRE goal:</strong> Some high earners flip the savings and wants categories — saving 30-40% while capping wants at 20%. The 50% needs acts as a ceiling rather than a target.</p>
+  </div>
+
+  <div class="section">
+    <h2>Six Tips to Hit Your 50/30/20 Targets</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">🏠</div><div class="tip-title">Tackle Your Biggest Expense First</div><div class="tip-text">Housing is typically the single largest needs expense and the most powerful lever for improving your budget ratios. If rent or mortgage exceeds 30-35% of take-home pay alone, your needs category will be over 50% regardless of how carefully you manage everything else. In the US, the general guideline is to keep housing under 28-30% of gross income. In Canada's expensive markets, this is difficult but worth working toward over time.</div></div>
+      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate Savings on Payday</div><div class="tip-text">Set up an automatic transfer to your savings account — 401(k), RRSP, TFSA, IRA or HYSA — for the same day your pay is deposited. This "pay yourself first" approach ensures savings happen before any spending decisions are made. In the US, 401(k) contributions through payroll deduction happen automatically before you ever see the money — an even stronger forcing function. In Canada, set up automatic TFSA or RRSP transfers to mirror the same effect.</div></div>
+      <div class="tip-card"><div class="tip-icon">📋</div><div class="tip-title">Audit Your Subscriptions Annually</div><div class="tip-text">The average US household spends over $200/month on subscriptions — many of which overlap in content or are rarely used. The average Canadian household is similar. Set aside 30 minutes once a year to review every recurring charge on your credit card and bank statement. Cancel anything you haven't actively used in the past 30 days. Subscription creep is one of the most common reasons the wants category exceeds 30% — and it is among the easiest to fix with minimal lifestyle impact.</div></div>
+      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Use the 48-Hour Rule for Wants</div><div class="tip-text">For any discretionary purchase over $50, wait 48 hours before buying. Add the item to a wishlist or cart and revisit it two days later. Research suggests 30-50% of want purchases are impulse decisions that you no longer want after a short waiting period. This habit meaningfully reduces wants spending without feeling like deprivation — you still buy the things you genuinely want, you simply filter out the impulse ones.</div></div>
+      <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-title">Treat Savings as a Non-Negotiable Bill</div><div class="tip-text">The most effective mental shift in personal finance is treating your monthly savings contribution exactly like a utility bill — something paid automatically, on time, every month, without debate. When savings are treated as optional (money left over after spending), they are the first thing eliminated in stressful months. When treated as a fixed obligation, savings happen consistently regardless of how the rest of the month went. This applies equally in the US and Canada.</div></div>
+      <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Do One Budget Review Per Month</div><div class="tip-text">Schedule a single 20-30 minute monthly budget review on the same date each month. Check your actual spending in each category against your 50/30/20 targets. No judgment — just information. Over time, even casual monthly awareness of where your money went creates gradual improvement in spending patterns. You don't need a detailed app or daily tracking — one honest monthly review is enough for most people to stay broadly on track with their budget goals.</div></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="card">
-      <div class="card-title">How the 50/30/20 Rule Works <div class="card-title-bar"></div></div>
-      <table class="how-table">
-        <thead><tr><th>Category</th><th>Split</th><th>What It Covers</th><th>Examples</th></tr></thead>
+    <h2>50/30/20 Quick Reference — Common Income Levels</h2>
+    <p>Here are exact 50/30/20 budget targets for common monthly take-home amounts in both USD and CAD. Find your approximate income to see your targets at a glance.</p>
+    <div style="overflow-x:auto;margin-top:1rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border);">
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Monthly Take-Home</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--needs);">Needs (50%)</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--wants);">Wants (30%)</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--savings);">Savings (20%)</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><span class="cat">Needs</span></td><td>50%</td><td>Essential, unavoidable expenses</td><td>Rent, groceries, utilities, insurance, minimum debt payments</td></tr>
-          <tr><td><span class="cat">Wants</span></td><td>30%</td><td>Lifestyle and discretionary spending</td><td>Dining out, streaming, travel, hobbies, gym memberships</td></tr>
-          <tr><td><span class="cat">Savings</span></td><td>20%</td><td>Future security and debt payoff</td><td>Emergency fund, retirement (RRSP/401k), investments, extra debt payments</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$3,000</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$1,500</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$900</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$600</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$4,000</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$2,000</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$1,200</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$800</td></tr>
+          <tr style="border-bottom:1px solid var(--border);background:var(--sage-pale);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$5,000</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$2,500</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$1,500</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$1,000</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$6,000</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$3,000</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$1,800</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$1,200</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$7,500</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$3,750</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$2,250</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$1,500</td></tr>
+          <tr><td style="padding:0.7rem 0.8rem;font-weight:500;">$10,000</td><td style="padding:0.7rem 0.8rem;color:var(--needs);">$5,000</td><td style="padding:0.7rem 0.8rem;color:var(--wants);">$3,000</td><td style="padding:0.7rem 0.8rem;color:var(--savings);">$2,000</td></tr>
         </tbody>
       </table>
-      <p style="font-size:0.8rem;color:var(--text-muted);margin-top:14px;font-style:italic;line-height:1.6;">The 50/30/20 rule was popularized by Senator Elizabeth Warren. It's a guideline, not a strict rule — your situation may call for adjustments. All figures shown are based on your after-tax (take-home) income. Results are estimates only and do not constitute financial advice.</p>
     </div>
+    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">Figures apply to both USD and CAD. Use the calculator above for exact figures at your income level.</p>
   </div>
 
-  <!-- ── MORE FREE TOOLS — 3 sites ── -->
+  <div class="planner-section">
+    <h2>🤝 When to Speak With a Licensed Financial Planner</h2>
+    <p>The 50/30/20 rule is a powerful starting framework for both US and Canadian households. For more complex financial situations, we recommend speaking with a licensed financial planner or non-profit credit counsellor.</p>
+    <div class="planner-points">
+      <div class="planner-point"><strong>When Your Needs Exceed 60%</strong>If essential expenses consistently take more than 60% of take-home pay, a licensed financial planner can identify structural solutions — debt consolidation, refinancing, income strategies — that a calculator cannot.</div>
+      <div class="planner-point"><strong>For Tax-Optimized Savings (US)</strong>A CFP can help sequence 401(k), Roth IRA and HSA contributions for your specific tax bracket — potentially worth thousands annually. Look for a fee-only fiduciary advisor at NAPFA.org.</div>
+      <div class="planner-point"><strong>For Tax-Optimized Savings (Canada)</strong>A CFP can help maximize RRSP, TFSA and FHSA contributions in the right sequence. Look for a CFP-designated advisor. Fee-only planners are legally required to act in your best interest.</div>
+      <div class="planner-point"><strong>Non-Profit Credit Counselling</strong>If debt is consuming too much of your budget, free help is available. In Canada: Credit Counselling Canada members. In the US: NFCC (National Foundation for Credit Counseling) member agencies.</div>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;font-style:italic;">503020.ca does not recommend specific planners and does not receive compensation for referrals. This is general educational content — not financial advice.</p>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions — 50/30/20 Budget</h2>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the 50/30/20 rule?</div><div class="faq-a">The 50/30/20 rule is a budgeting framework that divides your after-tax take-home income into three categories: 50% for needs (essential expenses you cannot avoid), 30% for wants (discretionary spending that improves your life but isn't essential), and 20% for savings and debt repayment above the minimum. It was popularized by US Senator Elizabeth Warren in her book "All Your Worth" and is the most widely recommended personal budgeting framework in both the US and Canada because of its simplicity and flexibility across different income levels and situations.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What counts as a need vs a want?</div><div class="faq-a">Needs are expenses you cannot reasonably avoid — rent or mortgage, groceries, utilities, internet, basic phone, health insurance (especially critical in the US), minimum debt payments, car payments if required for work, and essential clothing. Wants are expenses that improve quality of life but are not strictly essential — dining out, streaming subscriptions, gym memberships, travel, entertainment, and clothing beyond the basics. The distinction is sometimes subjective: a smartphone is a need in 2026, but choosing a premium device or data plan upgrade is a want.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if my needs exceed 50% of my income?</div><div class="faq-a">This is very common in high cost-of-living cities across both the US and Canada — New York, San Francisco, Toronto and Vancouver all present serious affordability challenges where housing alone can push needs past 50%. Adjust the framework to fit your reality: a 60/20/20 or 70/20/10 split may be more honest. The core principle matters more than exact percentages — spend less than you earn and consistently save something every month. Protect the savings percentage even when needs are high, even if that means a smaller savings amount than the ideal 20%.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Should I use gross or take-home income?</div><div class="faq-a">Always use your take-home (after-tax) income — the amount actually deposited in your bank account. This applies in both the US and Canada. Taxes in both countries are deducted before you receive your pay and are not available to spend or save. Using gross income would produce budget targets that are impossible to meet. Your take-home pay is the real number that matters for budgeting.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does the 50/30/20 rule work in Canada?</div><div class="faq-a">Yes — the 50/30/20 rule works well for Canadian budgets with minor adaptations. The savings category aligns perfectly with Canada's registered accounts: TFSA contributions are tax-free at withdrawal, RRSP contributions are tax-deductible, and the FHSA (First Home Savings Account) combines both benefits for first-time buyers. Canadians typically benefit from lower healthcare costs than Americans due to provincial health coverage, which can make the 50% needs category slightly easier to manage. Use your after-tax provincial and federal take-home pay as the starting figure.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I handle irregular income?</div><div class="faq-a">For irregular income — freelancers, contractors, real estate agents, commission-based sales, seasonal workers — use your lowest expected monthly income as the budget baseline. In higher-income months, direct the extra money toward savings or accelerated debt payoff. Many financial planners recommend that self-employed people in both the US and Canada set aside 25-30% of every payment received into a separate tax reserve account first, then apply the 50/30/20 rule to the remainder. This avoids the common trap of spending tax money that hasn't been remitted yet.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Should debt payments count as needs or savings?</div><div class="faq-a">Minimum required debt payments are needs — they are unavoidable in both the US and Canada. Any payments above the minimum are savings, because eliminating debt delivers a guaranteed return equal to your debt's interest rate. An extra $200/month on a US or Canadian credit card at 19.99% is equivalent to earning 19.99% guaranteed — far better than any savings account rate. The 20% savings category should include both above-minimum debt payments and registered account contributions like 401(k), IRA, RRSP or TFSA.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is saving 20% realistic?</div><div class="faq-a">For many people, especially early in their careers or in expensive cities across the US and Canada, saving 20% is genuinely challenging. This is normal. Start with whatever savings rate is achievable — even 5% or 10% — and increase it by 1-2 percentage points each time your income rises. The most powerful habit is consistent saving at whatever rate works now, not waiting until you can hit 20% perfectly. Automating your savings transfer on payday — into your 401(k), Roth IRA, TFSA, RRSP or HYSA — is the most effective strategy regardless of the target percentage.</div></div>
+  </div>
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+
   <div class="tools-panel">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
-      <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">🎯</div>
-        <div class="tool-name">Savings Goal Tracker</div>
-        <div class="tool-desc">See exactly when you'll reach any savings goal — with milestone dates and compound interest included.</div>
-        <div class="tool-link">vaultgoal.com →</div>
-      </a>
-      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">💳</div>
-        <div class="tool-name">Debt Payoff Calculator</div>
-        <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and how much interest you'll save.</div>
-        <div class="tool-link">debtcrusher.ca →</div>
-      </a>
-      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">🏠</div>
-        <div class="tool-name">Canadian Mortgage Calculator</div>
-        <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison. Built for Canada.</div>
-        <div class="tool-link">mortgagemasher.com →</div>
-      </a>
+      <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🎯</div><div class="tool-name">Savings Goal Tracker</div><div class="tool-desc">Use your 20% savings as a monthly contribution — see exactly when you'll reach any goal.</div><div class="tool-link">vaultgoal.com →</div></a>
+      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">💳</div><div class="tool-name">Debt Payoff Calculator</div><div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and total interest saved.</div><div class="tool-link">debtcrusher.ca →</div></a>
+      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">🇺🇸 US Mortgage Calculator</div><div class="tool-desc">PMI, 15 vs 30-year comparison, FHA loans. Built for US mortgage rules.</div><div class="tool-link">mortgagemasher.com →</div></a>
+      <a href="https://mortgagemasher.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🍁</div><div class="tool-name">🇨🇦 Canadian Mortgage Calculator</div><div class="tool-desc">CMHC, semi-annual compounding, FHSA. Built for Canadian mortgage rules.</div><div class="tool-link">mortgagemasher.ca →</div></a>
     </div>
   </div>
 
 </div>
-</main>
 
-<footer class="site-footer">
-  &copy; <span id="year"></span> <a href="index.html">Sharpline</a> &nbsp;·&nbsp;
+<footer>
+  Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
   <a href="contact.html">Contact</a> &nbsp;·&nbsp;
   <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-  <a href="disclaimer.html">Disclaimer</a>
-  &nbsp;·&nbsp; 503020.ca &nbsp;·&nbsp; <a href="https://www.instagram.com/toolssharpline/" target="_blank" rel="noopener">📷 Instagram</a> &nbsp;·&nbsp;
-<a href="https://www.reddit.com/user/sharplinetools/" target="_blank" rel="noopener">🟠 Reddit</a> &nbsp;·&nbsp;Not financial advice.
+  <a href="disclaimer.html">Disclaimer</a> &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/toolssharpline/" target="_blank" rel="noopener">📷 Instagram</a> &nbsp;·&nbsp;
+  <a href="https://www.reddit.com/user/sharplinetools/" target="_blank" rel="noopener">🟠 Reddit</a> &nbsp;·&nbsp;
+  Not financial advice
 </footer>
 
-<nav class="bottom-nav">
-  <a href="index.html" class="active"><span class="nav-icon">🏠</span>Calculator</a>
-  <a href="about.html"><span class="nav-icon">ℹ️</span>About</a>
-  <a href="privacy.html"><span class="nav-icon">🔒</span>Privacy</a>
-  <a href="contact.html"><span class="nav-icon">✉️</span>Contact</a>
-</nav>
+<nav><a href="index.html">🏠 Calculator</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
+
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Budget</div>
+    <div><label>Recipient Email</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
+    <div><label>Your Name (optional)</label><input type="text" id="emailFrom" placeholder="e.g. Jordan" /></div>
+    <button class="calc-btn" style="margin-bottom:0.6rem;margin-top:0.5rem;" onclick="sendEmail()">Send Results →</button>
+    <button class="btn-secondary" onclick="closeEmailModal()">Cancel</button>
+    <p class="modal-note">Opens your email app with your budget split pre-filled and ready to send.</p>
+  </div>
+</div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  function toMonthly(amount, period) {
-    if (period === 'annual')   return amount / 12;
-    if (period === 'weekly')   return amount * 52 / 12;
-    if (period === 'biweekly') return amount * 26 / 12;
-    return amount;
+  var lastResults={};
+  function toggleFaq(el){el.parentElement.classList.toggle('open');}
+  function fmt(n,sym){return sym+Math.round(n).toLocaleString();}
+  function calculate(){
+    var income=parseFloat(document.getElementById('income').value)||0;
+    var period=document.getElementById('period').value;
+    var sym=document.getElementById('currency').value;
+    if(!income||income<=0){alert('Please enter your take-home income.');return;}
+    var monthly;
+    if(period==='monthly')monthly=income;
+    else if(period==='annual')monthly=income/12;
+    else if(period==='biweekly')monthly=income*26/12;
+    else monthly=income*52/12;
+    var needs=monthly*0.5,wants=monthly*0.3,savings=monthly*0.2;
+    var periodLabel={monthly:'Monthly',annual:'Monthly (from annual)',biweekly:'Monthly (from bi-weekly)',weekly:'Monthly (from weekly)'}[period];
+    lastResults={monthly:monthly,needs:needs,wants:wants,savings:savings,sym:sym,period:period,income:income};
+    document.getElementById('resultsTitle').textContent='Your '+periodLabel+' Budget Split';
+    document.getElementById('needsAmt').textContent=fmt(needs,sym)+'/mo';
+    document.getElementById('wantsAmt').textContent=fmt(wants,sym)+'/mo';
+    document.getElementById('savingsAmt').textContent=fmt(savings,sym)+'/mo';
+    var tip='';
+    if(needs>monthly*0.6)tip='⚠️ <strong>Heads up:</strong> If your actual needs spending exceeds '+fmt(needs,sym)+', your essential expenses may be running high. Housing is usually the biggest lever — explore whether refinancing, relocating or a roommate could help.';
+    else if(savings<monthly*0.1)tip='💡 <strong>Savings tip:</strong> Even setting aside 10% ('+fmt(monthly*0.1,sym)+'/mo) consistently into a 401(k), RRSP or TFSA builds significant financial security. Set up an automatic transfer on payday.';
+    else tip='✅ <strong>Solid framework:</strong> At '+fmt(monthly,sym)+'/mo take-home, your 20% savings target is '+fmt(savings,sym)+'/mo. Automate this on payday into your 401(k), IRA, RRSP or TFSA and it happens without thinking.';
+    document.getElementById('tipBox').innerHTML=tip;
+    var el=document.getElementById('results');el.classList.add('visible');el.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
-
-  function fmt(symbol, value) {
-    return symbol + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
+  function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
+  function sendEmail(){
+    var to=document.getElementById('emailTo').value.trim();
+    var from=document.getElementById('emailFrom').value.trim();
+    var r=lastResults;
+    if(!to){alert('Please enter a recipient email address.');return;}
+    var greeting=from?from+' has shared their 50/30/20 budget split with you.':'Here is my 50/30/20 budget:';
+    var subject=encodeURIComponent('My 50/30/20 Budget — 503020.ca');
+    var body=encodeURIComponent(greeting+'\n\n━━━━━━━━━━━━━━━━━━━━━\n50/30/20 BUDGET SPLIT\n━━━━━━━━━━━━━━━━━━━━━\n\nMonthly Take-Home: '+r.sym+Math.round(r.monthly).toLocaleString()+'\n\n🏠 Needs (50%):   '+r.sym+Math.round(r.needs).toLocaleString()+'/mo\n🎯 Wants (30%):   '+r.sym+Math.round(r.wants).toLocaleString()+'/mo\n💰 Savings (20%): '+r.sym+Math.round(r.savings).toLocaleString()+'/mo\n\n━━━━━━━━━━━━━━━━━━━━━\nhttps://503020.ca\nNot financial advice.');
+    window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;closeEmailModal();
   }
-
-  function set(id, text) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = text;
-  }
-
-  function calculate() {
-    var income = parseFloat(document.getElementById('income').value);
-    var symbol = document.getElementById('currency').value;
-    var period = document.getElementById('period').value;
-    if (!income || income <= 0) { alert('Please enter a valid income amount greater than zero.'); return; }
-    var monthly  = toMonthly(income, period);
-    var needs    = monthly * 0.50;
-    var wants    = monthly * 0.30;
-    var savings  = monthly * 0.20;
-    var periodLabel = { monthly: 'month', annual: 'year', weekly: 'week', biweekly: 'paycheck' };
-    set('resultsTitle', 'My Budget');
-    set('resultsSub', fmt(symbol, income) + ' per ' + periodLabel[period] + '  ·  ' + fmt(symbol, monthly) + '/month');
-    set('needsAmt',   fmt(symbol, needs));
-    set('wantsAmt',   fmt(symbol, wants));
-    set('savingsAmt', fmt(symbol, savings));
-    set('needsY',   fmt(symbol, needs * 12) + '/yr');
-    set('wantsY',   fmt(symbol, wants * 12) + '/yr');
-    set('savingsY', fmt(symbol, savings * 12) + '/yr');
-    var tip = '';
-    if (needs > monthly * 0.55) {
-      tip = '⚠️ Your Needs are above 55% of income. Look for ways to reduce fixed costs like housing or subscriptions before cutting your Savings.';
-    } else if (savings < monthly * 0.15) {
-      tip = '💡 Your Savings are below 15%. Try to automate transfers on payday so savings happen before you can spend them.';
-    } else {
-      tip = '✅ Great pace! You\'re on track with the 50/30/20 framework. Keep your savings automated and review your budget quarterly.';
-    }
-    set('tipBox', tip);
-    document.getElementById('placeholder').classList.add('hidden');
-    document.getElementById('resultsContent').classList.remove('hidden');
-    if (window.innerWidth < 680) {
-      document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  function emailResults() {
-    var income = document.getElementById('income').value;
-    var symbol = document.getElementById('currency').value;
-    if (!income) { alert('Please calculate your budget first.'); return; }
-    var m = parseFloat(income);
-    var period = document.getElementById('period').value;
-    var monthly = (period === 'annual') ? m/12 : (period === 'weekly') ? m*52/12 : (period === 'biweekly') ? m*26/12 : m;
-    var body = 'My 50/30/20 Budget Breakdown from 503020.ca\n\n'
-      + 'Monthly Income: ' + symbol + monthly.toFixed(2) + '\n\n'
-      + 'Needs  (50%): ' + symbol + (monthly*0.50).toFixed(2) + '\n'
-      + 'Wants  (30%): ' + symbol + (monthly*0.30).toFixed(2) + '\n'
-      + 'Savings(20%): ' + symbol + (monthly*0.20).toFixed(2) + '\n\n'
-      + 'Annual Breakdown:\n'
-      + 'Needs  : ' + symbol + (monthly*0.50*12).toFixed(2) + '\n'
-      + 'Wants  : ' + symbol + (monthly*0.30*12).toFixed(2) + '\n'
-      + 'Savings: ' + symbol + (monthly*0.20*12).toFixed(2) + '\n\n'
-      + 'Calculated at 503020.ca';
-    window.location.href = 'mailto:?subject=My 50/30/20 Budget&body=' + encodeURIComponent(body);
-  }
-
-  document.getElementById('income').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') calculate();
-  });
+  document.addEventListener('keydown',function(e){if(e.key==='Enter')calculate();if(e.key==='Escape')closeEmailModal();});
+  window.addEventListener('load',function(){calculate();});
 </script>
 </body>
 </html>
