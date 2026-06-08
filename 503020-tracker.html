@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Budget Tracker — 50/30/20 Spending Breakdown | Sharpline</title>
+<meta name="description" content="Track your actual monthly spending against your 50/30/20 budget targets. See exactly where you are over or under in needs, wants and savings. Free, no sign-up.">
+<meta name="author" content="Sharpline">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://503020.ca/tracker.html">
+<meta name="google-adsense-account" content="ca-pub-8775883855490271">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f1a0f;--paper:#f5f0e8;--sage:#4a7c59;--sage-light:#7aaa8a;
+    --sage-pale:#d4e8da;--gold:#c8922a;--cream:#faf7f0;--muted:#8a8a7a;
+    --border:#d8d0c0;--needs:#4a7c59;--wants:#c8922a;--savings:#3a6b8a;
+    --needs-pale:#d4e8da;--wants-pale:#fdf3e0;--savings-pale:#c8dce8;
+    --green:#2d7a2d;--green-pale:#d4f0d4;--amber:#c87820;--amber-pale:#fdecd0;
+    --red:#b84444;--red-pale:#f5dada;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:5rem;}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
+  header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
+  .logo span{color:var(--gold);}
+  .tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+  nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
+  nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  nav a:hover{color:var(--gold);}
+  .wrap{max-width:900px;margin:2.5rem auto;padding:0 2rem;}
+  .hero{text-align:center;margin-bottom:2.5rem;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;}
+  .hero h1 span{color:var(--sage);font-style:italic;}
+  .hero p{font-size:0.78rem;color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto;}
+  /* Income panel */
+  .income-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.5rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
+  .panel-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .income-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;align-items:end;}
+  label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+  .input-wrap{position:relative;}
+  .input-wrap .prefix{position:absolute;left:0.7rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:0.78rem;pointer-events:none;}
+  input[type="number"],input[type="text"],select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s,box-shadow 0.2s;-moz-appearance:textfield;}
+  input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .has-prefix input{padding-left:2rem;}
+  input:focus,select:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .targets-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem;}
+  .target-chip{border-radius:3px;padding:0.8rem 1rem;display:flex;justify-content:space-between;align-items:center;}
+  .target-chip.needs{background:var(--needs-pale);border:1px solid var(--needs);}
+  .target-chip.wants{background:var(--wants-pale);border:1px solid var(--wants);}
+  .target-chip.savings{background:var(--savings-pale);border:1px solid var(--savings);}
+  .target-chip-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .target-chip-val{font-family:'DM Serif Display',serif;font-size:1.3rem;}
+  .target-chip.needs .target-chip-val{color:var(--needs);}
+  .target-chip.wants .target-chip-val{color:var(--wants);}
+  .target-chip.savings .target-chip-val{color:var(--savings);}
+  /* Spending sections */
+  .spending-section{border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .spending-section.needs{background:var(--cream);border:2px solid var(--needs);}
+  .spending-section.wants{background:var(--cream);border:2px solid var(--wants);}
+  .spending-section.savings{background:var(--cream);border:2px solid var(--savings);}
+  .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.5rem;}
+  .section-title{font-family:'DM Serif Display',serif;font-size:1.2rem;}
+  .spending-section.needs .section-title{color:var(--needs);}
+  .spending-section.wants .section-title{color:var(--wants);}
+  .spending-section.savings .section-title{color:var(--savings);}
+  .section-total{font-size:0.72rem;color:var(--muted);text-align:right;}
+  .section-total strong{font-size:1rem;color:var(--ink);}
+  .expense-row{display:grid;grid-template-columns:1fr auto 28px;gap:0.6rem;margin-bottom:0.5rem;align-items:center;}
+  .expense-name{background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.55rem 0.75rem;font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--ink);outline:none;width:100%;}
+  .expense-name:focus{border-color:var(--sage);box-shadow:0 0 0 2px rgba(74,124,89,0.1);}
+  .expense-amount{background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.55rem 0.75rem;font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--ink);outline:none;width:110px;text-align:right;-moz-appearance:textfield;}
+  .expense-amount::-webkit-inner-spin-button,.expense-amount::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .expense-amount:focus{border-color:var(--sage);box-shadow:0 0 0 2px rgba(74,124,89,0.1);}
+  .btn-remove-row{width:28px;height:28px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:2px;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center;padding:0;transition:all 0.2s;flex-shrink:0;}
+  .btn-remove-row:hover{background:var(--red-pale);color:var(--red);border-color:var(--red);}
+  .btn-add-row{background:transparent;border:1px dashed var(--border);border-radius:2px;padding:0.5rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:0.4rem;color:var(--muted);transition:all 0.2s;}
+  .spending-section.needs .btn-add-row:hover{border-color:var(--needs);color:var(--needs);background:var(--needs-pale);}
+  .spending-section.wants .btn-add-row:hover{border-color:var(--wants);color:var(--wants);background:var(--wants-pale);}
+  .spending-section.savings .btn-add-row:hover{border-color:var(--savings);color:var(--savings);background:var(--savings-pale);}
+  .section-progress{margin-top:1rem;}
+  .progress-bar-wrap{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:0.4rem;}
+  .progress-bar{height:100%;border-radius:3px;transition:width 0.5s ease,background 0.3s;}
+  .progress-label{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--muted);}
+  /* Report */
+  .report{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;display:none;}
+  .report.visible{display:block;}
+  .report-title{font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:1.5rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
+  .report-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .report-table{width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:1.5rem;}
+  .report-table th{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:0.6rem 0.8rem;text-align:left;border-bottom:2px solid var(--border);}
+  .report-table td{padding:0.8rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+  .report-table tr:last-child td{border-bottom:none;}
+  .cat-pill{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:500;padding:0.25rem 0.6rem;border-radius:2px;}
+  .cat-pill.needs{background:var(--needs-pale);color:var(--needs);}
+  .cat-pill.wants{background:var(--wants-pale);color:var(--wants);}
+  .cat-pill.savings{background:var(--savings-pale);color:var(--savings);}
+  .status-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:500;padding:0.25rem 0.6rem;border-radius:2px;}
+  .status-badge.good{background:var(--green-pale);color:var(--green);}
+  .status-badge.warn{background:var(--amber-pale);color:var(--amber);}
+  .status-badge.over{background:var(--red-pale);color:var(--red);}
+  .deviation-positive{color:var(--green);font-weight:500;}
+  .deviation-negative{color:var(--red);font-weight:500;}
+  .deviation-neutral{color:var(--muted);}
+  /* Visual summary bar */
+  .summary-visual{margin-bottom:1.5rem;}
+  .visual-row{display:flex;height:24px;border-radius:3px;overflow:hidden;margin-bottom:0.5rem;}
+  .visual-label{font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+  .summary-legend{display:flex;gap:1.5rem;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;color:var(--muted);}
+  .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+  /* Overall score */
+  .score-card{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+  .score-item{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;animation:fadeUp 0.4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .score-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+  .score-value{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.2rem;}
+  .score-sub{font-size:0.65rem;color:var(--muted);}
+  .insight-box{border-left:3px solid var(--sage);background:var(--sage-pale);padding:1rem 1.2rem;border-radius:0 2px 2px 0;font-size:0.78rem;color:var(--sage);line-height:1.7;margin-bottom:1.5rem;}
+  .insight-box strong{color:var(--ink);}
+  /* Buttons */
+  .action-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;}
+  .btn{border:none;border-radius:2px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;width:100%;}
+  .btn-primary{background:var(--sage);color:white;}
+  .btn-primary:hover{background:#3d6849;}
+  .btn-outline{background:transparent;color:var(--sage);border:1px solid var(--sage);}
+  .btn-outline:hover{background:var(--sage-pale);}
+  .btn-amber{background:var(--gold);color:white;}
+  .btn-amber:hover{background:#b07820;}
+  .ad-slot{background:var(--cream);border:1px dashed var(--border);text-align:center;padding:0.8rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin:2rem 0;}
+  .ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.3rem;color:var(--muted);font-size:0.7rem;}
+  footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
+  footer a{color:var(--sage);text-decoration:none;}
+  footer a:hover{color:var(--gold);}
+  /* Modal */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,15,0.5);z-index:200;align-items:center;justify-content:center;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;width:100%;max-width:420px;margin:1rem;}
+  .modal-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--sage);}
+  .modal-close{float:right;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;width:auto;padding:0;line-height:1;}
+  .modal input{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.88rem;color:var(--ink);outline:none;margin-bottom:1rem;}
+  .modal input:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .modal-note{font-size:0.65rem;color:var(--muted);margin-top:0.8rem;line-height:1.5;}
+  @media(max-width:640px){
+    header{padding:1.5rem;flex-direction:column;gap:0.3rem;}
+    .income-row{grid-template-columns:1fr;}
+    .targets-bar{grid-template-columns:1fr;}
+    .expense-row{grid-template-columns:1fr auto 28px;}
+    .score-card{grid-template-columns:1fr;}
+    .action-row{grid-template-columns:1fr;}
+    nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}
+  }
+  @media print{
+    body::before,nav,.btn-add-row,.btn-remove-row,.action-row,.ad-slot{display:none !important;}
+    .report{display:block !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sharpline<span>.</span></div>
+  <div class="tagline">Monthly Budget Tracker | 503020.ca</div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Monthly <span>Spending</span> Tracker</h1>
+    <p>Enter your take-home income, then add your actual expenses. See exactly how your spending compares to your 50/30/20 targets — and where to adjust.</p>
+  </div>
+
+  <!-- Income -->
+  <div class="income-panel">
+    <div class="panel-title">Step 1 — Your Income</div>
+    <div class="income-row">
+      <div>
+        <label>Monthly Take-Home Income (after tax)</label>
+        <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="income" placeholder="5,000" min="0" value="5000" oninput="updateTargets()" /></div>
+      </div>
+      <div>
+        <label>Currency</label>
+        <select id="currency" onchange="updateTargets()">
+          <option value="$" selected>$ — US Dollar</option>
+          <option value="CA$">CA$ — Canadian Dollar</option>
+          <option value="£">£ — British Pound</option>
+          <option value="€">€ — Euro</option>
+          <option value="A$">A$ — Australian Dollar</option>
+          <option value="R$">R$ — Brazilian Real</option>
+        </select>
+      </div>
+      <div>
+        <label>Month</label>
+        <input type="text" id="month" placeholder="e.g. June 2026" />
+      </div>
+    </div>
+    <div class="targets-bar">
+      <div class="target-chip needs"><div><div class="target-chip-label">Needs target (50%)</div><div class="target-chip-val" id="targetNeeds">$2,500</div></div><div style="font-size:0.7rem;color:var(--muted);">per month</div></div>
+      <div class="target-chip wants"><div><div class="target-chip-label">Wants target (30%)</div><div class="target-chip-val" id="targetWants">$1,500</div></div><div style="font-size:0.7rem;color:var(--muted);">per month</div></div>
+      <div class="target-chip savings"><div><div class="target-chip-label">Savings target (20%)</div><div class="target-chip-val" id="targetSavings">$1,000</div></div><div style="font-size:0.7rem;color:var(--muted);">per month</div></div>
+    </div>
+  </div>
+
+  <!-- Needs -->
+  <div class="spending-section needs">
+    <div class="section-header">
+      <div class="section-title">🏠 Needs — Essential Expenses</div>
+      <div class="section-total">Total: <strong id="needsTotal">$0</strong> <span style="font-size:0.65rem;">of <span id="needsTargetLabel">$2,500</span> target</span></div>
+    </div>
+    <div class="expense-row" style="margin-bottom:0.3rem;">
+      <label style="margin:0;">Expense Name</label>
+      <label style="margin:0;text-align:right;padding-right:0.4rem;">Amount</label>
+      <div></div>
+    </div>
+    <div id="needsRows"></div>
+    <button class="btn-add-row" onclick="addRow('needs')">+ Add Expense</button>
+    <div class="section-progress">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="needsBar" style="width:0%;background:var(--needs);"></div></div>
+      <div class="progress-label"><span id="needsPct">0% of target</span><span id="needsRemaining">$2,500 remaining</span></div>
+    </div>
+  </div>
+
+  <!-- Wants -->
+  <div class="spending-section wants">
+    <div class="section-header">
+      <div class="section-title">🎯 Wants — Discretionary Spending</div>
+      <div class="section-total">Total: <strong id="wantsTotal">$0</strong> <span style="font-size:0.65rem;">of <span id="wantsTargetLabel">$1,500</span> target</span></div>
+    </div>
+    <div class="expense-row" style="margin-bottom:0.3rem;">
+      <label style="margin:0;">Expense Name</label>
+      <label style="margin:0;text-align:right;padding-right:0.4rem;">Amount</label>
+      <div></div>
+    </div>
+    <div id="wantsRows"></div>
+    <button class="btn-add-row" onclick="addRow('wants')">+ Add Expense</button>
+    <div class="section-progress">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="wantsBar" style="width:0%;background:var(--wants);"></div></div>
+      <div class="progress-label"><span id="wantsPct">0% of target</span><span id="wantsRemaining">$1,500 remaining</span></div>
+    </div>
+  </div>
+
+  <!-- Savings -->
+  <div class="spending-section savings">
+    <div class="section-header">
+      <div class="section-title">💰 Savings — Investments &amp; Debt Payoff</div>
+      <div class="section-total">Total: <strong id="savingsTotal">$0</strong> <span style="font-size:0.65rem;">of <span id="savingsTargetLabel">$1,000</span> target</span></div>
+    </div>
+    <div class="expense-row" style="margin-bottom:0.3rem;">
+      <label style="margin:0;">Savings Item</label>
+      <label style="margin:0;text-align:right;padding-right:0.4rem;">Amount</label>
+      <div></div>
+    </div>
+    <div id="savingsRows"></div>
+    <button class="btn-add-row" onclick="addRow('savings')">+ Add Item</button>
+    <div class="section-progress">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="savingsBar" style="width:0%;background:var(--savings);"></div></div>
+      <div class="progress-label"><span id="savingsPct">0% of target</span><span id="savingsRemaining">$1,000 remaining</span></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-bottom:2rem;">
+    <button class="btn btn-primary" style="max-width:360px;" onclick="generateReport()">Generate My Report →</button>
+  </div>
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+
+  <!-- Report -->
+  <div class="report" id="report">
+    <div class="report-title" id="reportTitle">Budget Report</div>
+
+    <!-- Score cards -->
+    <div class="score-card" id="scoreCard"></div>
+
+    <!-- Visual bars -->
+    <div class="summary-visual">
+      <div class="visual-label">Target allocation</div>
+      <div class="visual-row">
+        <div style="width:50%;background:var(--needs);"></div>
+        <div style="width:30%;background:var(--wants);"></div>
+        <div style="width:20%;background:var(--savings);"></div>
+      </div>
+      <div class="visual-label" style="margin-top:0.8rem;">Your actual spending</div>
+      <div class="visual-row" id="actualBar"></div>
+      <div class="summary-legend" style="margin-top:0.6rem;">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--needs);"></div>Needs</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--wants);"></div>Wants</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--savings);"></div>Savings</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--border);"></div>Unallocated</div>
+      </div>
+    </div>
+
+    <!-- Deviation table -->
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Target</th>
+          <th>Actual</th>
+          <th>Difference</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="reportTableBody"></tbody>
+    </table>
+
+    <!-- Insight -->
+    <div class="insight-box" id="insightBox"></div>
+
+    <!-- Actions -->
+    <div class="action-row">
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print Report</button>
+      <button class="btn btn-amber" onclick="openEmailModal()">✉️ Email Report</button>
+      <button class="btn btn-outline" onclick="resetAll()">↺ Start Over</button>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="index.html" style="font-size:0.72rem;color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;">← Back to 50/30/20 Calculator</a>
+  </div>
+</div>
+
+<footer>
+  Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
+  <a href="about.html">About</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a> &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/toolssharpline/" target="_blank" rel="noopener">📷 Instagram</a> &nbsp;·&nbsp;
+  <a href="https://www.reddit.com/user/sharplinetools/" target="_blank" rel="noopener">🟠 Reddit</a> &nbsp;·&nbsp;
+  Not financial advice
+</footer>
+
+<nav>
+  <a href="index.html">🏠 Calculator</a>
+  <a href="tracker.html">📊 Tracker</a>
+  <a href="about.html">About</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Report</div>
+    <div><label>Recipient Email</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
+    <div><label>Your Name (optional)</label><input type="text" id="emailFrom" placeholder="e.g. Jordan" /></div>
+    <button class="btn btn-primary" style="margin-bottom:0.6rem;margin-top:0.5rem;" onclick="sendEmail()">Send Report →</button>
+    <button class="btn btn-outline" onclick="closeEmailModal()" style="margin-top:0.4rem;">Cancel</button>
+    <p class="modal-note">Opens your email app with your budget report pre-filled and ready to send.</p>
+  </div>
+</div>
+
+<script>
+var rowCounts={needs:0,wants:0,savings:0};
+var lastReport={};
+
+var defaultItems={
+  needs:['Rent / Mortgage','Groceries','Utilities','Internet / Phone','Car Payment','Gas','Health Insurance','Minimum Debt Payments'],
+  wants:['Dining Out','Streaming Services','Gym / Fitness','Entertainment','Shopping / Clothing','Personal Care'],
+  savings:['Emergency Fund','401(k) / RRSP','IRA / TFSA / FHSA','Investment Account','Extra Debt Payment']
+};
+
+function fmt(n,sym){return (sym||getSym())+Math.abs(Math.round(n)).toLocaleString();}
+function getSym(){return document.getElementById('currency').value;}
+function getIncome(){return parseFloat(document.getElementById('income').value)||0;}
+
+function updateTargets(){
+  var inc=getIncome(),sym=getSym();
+  var n=inc*0.5,w=inc*0.3,s=inc*0.2;
+  document.getElementById('targetNeeds').textContent=fmt(n,sym);
+  document.getElementById('targetWants').textContent=fmt(w,sym);
+  document.getElementById('targetSavings').textContent=fmt(s,sym);
+  document.getElementById('needsTargetLabel').textContent=fmt(n,sym);
+  document.getElementById('wantsTargetLabel').textContent=fmt(w,sym);
+  document.getElementById('savingsTargetLabel').textContent=fmt(s,sym);
+  updateProgress();
+}
+
+function addRow(cat,name,amount){
+  rowCounts[cat]++;
+  var id=cat+'-'+rowCounts[cat];
+  var row=document.createElement('div');
+  row.className='expense-row';row.id='row-'+id;
+  row.innerHTML=
+    '<input type="text" class="expense-name" placeholder="e.g. '+(name||'Expense name')+'" value="'+(name||'')+'" id="name-'+id+'" />'+
+    '<input type="number" class="expense-amount" placeholder="0" min="0" step="0.01" value="'+(amount||'')+'" id="amt-'+id+'" oninput="updateProgress()" />'+
+    '<button class="btn-remove-row" onclick="removeRow(\''+id+'\',\''+cat+'\')">✕</button>';
+  document.getElementById(cat+'Rows').appendChild(row);
+  updateProgress();
+}
+
+function removeRow(id,cat){
+  var el=document.getElementById('row-'+id);
+  if(el)el.remove();
+  updateProgress();
+}
+
+function getCatTotal(cat){
+  var total=0;
+  document.querySelectorAll('#'+cat+'Rows .expense-amount').forEach(function(inp){
+    total+=parseFloat(inp.value)||0;
+  });
+  return total;
+}
+
+function updateProgress(){
+  var inc=getIncome(),sym=getSym();
+  var targets={needs:inc*0.5,wants:inc*0.3,savings:inc*0.2};
+  ['needs','wants','savings'].forEach(function(cat){
+    var total=getCatTotal(cat);
+    var target=targets[cat];
+    var pct=target>0?Math.min((total/target)*100,120):0;
+    var bar=document.getElementById(cat+'Bar');
+    bar.style.width=Math.min(pct,100)+'%';
+    var col=pct>105?'var(--red)':pct>95?'var(--amber)':'var(--'+cat+')';
+    if(cat==='savings')col=pct>=95?'var(--green)':pct>60?'var(--amber)':'var(--red)';
+    bar.style.background=col;
+    document.getElementById(cat+'Total').textContent=fmt(total,sym);
+    document.getElementById(cat+'Pct').textContent=Math.round(pct)+'% of target';
+    var rem=target-total;
+    document.getElementById(cat+'Remaining').textContent=rem>=0?fmt(rem,sym)+' remaining':fmt(Math.abs(rem),sym)+' over target';
+  });
+}
+
+function generateReport(){
+  var inc=getIncome(),sym=getSym();
+  if(inc<=0){alert('Please enter your monthly income first.');return;}
+  var month=document.getElementById('month').value||'This Month';
+  var targets={needs:inc*0.5,wants:inc*0.3,savings:inc*0.2};
+  var actuals={needs:getCatTotal('needs'),wants:getCatTotal('wants'),savings:getCatTotal('savings')};
+  var totalSpent=actuals.needs+actuals.wants+actuals.savings;
+  var unallocated=Math.max(inc-totalSpent,0);
+  lastReport={inc:inc,sym:sym,month:month,targets:targets,actuals:actuals,totalSpent:totalSpent,unallocated:unallocated};
+
+  document.getElementById('reportTitle').textContent='Budget Report — '+month;
+
+  // Score cards
+  var overallPct=inc>0?Math.round((totalSpent/inc)*100):0;
+  var savingsOk=actuals.savings>=(targets.savings*0.9);
+  var needsOk=actuals.needs<=targets.needs*1.05;
+  var wantsOk=actuals.wants<=targets.wants*1.05;
+  var score=([savingsOk,needsOk,wantsOk].filter(Boolean).length);
+  var scoreLabel=['Needs Work','Fair','Good','On Track'][score];
+  var scoreColor=['var(--red)','var(--amber)','var(--sage)','var(--green)'][score];
+  document.getElementById('scoreCard').innerHTML=
+    '<div class="score-item" style="animation-delay:0s"><div class="score-label">Total Tracked</div><div class="score-value" style="color:var(--sage)">'+fmt(totalSpent,sym)+'</div><div class="score-sub">of '+fmt(inc,sym)+' income</div></div>'+
+    '<div class="score-item" style="animation-delay:0.1s"><div class="score-label">Unallocated</div><div class="score-value" style="color:var(--gold)">'+fmt(unallocated,sym)+'</div><div class="score-sub">'+(unallocated>0?'not yet categorised':'fully allocated')+'</div></div>'+
+    '<div class="score-item" style="animation-delay:0.2s"><div class="score-label">Budget Status</div><div class="score-value" style="color:'+scoreColor+'">'+scoreLabel+'</div><div class="score-sub">'+score+' of 3 targets met</div></div>';
+
+  // Actual bar
+  var nPct=inc>0?(actuals.needs/inc*100):0;
+  var wPct=inc>0?(actuals.wants/inc*100):0;
+  var sPct=inc>0?(actuals.savings/inc*100):0;
+  var uPct=inc>0?(unallocated/inc*100):0;
+  document.getElementById('actualBar').innerHTML=
+    '<div style="width:'+Math.min(nPct,100)+'%;background:var(--needs);transition:width 0.8s;"></div>'+
+    '<div style="width:'+Math.min(wPct,100-nPct)+'%;background:var(--wants);transition:width 0.8s 0.1s;"></div>'+
+    '<div style="width:'+Math.min(sPct,100-nPct-wPct)+'%;background:var(--savings);transition:width 0.8s 0.2s;"></div>'+
+    '<div style="width:'+Math.min(uPct,100)+'%;background:var(--border);transition:width 0.8s 0.3s;"></div>';
+
+  // Table
+  var rows='';
+  [
+    {cat:'needs',label:'🏠 Needs',pct:'50%'},
+    {cat:'wants',label:'🎯 Wants',pct:'30%'},
+    {cat:'savings',label:'💰 Savings',pct:'20%'}
+  ].forEach(function(r){
+    var target=targets[r.cat];
+    var actual=actuals[r.cat];
+    var diff=target-actual;
+    var diffPct=target>0?Math.round(Math.abs(diff)/target*100):0;
+    var isOver=r.cat==='savings'?actual<target*0.9:actual>target*1.05;
+    var isGood=r.cat==='savings'?actual>=target*0.9:actual<=target;
+    var status=isGood?
+      '<span class="status-badge good">✓ On track</span>':
+      isOver?'<span class="status-badge over">↑ Over budget</span>':
+      '<span class="status-badge warn">~ Near limit</span>';
+    if(r.cat==='savings'){
+      status=actual>=target*0.9?'<span class="status-badge good">✓ On track</span>':
+        actual>=target*0.6?'<span class="status-badge warn">~ Below target</span>':
+        '<span class="status-badge over">↓ Under target</span>';
+    }
+    var diffStr=diff>=0?
+      '<span class="deviation-positive">+'+fmt(diff,sym)+'</span>':
+      '<span class="deviation-negative">-'+fmt(Math.abs(diff),sym)+'</span>';
+    if(r.cat==='savings'){
+      diffStr=diff>=0?
+        '<span class="deviation-negative">-'+fmt(diff,sym)+' short</span>':
+        '<span class="deviation-positive">+'+fmt(Math.abs(diff),sym)+' extra</span>';
+    }
+    rows+='<tr>'+
+      '<td><span class="cat-pill '+r.cat+'">'+r.label+'</span><br><span style="font-size:0.65rem;color:var(--muted);">Target: '+r.pct+' of income</span></td>'+
+      '<td>'+fmt(target,sym)+'</td>'+
+      '<td>'+fmt(actual,sym)+'</td>'+
+      '<td>'+diffStr+'</td>'+
+      '<td>'+status+'</td>'+
+      '</tr>';
+  });
+  document.getElementById('reportTableBody').innerHTML=rows;
+
+  // Insight
+  var insights=[];
+  if(actuals.savings<targets.savings*0.8)insights.push('💰 <strong>Savings shortfall:</strong> You saved '+fmt(actuals.savings,sym)+' against a target of '+fmt(targets.savings,sym)+'. Even a small automatic transfer on payday can bridge this gap next month.');
+  if(actuals.needs>targets.needs*1.1)insights.push('🏠 <strong>Needs over budget:</strong> Your essential expenses of '+fmt(actuals.needs,sym)+' exceeded the '+fmt(targets.needs,sym)+' target. Housing is typically the biggest lever — review any fixed costs that could be reduced.');
+  if(actuals.wants>targets.wants*1.1)insights.push('🎯 <strong>Wants over budget:</strong> Discretionary spending of '+fmt(actuals.wants,sym)+' exceeded the '+fmt(targets.wants,sym)+' target. A subscription audit or the 48-hour rule on purchases over $50 can help next month.');
+  if(unallocated>inc*0.05)insights.push('📋 <strong>Unallocated income:</strong> You have '+fmt(unallocated,sym)+' not yet categorised. Consider assigning it to savings or debt payoff before the month ends.');
+  if(insights.length===0)insights.push('✅ <strong>Great month!</strong> All three categories are on track. Keep the automation running and review again next month to stay consistent.');
+  document.getElementById('insightBox').innerHTML=insights.join('<br><br>');
+
+  var reportEl=document.getElementById('report');
+  reportEl.classList.add('visible');
+  reportEl.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function resetAll(){
+  ['needs','wants','savings'].forEach(function(cat){
+    document.getElementById(cat+'Rows').innerHTML='';
+    rowCounts[cat]=0;
+  });
+  document.getElementById('report').classList.remove('visible');
+  loadDefaults();
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loadDefaults(){
+  Object.keys(defaultItems).forEach(function(cat){
+    defaultItems[cat].forEach(function(name){addRow(cat,name,'');});
+  });
+}
+
+function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
+function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
+
+function sendEmail(){
+  var to=document.getElementById('emailTo').value.trim();
+  var from=document.getElementById('emailFrom').value.trim();
+  var r=lastReport;
+  if(!to){alert('Please enter a recipient email.');return;}
+  var greeting=from?from+' has shared their monthly budget report.':'Here is my 50/30/20 budget report:';
+  var subject=encodeURIComponent('Budget Report — '+r.month+' — 503020.ca');
+  var body=encodeURIComponent(
+    greeting+'\n\n━━━━━━━━━━━━━━━━━━━━━\nBUDGET REPORT — '+r.month.toUpperCase()+'\n━━━━━━━━━━━━━━━━━━━━━\n\n'+
+    'Monthly Income: '+r.sym+Math.round(r.inc).toLocaleString()+'\n\n'+
+    '🏠 NEEDS (50% target: '+r.sym+Math.round(r.targets.needs).toLocaleString()+')\n'+
+    '   Actual: '+r.sym+Math.round(r.actuals.needs).toLocaleString()+
+    ' ('+(r.actuals.needs<=r.targets.needs?'✓ On track':'↑ Over by '+r.sym+Math.round(r.actuals.needs-r.targets.needs).toLocaleString())+')\n\n'+
+    '🎯 WANTS (30% target: '+r.sym+Math.round(r.targets.wants).toLocaleString()+')\n'+
+    '   Actual: '+r.sym+Math.round(r.actuals.wants).toLocaleString()+
+    ' ('+(r.actuals.wants<=r.targets.wants?'✓ On track':'↑ Over by '+r.sym+Math.round(r.actuals.wants-r.targets.wants).toLocaleString())+')\n\n'+
+    '💰 SAVINGS (20% target: '+r.sym+Math.round(r.targets.savings).toLocaleString()+')\n'+
+    '   Actual: '+r.sym+Math.round(r.actuals.savings).toLocaleString()+
+    ' ('+(r.actuals.savings>=r.targets.savings*0.9?'✓ On track':'↓ Short by '+r.sym+Math.round(r.targets.savings-r.actuals.savings).toLocaleString())+')\n\n'+
+    '━━━━━━━━━━━━━━━━━━━━━\nhttps://503020.ca/tracker.html\nNot financial advice.'
+  );
+  window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;
+  closeEmailModal();
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEmailModal();});
+window.addEventListener('load',function(){updateTargets();loadDefaults();});
+</script>
+</body>
+</html>
