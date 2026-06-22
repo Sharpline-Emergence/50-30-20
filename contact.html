@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta name="description" content="Contact Sharpline — creators of the free 50/30/20 Budget Calculator at 503020.ca. Send us feedback, questions or suggestions." />
@@ -72,17 +71,14 @@
     <div class="card-title">Send a Message <div class="card-title-bar"></div></div>
 
     <form id="contactForm">
-
       <div class="form-group">
         <label class="form-label" for="name">Your Name *</label>
         <input type="text" id="name" name="name" placeholder="Jane Smith" required />
       </div>
-
       <div class="form-group">
         <label class="form-label" for="email">Email Address *</label>
         <input type="email" id="email" name="email" placeholder="jane@example.com" required />
       </div>
-
       <div class="form-group">
         <label class="form-label" for="subject">Topic *</label>
         <select id="subject" name="subject" required>
@@ -94,12 +90,10 @@
           <option value="Other">Other</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label" for="message">Message *</label>
         <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
       </div>
-
       <button type="submit" id="submitBtn" class="btn-primary">Send Message →</button>
     </form>
 
@@ -137,13 +131,12 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Disable button while sending
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
     var data = new FormData(form);
 
-    fetch('https://formspree.io/f/xlgzqoeb', {
+    fetch('https://formspree.io/f/xkolnkyg', {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
