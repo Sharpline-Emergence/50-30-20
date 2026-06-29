@@ -39,10 +39,10 @@
 <style>
   :root{--ink:#0f1a0f;--paper:#f5f0e8;--sage:#4a7c59;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--cream:#faf7f0;--muted:#8a8a7a;--border:#d8d0c0;--needs:#4a7c59;--wants:#c8922a;--savings:#3a6b8a;--needs-pale:#d4e8da;--wants-pale:#fdf3e0;--savings-pale:#c8dce8;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:5rem;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:1rem;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
   header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
-  .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;text-decoration:none;}
   .logo span{color:var(--gold);}
   .tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
   nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
@@ -177,7 +177,7 @@
 <body>
 
 <header>
-  <div class="logo">Sharpline<span>.</span></div>
+  <a href="index.html" class="logo">Sharpline<span>.</span></a>
   <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
 </header>
 
@@ -472,6 +472,7 @@
 
 <footer>
   Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
+  <a href="tracker.html">Tracker</a> &nbsp;·&nbsp;
   <a href="guides.html">Guides</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
   <a href="contact.html">Contact</a> &nbsp;·&nbsp;
@@ -481,8 +482,6 @@
   <a href="https://ca.pinterest.com/09cldr3fi281mrfxxo6ojrxbxrmmk6/" target="_blank" rel="noopener">📌 Pinterest</a> &nbsp;·&nbsp;
   Not financial advice
 </footer>
-
-<nav><a href="index.html">🏠 Calculator</a><a href="tracker.html">📊 Tracker</a><a href="guides.html">📚 Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
 
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
