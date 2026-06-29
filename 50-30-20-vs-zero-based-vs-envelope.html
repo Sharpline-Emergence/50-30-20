@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>50/30/20 vs Zero-Based vs Envelope Budgeting: Which Fits You? | 503020.ca</title>
+<meta name="description" content="A frank comparison of the three most popular budgeting methods — 50/30/20, zero-based, and envelope — for Canadians. What each does well, where each falls down, and how to pick the one you'll actually stick with.">
+<link rel="canonical" href="https://503020.ca/50-30-20-vs-zero-based-vs-envelope.html">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f0e8;--cream:#faf7f0;--card:#fdfbf4;--sage:#4a7c59;--sage-deep:#35543f;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--ink:#0f1a0f;--muted:#8a8a7a;--line:#d8d0c0;--border:#d8d0c0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;line-height:1.85;font-size:16px;padding-bottom:5rem}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+header{padding:2.2rem 2rem 1.4rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em}
+.logo span{color:var(--gold)}
+.tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase}
+nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 2rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.2rem;font-size:0.68rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);flex-wrap:wrap}
+nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+nav a:hover{color:var(--gold)}
+article{padding:46px 0 20px}
+.kicker{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:40px;line-height:1.15;margin:0 0 18px;color:var(--sage-deep)}
+.byline{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:22px 0 30px}
+.byline b{color:var(--ink)}
+article h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:27px;color:var(--sage-deep);margin:38px 0 12px;line-height:1.25}
+article h3{font-family:Georgia,serif;font-size:20px;color:var(--ink);margin:26px 0 8px}
+article p{margin:0 0 18px}
+article a{color:var(--sage);text-decoration:underline}
+.lead{font-size:20px;color:#403F38}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:9px}
+.box{background:var(--cream);border-left:4px solid var(--gold);border-radius:6px;padding:20px 22px;margin:28px 0}
+.box h3{margin-top:0}
+.pull{font-family:'DM Serif Display',Georgia,serif;font-size:24px;color:var(--sage);line-height:1.3;border-left:3px solid var(--sage-light);padding-left:20px;margin:30px 0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);background:var(--cream)}
+tr:last-child td{border-bottom:none}
+.cta{background:var(--sage-deep);border-radius:10px;padding:28px;margin:40px 0;text-align:center}
+.cta h3{font-family:'DM Serif Display',serif;color:#fff;font-size:24px;margin:0 0 8px}
+.cta p{color:#D7DECC;margin:0 0 16px}
+.cta a{display:inline-block;background:var(--gold);color:#2C2C27;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:1px;font-size:13px;text-decoration:none;padding:12px 26px;border-radius:6px}
+.author{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin:36px 0}
+.author .av{flex:0 0 56px;height:56px;width:56px;border-radius:50%;background:var(--sage);color:#fff;font-family:'DM Serif Display',serif;font-size:24px;display:flex;align-items:center;justify-content:center}
+.author h4{margin:0 0 6px;font-family:'DM Serif Display',serif;font-weight:400;font-size:19px;color:var(--sage-deep)}
+.author p{font-size:15px;color:var(--muted);margin:0}
+footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:2rem;line-height:2}
+footer a{color:var(--sage);text-decoration:none}
+footer a:hover{color:var(--gold)}
+.disclaimer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:30px}
+@media(max-width:560px){h1{font-size:31px}body{font-size:17px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sharpline<span>.</span></div>
+  <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
+</header>
+
+<div class="wrap">
+<article>
+  <div class="kicker">Method Comparison</div>
+  <h1>50/30/20 vs Zero-Based vs Envelope Budgeting: Which Fits You?</h1>
+
+  <div class="byline">
+    By <b>P. Beal</b> &nbsp;·&nbsp; 26 years in banking &amp; financial planning &nbsp;·&nbsp; Last reviewed June 2026
+  </div>
+
+  <p class="lead">There's no single "best" budget — there's the one you'll actually keep doing. The three most popular methods all work, but they ask very different things of you. Here's a frank comparison so you can pick the one that fits your temperament, not someone else's.</p>
+
+  <h2>The three methods, in one breath each</h2>
+
+  <p><strong>50/30/20</strong> splits your take-home pay into three buckets — roughly 50% needs, 30% wants, 20% savings and debt — and leaves the details to you. <strong>Zero-based budgeting</strong> gives every single dollar a specific job until you've assigned all of it. <strong>Envelope budgeting</strong> caps each spending category with a hard limit, and when an envelope is empty, that's it until next month. Light-touch, full-control, hard-limits. That's the spectrum.</p>
+
+  <table>
+    <tr><th>Method</th><th>Best for</th><th>Effort</th><th>Main weakness</th></tr>
+    <tr><td><strong>50/30/20</strong></td><td>Beginners; people who want structure without micromanaging</td><td>Low</td><td>Vague — can hide overspending inside a bucket</td></tr>
+    <tr><td><strong>Zero-based</strong></td><td>Tight budgets; aggressive debt payoff; detail-lovers</td><td>High</td><td>Time-consuming; can feel restrictive</td></tr>
+    <tr><td><strong>Envelope</strong></td><td>Chronic overspenders in specific categories</td><td>Medium</td><td>Clunky in a tap-to-pay world</td></tr>
+  </table>
+
+  <h2>50/30/20: the easy on-ramp</h2>
+
+  <p>This is the method this whole site is built around, so let me be even-handed about it. Its strength is that it's almost frictionless — three categories, percentage targets, done. You don't track every transaction; you just keep each bucket roughly in line. For most people who've never budgeted before, it's the one most likely to stick, because it doesn't demand a spreadsheet habit they don't have.</p>
+
+  <p>The honest weakness: it's loose. "30% on wants" doesn't tell you whether that's all going to restaurants or spread sensibly across your life, and it's entirely possible to hit your percentages while quietly overspending inside a category. It's a thermostat, not a microscope. For a lot of households, that's exactly the right amount of structure. For someone trying to claw out of debt or stretch a very tight income, it may be too forgiving.</p>
+
+  <h2>Zero-based budgeting: maximum control</h2>
+
+  <p>Zero-based means income minus expenses equals zero — not because you've spent it all, but because every dollar has been <em>assigned</em> a destination, including savings and debt. Nothing floats around undefined. It's the method behind tools like YNAB, and it's the most powerful one for awareness, because you can't assign a dollar you haven't consciously thought about.</p>
+
+  <p>It shines when money is tight or when you're attacking debt, because that's exactly when you need to know where every dollar is going. The cost is effort: you're planning each month deliberately and tracking against it. Some people love that level of engagement; others abandon it within weeks. It's also a bit fiddlier on an irregular income, though it can be adapted — see the <a href="50-30-20-irregular-income-canada.html">baseline approach</a> I describe for gig workers, which layers neatly onto a zero-based plan.</p>
+
+  <p class="pull">50/30/20 tells you how the pie should be sliced. Zero-based decides where every crumb goes.</p>
+
+  <h2>Envelope budgeting: hard limits that actually stop you</h2>
+
+  <p>The envelope method is the oldest of the three: divide your spending money into categories, and once a category is empty, you stop spending in it until the next month. Traditionally this meant literal cash in literal envelopes. The genius is the hard stop — when the "dining out" envelope is empty, the decision is made for you.</p>
+
+  <p>It's the best method for one specific problem: chronic overspending in particular categories. If groceries or takeout or online shopping consistently blow past where you want them, the physical or digital limit does what willpower alone won't. The downside in 2026 is obvious — most of us pay by card or phone, and running a cash system is awkward. Digital "envelope" apps solve this, but you trade the visceral feel of empty envelope for an app notification, which isn't quite as effective for everyone.</p>
+
+  <h2>A quick word on "pay yourself first"</h2>
+
+  <p>You'll see this fourth idea mentioned everywhere, and it's worth knowing because it pairs with all three methods rather than competing with them. "Pay yourself first" simply means your savings come <em>off the top</em>, automatically, the day you're paid — before you budget anything else. It's not a full system on its own, but bolting it onto any of the three above is the single highest-leverage habit in personal finance. Whatever method you choose, automate the savings first.</p>
+
+  <h2>So which one should you use?</h2>
+
+  <p>Match the method to the problem you actually have:</p>
+  <ul>
+    <li><strong>You've never budgeted and want to start without it taking over your life</strong> → 50/30/20. Get the buckets roughly right, automate your savings, and you're 80% of the way there.</li>
+    <li><strong>Money is tight, or you're serious about killing debt fast</strong> → zero-based. You need the awareness, and the effort pays for itself.</li>
+    <li><strong>You budget fine in theory but keep blowing one or two categories</strong> → envelope (digital is fine) on just those categories.</li>
+    <li><strong>You're doing well and want to optimize</strong> → 50/30/20 as the frame, with savings paid first and a flip toward a higher savings share.</li>
+  </ul>
+
+  <div class="box">
+    <h3>You're allowed to mix them</h3>
+    <p>These aren't rival religions. A very common, very effective setup is 50/30/20 as your overall frame, "pay yourself first" automation on the 20%, and a digital envelope cap on the one or two categories you tend to overspend. Use whatever combination keeps you on track — the method is a means, not the goal.</p>
+  </div>
+
+  <h2>My take</h2>
+
+  <p>After 26 years in banking, the pattern I saw over and over is that people don't fail at budgeting because they picked the wrong method — they fail because they picked one too demanding for their actual habits and quit. A "worse" method you stick with beats a "better" one you abandon in three weeks. That's the real reason I point most beginners to 50/30/20: not because it's the most powerful, but because it's the most survivable. Get the habit established, then graduate to something tighter if and when you need more control.</p>
+
+  <div class="cta">
+    <h3>Start with the simple version</h3>
+    <p>See your 50/30/20 split in seconds, then layer on whatever else you need — free, no sign-up.</p>
+    <a href="index.html">Open the calculator</a>
+  </div>
+
+  <div class="author">
+    <div class="av">P</div>
+    <div>
+      <h4>About the author — P. Beal</h4>
+      <p>P. Beal spent 26 years in banking and financial planning and has run small businesses in British Columbia for nearly two decades. He writes 503020.ca to give Canadians plain, practical money guidance without the sales pitch.</p>
+    </div>
+  </div>
+
+  <p style="font-size:15px;color:var(--muted)"><strong>Keep reading:</strong> <a href="where-50-30-20-falls-short.html">Where the 50/30/20 rule falls short</a> &nbsp;·&nbsp; <a href="50-30-20-irregular-income-canada.html">Budgeting on an irregular income</a> &nbsp;·&nbsp; <a href="guides.html">All guides</a></p>
+
+  <p class="disclaimer">This article is general information for Canadian readers and reflects the author's professional experience. It is not personal financial, tax, or investment advice. For guidance on your specific situation, speak with a licensed advisor or accountant.</p>
+
+</article>
+</div>
+
+<footer>
+  Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
+  <a href="guides.html">Guides</a> &nbsp;·&nbsp;
+  <a href="about.html">About</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="disclaimer.html">Disclaimer</a> &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/toolssharpline/" target="_blank" rel="noopener">📷 Instagram</a> &nbsp;·&nbsp;
+  <a href="https://ca.pinterest.com/09cldr3fi281mrfxxo6ojrxbxrmmk6/" target="_blank" rel="noopener">📌 Pinterest</a> &nbsp;·&nbsp;
+  Not financial advice
+</footer>
+
+<nav><a href="index.html">🏠 Calculator</a><a href="tracker.html">📊 Tracker</a><a href="guides.html">📚 Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
+
+</body>
+</html>
