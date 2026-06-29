@@ -10,10 +10,10 @@
 <style>
 :root{--paper:#f5f0e8;--cream:#faf7f0;--card:#fdfbf4;--sage:#4a7c59;--sage-deep:#35543f;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--ink:#0f1a0f;--muted:#8a8a7a;--line:#d8d0c0;--border:#d8d0c0}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;line-height:1.85;font-size:16px;padding-bottom:5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;line-height:1.85;font-size:16px;padding-bottom:1.5rem}
 .wrap{max-width:720px;margin:0 auto;padding:0 22px}
 header{padding:2.2rem 2rem 1.4rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
-.logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em}
+.logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;text-decoration:none}
 .logo span{color:var(--gold)}
 .tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase}
 nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 2rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.2rem;font-size:0.68rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);flex-wrap:wrap}
@@ -52,7 +52,7 @@ footer a:hover{color:var(--gold)}
 <body>
 
 <header>
-  <div class="logo">Sharpline<span>.</span></div>
+  <a href="index.html" class="logo">Sharpline<span>.</span></a>
   <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
 </header>
 
@@ -139,6 +139,7 @@ footer a:hover{color:var(--gold)}
 
 <footer>
   Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
+  <a href="tracker.html">Tracker</a> &nbsp;·&nbsp;
   <a href="guides.html">Guides</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
   <a href="contact.html">Contact</a> &nbsp;·&nbsp;
@@ -148,8 +149,6 @@ footer a:hover{color:var(--gold)}
   <a href="https://ca.pinterest.com/09cldr3fi281mrfxxo6ojrxbxrmmk6/" target="_blank" rel="noopener">📌 Pinterest</a> &nbsp;·&nbsp;
   Not financial advice
 </footer>
-
-<nav><a href="index.html">🏠 Calculator</a><a href="tracker.html">📊 Tracker</a><a href="guides.html">📚 Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
 
 </body>
 </html>
