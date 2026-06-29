@@ -1,33 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core tools -->
   <url>
     <loc>https://503020.ca/</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://503020.ca/about.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <loc>https://503020.ca/tracker.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Guides hub + articles -->
+  <url>
+    <loc>https://503020.ca/guides.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/who-created-50-30-20-rule.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://503020.ca/privacy.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <loc>https://503020.ca/50-30-20-high-cost-of-living-canada.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/50-30-20-irregular-income-canada.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/50-30-20-vs-zero-based-vs-envelope.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/where-50-30-20-falls-short.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Quick answers -->
+  <url>
+    <loc>https://503020.ca/faq.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Site pages -->
+  <url>
+    <loc>https://503020.ca/about.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://503020.ca/contact.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://503020.ca/disclaimer.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://503020.ca/privacy.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/disclaimer.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
