@@ -4,51 +4,27 @@
   <!-- Core tools -->
   <url>
     <loc>https://503020.ca/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://503020.ca/tracker.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Guides hub + articles -->
+  <!-- Articles -->
   <url>
-    <loc>https://503020.ca/guides.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://503020.ca/who-created-50-30-20-rule.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://503020.ca/50-30-20-origin-and-limits.html</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://503020.ca/50-30-20-high-cost-of-living-canada.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://503020.ca/50-30-20-irregular-income-canada.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://503020.ca/50-30-20-vs-zero-based-vs-envelope.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://503020.ca/where-50-30-20-falls-short.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://503020.ca/50-30-20-in-practice.html</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -56,7 +32,7 @@
   <!-- Quick answers -->
   <url>
     <loc>https://503020.ca/faq.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -64,7 +40,7 @@
   <!-- Site pages -->
   <url>
     <loc>https://503020.ca/about.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
