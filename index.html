@@ -466,7 +466,7 @@
   var lastResults={};
   function toggleFaq(el){el.parentElement.classList.toggle('open');}
   function fmt(n,sym){return sym+Math.round(n).toLocaleString();}
-  function calculate(){
+  function calculate(scroll){
     var income=parseFloat(document.getElementById('income').value)||0;
     var period=document.getElementById('period').value;
     var sym=document.getElementById('currency').value;
@@ -489,7 +489,7 @@
     else if(savings<monthly*0.1)tip='💡 <strong>Savings tip:</strong> Even setting aside 10% ('+fmt(monthly*0.1,sym)+'/mo) consistently into a TFSA or RRSP builds real financial security. Set up an automatic transfer on payday.';
     else tip='✅ <strong>Solid framework:</strong> At '+fmt(monthly,sym)+'/mo take-home, your 20% savings target is '+fmt(savings,sym)+'/mo. Automate it on payday into your TFSA, RRSP or FHSA and it happens without thinking.';
     document.getElementById('tipBox').innerHTML=tip;
-    var el=document.getElementById('results');el.classList.add('visible');el.scrollIntoView({behavior:'smooth',block:'nearest'});
+    var el=document.getElementById('results');el.classList.add('visible');if(scroll!==false)el.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
   function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
   function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
@@ -503,8 +503,8 @@
     var body=encodeURIComponent(greeting+'\n\n━━━━━━━━━━━━━━━━━━━━━\n50/30/20 BUDGET SPLIT\n━━━━━━━━━━━━━━━━━━━━━\n\nMonthly Take-Home: '+r.sym+Math.round(r.monthly).toLocaleString()+'\n\n🏠 Needs (50%):   '+r.sym+Math.round(r.needs).toLocaleString()+'/mo\n🎯 Wants (30%):   '+r.sym+Math.round(r.wants).toLocaleString()+'/mo\n💰 Savings (20%): '+r.sym+Math.round(r.savings).toLocaleString()+'/mo\n\n━━━━━━━━━━━━━━━━━━━━━\nhttps://503020.ca\nNot financial advice.');
     window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;closeEmailModal();
   }
-  document.addEventListener('keydown',function(e){if(e.key==='Enter')calculate();if(e.key==='Escape')closeEmailModal();});
-  window.addEventListener('load',function(){calculate();});
+  document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.closest&&e.target.closest('.input-panel'))calculate();if(e.key==='Escape')closeEmailModal();});
+  window.addEventListener('load',function(){calculate(false);});
 </script>
 </body>
 </html>
