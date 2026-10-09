@@ -1,0 +1,15 @@
+/* Shared site navigation tabs — 503020.ca
+   Used on every page. Colours are fixed values so the tabs look the same
+   on pages that use different colour variables. */
+header:has(.st-tabs){flex-wrap:wrap;}
+.st-tabs{margin-left:auto;display:flex;gap:0.3rem;flex-wrap:wrap;align-self:center;}
+.st-tabs a{font-family:'DM Mono',ui-monospace,Menlo,monospace;font-size:0.68rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#4a7c59;text-decoration:none;padding:0.45rem 0.8rem;border:1px solid transparent;border-radius:3px;line-height:1.4;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.st-tabs a:hover{color:#c8922a;border-color:#d8d0c0;}
+.st-tabs a.active{background:#4a7c59;color:#fff;border-color:#4a7c59;}
+.st-tabs a:focus-visible{outline:2px solid #c8922a;outline-offset:2px;}
+@media(max-width:680px){
+  header:has(.st-tabs){padding-left:1rem;padding-right:1rem;}
+  .st-tabs{margin-left:0;margin-top:0.6rem;gap:0.15rem;width:100%;}
+  .st-tabs a{padding:0.4rem 0.5rem;font-size:0.62rem;letter-spacing:0.06em;}
+}
+@media print{.st-tabs{display:none !important;}}

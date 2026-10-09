@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-adsense-account" content="ca-pub-8775883855490271">
   <meta name="description" content="Privacy Policy for Sharpline's free 50/30/20 Budget Calculator at 503020.ca. We never store your financial data." />
@@ -17,7 +16,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--cream:#f0ede6;--cream-dark:#e6e2d8;--white:#ffffff;--green:#2d5a3d;--green-dark:#1e3d2a;--green-light:#e8f0eb;--gold:#b8860b;--gold-mid:#c49a1a;--border:#d8d3c8;--text:#1a1a1a;--text-mid:#3a3a3a;--text-muted:#7a7572;--label:#6b6760}
-    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;padding-bottom:56px}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;padding-bottom:0}
     .site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;gap:12px}
     .logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--green);text-decoration:none}
     .logo-dot{color:var(--gold-mid)}
@@ -44,18 +43,22 @@
     @media(min-width:860px){.bottom-nav{display:none}body{padding-bottom:0}}
     @media(max-width:580px){.card{padding:20px 16px}}
   </style>
+<link rel="stylesheet" href="tabs.css">
 </head>
 <body>
 <header class="site-header">
   <a href="index.html" class="logo">Sharpline<span class="logo-dot">.</span></a>
   <span class="header-pipe">|</span>
   <span class="header-sub">Privacy Policy &nbsp;·&nbsp; 503020.ca</span>
+  <div class="st-tabs" role="navigation" aria-label="Main">
+    <a href="index.html">Calculator</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="about.html">About</a>
+  </div>
 </header>
 
-<div class="ad-banner">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8775883855490271" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 
 <main><div class="container">
 
@@ -80,7 +83,7 @@
       <p>We use Google AdSense to display advertisements. AdSense uses cookies to serve ads based on your prior visits to this and other websites. You may opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a>. For more information: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">google.com/policies/privacy</a>.</p>
 
       <h2>4. Third-Party Services</h2>
-      <p>The Site uses Google AdSense (advertising) and GitHub Pages (hosting), each governed by their own privacy policies.</p>
+      <p>The Site uses Google AdSense (advertising), GitHub Pages (hosting), Google Fonts (typefaces) and Formspree (which delivers messages sent through our contact form), each governed by its own privacy policy.</p>
 
       <h2>5. Children's Privacy</h2>
       <p>Our Site is not directed to children under 13. We do not knowingly collect personal information from children.</p>
@@ -110,13 +113,6 @@
   &nbsp;·&nbsp; 503020.ca &nbsp;·&nbsp; Not financial advice.
 </footer>
 
-<nav class="bottom-nav">
-  <a href="index.html"><span class="nav-icon">🏠</span>Calculator</a>
-  <a href="tracker.html"><span class="nav-icon">📊</span>Tracker</a>
-  <a href="about.html"><span class="nav-icon">ℹ️</span>About</a>
-  <a href="privacy.html" class="active"><span class="nav-icon">🔒</span>Privacy</a>
-  <a href="contact.html"><span class="nav-icon">✉️</span>Contact</a>
-</nav>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

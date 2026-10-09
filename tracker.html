@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monthly Budget Tracker — 50/30/20 Spending Breakdown | Sharpline</title>
 <meta name="description" content="Track your actual monthly spending against your 50/30/20 budget targets. See exactly where you are over or under in needs, wants and savings. Free, no sign-up.">
-<meta name="author" content="Sharpline">
+<meta name="author" content="P. Beal">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://503020.ca/tracker.html">
 <meta name="google-adsense-account" content="ca-pub-8775883855490271">
@@ -21,7 +21,7 @@
     --red:#b84444;--red-pale:#f5dada;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:5rem;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:1rem;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
   header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
   .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
@@ -158,18 +158,26 @@
     .report{display:block !important;}
   }
 </style>
+<link rel="stylesheet" href="tabs.css">
 </head>
 <body>
 
 <header>
-  <div class="logo">Sharpline<span>.</span></div>
+  <a href="index.html" class="logo" style="text-decoration:none;">Sharpline<span>.</span></a>
   <div class="tagline">Monthly Budget Tracker | 503020.ca</div>
+  <div class="st-tabs" role="navigation" aria-label="Main">
+    <a href="index.html">Calculator</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="tracker.html" class="active" aria-current="page">Tracker</a>
+    <a href="about.html">About</a>
+  </div>
 </header>
 
 <div class="wrap">
   <div class="hero">
     <h1>Monthly <span>Spending</span> Tracker</h1>
-    <p>Enter your take-home income, then add your actual expenses. See exactly how your spending compares to your 50/30/20 targets — and where to adjust.</p>
+    <p>Enter your monthly take-home pay, then add what you actually spent. See exactly how your spending compares to your 50/30/20 targets — and where to adjust.</p>
   </div>
 
   <div style="background:var(--sage-pale);border:1px solid var(--sage);border-radius:4px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
@@ -191,12 +199,11 @@
       <div>
         <label>Currency</label>
         <select id="currency" onchange="updateTargets()">
-          <option value="$" selected>$ — US Dollar</option>
-          <option value="CA$">CA$ — Canadian Dollar</option>
-          <option value="£">£ — British Pound</option>
-          <option value="€">€ — Euro</option>
-          <option value="A$">A$ — Australian Dollar</option>
-          <option value="R$">R$ — Brazilian Real</option>
+          <option value="$" selected>CAD ($)</option>
+          <option value="US$">USD (US$)</option>
+          <option value="£">GBP (£)</option>
+          <option value="€">EUR (€)</option>
+          <option value="A$">AUD (A$)</option>
         </select>
       </div>
       <div>
@@ -272,8 +279,6 @@
     <button class="btn btn-primary" style="max-width:360px;" onclick="generateReport()">Generate My Report →</button>
   </div>
 
-  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
-
   <!-- Report -->
   <div class="report" id="report">
     <div class="report-title" id="reportTitle">Budget Report</div>
@@ -340,13 +345,6 @@
   Not financial advice
 </footer>
 
-<nav>
-  <a href="index.html">🏠 Calculator</a>
-  <a href="tracker.html">📊 Tracker</a>
-  <a href="about.html">About</a>
-  <a href="privacy.html">Privacy</a>
-  <a href="contact.html">Contact</a>
-</nav>
 
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
@@ -364,9 +362,9 @@ var rowCounts={needs:0,wants:0,savings:0};
 var lastReport={};
 
 var defaultItems={
-  needs:['Rent / Mortgage','Groceries','Utilities','Internet / Phone','Car Payment','Gas','Health Insurance','Minimum Debt Payments'],
+  needs:['Rent / Mortgage','Groceries','Hydro / Utilities','Internet / Phone','Car Payment','Gas / Transit','Home & Auto Insurance','Minimum Debt Payments'],
   wants:['Dining Out','Streaming Services','Gym / Fitness','Entertainment','Shopping / Clothing','Personal Care'],
-  savings:['Emergency Fund','401(k) / RRSP','IRA / TFSA / FHSA','Investment Account','Extra Debt Payment']
+  savings:['Emergency Fund','RRSP / Group RRSP','TFSA','FHSA','RESP','Extra Debt Payment']
 };
 
 function fmt(n,sym){return (sym||getSym())+Math.abs(Math.round(n)).toLocaleString();}

@@ -59,12 +59,20 @@ footer a:hover{color:var(--gold)}
 .disclaimer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:30px}
 @media(max-width:560px){h1{font-size:31px}body{font-size:17px}}
 </style>
+<link rel="stylesheet" href="tabs.css">
 </head>
 <body>
 
 <header>
   <a href="index.html" class="logo">Sharpline<span>.</span></a>
   <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
+  <div class="st-tabs" role="navigation" aria-label="Main">
+    <a href="index.html">Calculator</a>
+    <a href="guides.html" class="active" aria-current="page">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="about.html">About</a>
+  </div>
 </header>
 
 <div class="wrap">
@@ -89,12 +97,14 @@ footer a:hover{color:var(--gold)}
 
   <p>The three most popular budgeting methods all work, but they ask very different things of you. <strong>50/30/20</strong> splits your take-home pay into three buckets — roughly 50% needs, 30% wants, 20% savings and debt — and leaves the details to you. <strong>Zero-based budgeting</strong> gives every single dollar a specific job until you've assigned all of it. <strong>Envelope budgeting</strong> caps each spending category with a hard limit, and when an envelope is empty, that's it until next month. Light-touch, full-control, hard-limits. That's the spectrum.</p>
 
+  <div style="overflow-x:auto;">
   <table>
     <tr><th>Method</th><th>Best for</th><th>Effort</th><th>Main weakness</th></tr>
     <tr><td><strong>50/30/20</strong></td><td>Beginners; people who want structure without micromanaging</td><td>Low</td><td>Vague — can hide overspending inside a bucket</td></tr>
     <tr><td><strong>Zero-based</strong></td><td>Tight budgets; aggressive debt payoff; detail-lovers</td><td>High</td><td>Time-consuming; can feel restrictive</td></tr>
     <tr><td><strong>Envelope</strong></td><td>Chronic overspenders in specific categories</td><td>Medium</td><td>Clunky in a tap-to-pay world</td></tr>
   </table>
+  </div>
 
   <h3 class="subhead">50/30/20: the easy on-ramp</h3>
 
@@ -217,6 +227,7 @@ footer a:hover{color:var(--gold)}
 
   <p>Let's make it concrete. Meet a Fraser Valley gig worker — rideshare plus some weekend delivery — whose gross income over the past six months looked like this:</p>
 
+  <div style="overflow-x:auto;">
   <table>
     <tr><th>Month</th><th class="num">Gross income</th></tr>
     <tr><td>January</td><td class="num">$3,400</td></tr>
@@ -226,6 +237,7 @@ footer a:hover{color:var(--gold)}
     <tr><td>May</td><td class="num">$4,200</td></tr>
     <tr><td>June</td><td class="num">$3,000</td></tr>
   </table>
+  </div>
 
   <p><strong>Step 1 — baseline.</strong> The three lowest months are June ($3,000), February ($3,100), and January ($3,400). Average: about <strong>$3,167</strong>. Round down to a clean, safe <strong>$3,100</strong>. That's the number we budget from.</p>
 
@@ -233,12 +245,14 @@ footer a:hover{color:var(--gold)}
 
   <p><strong>Step 3 — the 50/30/20 split</strong> on that $2,260:</p>
 
+  <div style="overflow-x:auto;">
   <table>
     <tr><th>Category</th><th class="num">Share</th><th class="num">Monthly</th></tr>
     <tr><td>Needs (housing, food, transport, insurance, minimum debt)</td><td class="num">50%</td><td class="num">$1,130</td></tr>
     <tr><td>Wants (dining out, entertainment, extras)</td><td class="num">30%</td><td class="num">$678</td></tr>
     <tr><td>Savings &amp; extra debt repayment</td><td class="num">20%</td><td class="num">$452</td></tr>
   </table>
+  </div>
 
   <p><strong>Step 4 — the buffer in action.</strong> In March our worker grossed $4,500. After a 27% tax holdback (~$1,215), that's about $3,285 spendable — roughly $1,025 <em>above</em> the $2,260 baseline. That extra $1,025 doesn't get spent. It goes into the buffer account. Come June, a $3,000 month, the buffer quietly covers the shortfall and the budget never even notices the dip. Once the buffer holds a month or two of expenses, the overflow from strong months pours straight into that 20% line — paying down debt or building real savings faster than a steady paycheque ever could.</p>
 

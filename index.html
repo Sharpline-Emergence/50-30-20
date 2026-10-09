@@ -155,16 +155,25 @@
   footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
   footer a{color:var(--sage);text-decoration:none;}
   footer a:hover{color:var(--gold);}
+  html{scroll-behavior:smooth;}
   @media(max-width:680px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.input-row{grid-template-columns:1fr;}.budget-cats{grid-template-columns:1fr;}.next-grid{grid-template-columns:1fr;}.cat-explainer{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.steps-grid{grid-template-columns:1fr;}.planner-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr 1fr;}.share-row{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
   @media(max-width:400px){.tools-grid{grid-template-columns:1fr;}}
   @media print{body::before,nav,.ad-slot,.share-row,.tools-panel,.calc-btn{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
 </style>
+<link rel="stylesheet" href="tabs.css">
 </head>
 <body>
 
 <header>
   <a href="index.html" class="logo">Sharpline<span>.</span></a>
   <div class="tagline">50/30/20 Budget Calculator | 503020.ca</div>
+  <div class="st-tabs" role="navigation" aria-label="Main">
+    <a href="index.html" class="active" aria-current="page">Calculator</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="about.html">About</a>
+  </div>
 </header>
 
 <div class="calc-wrap">
@@ -405,7 +414,7 @@
     <p><a href="faq.html" style="color:var(--sage);font-weight:500;">Read the 50/30/20 FAQ →</a></p>
   </div>
 
-  <div class="section">
+  <div class="section" id="guides" style="scroll-margin-top:1rem;">
     <h2>Go Deeper on the 50/30/20 Rule</h2>
     <p style="margin-bottom:1rem;">Want the full picture instead of quick answers? In-depth guides on where this rule came from, where it breaks down, and how to apply it to real Canadian situations.</p>
     <div class="steps-grid">
@@ -426,6 +435,7 @@
         <div class="step-desc">Estimate your new payment, shop lenders without the stress test, and rebalance your budget if the payment goes up.</div>
       </a>
     </div>
+    <p style="margin-top:1rem;"><a href="guides.html" style="color:var(--sage);font-weight:500;">See all guides →</a></p>
   </div>
 
 </div>
