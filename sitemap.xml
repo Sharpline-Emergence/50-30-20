@@ -4,7 +4,7 @@
   <!-- Core tools -->
   <url>
     <loc>https://503020.ca/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -28,11 +28,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://503020.ca/tfsa-rrsp-fhsa-where-your-20-goes.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://503020.ca/mortgage-renewal-budget.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Quick answers -->
   <url>
     <loc>https://503020.ca/faq.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -40,7 +52,7 @@
   <!-- Site pages -->
   <url>
     <loc>https://503020.ca/about.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
