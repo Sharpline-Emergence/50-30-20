@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free 50/30/20 Budget Calculator 2026 — Needs, Wants &amp; Savings | Sharpline</title>
-<meta name="description" content="Free 50/30/20 budget calculator for US and Canadian budgets. Split your income into needs, wants and savings instantly. Works with USD, CAD and more. No sign-up required.">
-<meta name="keywords" content="50/30/20 rule, 50/30/20 budget calculator, budget calculator, needs wants savings, 50 30 20 budget, budgeting rule, monthly budget calculator, personal budget calculator, US budget calculator, Canadian budget calculator">
+<title>50/30/20 Budget Calculator for Canadians — Needs, Wants &amp; Savings | 503020.ca</title>
+<meta name="description" content="Free 50/30/20 budget calculator built for Canadians. Split your take-home pay into needs, wants and savings, with guidance on RRSPs, TFSAs and the FHSA. By P. Beal, 28 years in banking. No sign-up.">
+<meta name="keywords" content="50/30/20 budget calculator Canada, 50/30/20 rule Canada, budget calculator Canada, needs wants savings, TFSA RRSP FHSA budget, Canadian budget calculator">
 <meta name="author" content="P. Beal">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://503020.ca/">
-<meta property="og:title" content="Free 50/30/20 Budget Calculator | Sharpline">
-<meta property="og:description" content="Split your take-home income into needs, wants and savings instantly. Works for US and Canadian budgets. Free, no sign-up.">
+<meta property="og:title" content="50/30/20 Budget Calculator for Canadians | 503020.ca">
+<meta property="og:description" content="Split your take-home pay into needs, wants and savings in seconds. Built for Canadian budgets. Free, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://503020.ca/">
-<meta property="og:site_name" content="Sharpline — 503020.ca">
+<meta property="og:site_name" content="503020.ca">
+<meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Free 50/30/20 Budget Calculator | Sharpline">
-<meta name="twitter:description" content="Needs, wants and savings — see your budget split instantly. Free, no sign-up.">
+<meta name="twitter:title" content="50/30/20 Budget Calculator for Canadians | 503020.ca">
+<meta name="twitter:description" content="Needs, wants and savings for Canadian budgets — see your split instantly. Free, no sign-up.">
 <meta name="google-adsense-account" content="ca-pub-8775883855490271">
 <meta name="p:domain_verify" content="01400ac5add2b7bb49ff72d285e77789"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
@@ -169,42 +170,42 @@
 <div class="calc-wrap">
   <div class="hero">
     <h1>Your <span>50/30/20</span> Budget</h1>
-    <p>Enter your take-home income and instantly see your needs, wants and savings targets. Works for US and Canadian budgets — any income, any pay period.</p>
+    <p>Enter your take-home pay and instantly see your needs, wants and savings targets. Built for Canadian budgets, for any income and any pay period.</p>
     <p style="font-size:0.7rem;">By <a href="about.html" style="color:var(--sage);text-decoration:none;font-weight:500;">P. Beal</a> · 28 years in banking &amp; financial planning</p>
-    <div class="market-badge">🇺🇸 US &amp; 🇨🇦 Canadian budgets · USD, CAD and more · Any pay period</div>
+    <div class="market-badge">🇨🇦 Built for Canadian budgets · RRSP, TFSA &amp; FHSA · Any pay period</div>
   </div>
 
-  <div style="background:var(--sage-pale);border:1px solid var(--sage);border-radius:4px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;"><div><div style="font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.2rem;">📊 Track your actual spending</div><div style="font-size:0.7rem;color:var(--muted);line-height:1.6;">Use our monthly budget tracker to enter real expenses and see exactly where you are over or under your targets. Download the Excel spreadsheet too.</div></div><a href="tracker.html" style="background:var(--sage);color:white;text-decoration:none;border-radius:2px;padding:0.7rem 1.2rem;font-family:DM Mono,monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Open Tracker →</a></div>
+  <div style="background:var(--sage-pale);border:1px solid var(--sage);border-radius:4px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;"><div><div style="font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.2rem;">📊 Track your actual spending</div><div style="font-size:0.7rem;color:var(--muted);line-height:1.6;">Use the monthly budget tracker to log real expenses and see exactly where you're over or under your targets. There's a downloadable Excel version too.</div></div><a href="tracker.html" style="background:var(--sage);color:white;text-decoration:none;border-radius:2px;padding:0.7rem 1.2rem;font-family:DM Mono,monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Open Tracker →</a></div>
 
   <div class="input-panel">
     <div class="panel-title">Your Income</div>
     <div class="input-row">
       <div>
-        <label>Take-Home Income (after tax)</label>
+        <label>Take-Home Pay (after tax)</label>
         <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="income" placeholder="5,000" min="0" value="5000" /></div>
       </div>
       <div>
         <label>Pay Period</label>
         <select id="period">
           <option value="monthly" selected>Monthly</option>
-          <option value="annual">Annual</option>
           <option value="biweekly">Bi-Weekly</option>
+          <option value="semimonthly">Semi-Monthly</option>
           <option value="weekly">Weekly</option>
+          <option value="annual">Annual</option>
         </select>
       </div>
       <div>
         <label>Currency</label>
         <select id="currency">
-          <option value="$" selected>$ — US Dollar</option>
-          <option value="CA$">CA$ — Canadian Dollar</option>
-          <option value="£">£ — British Pound</option>
-          <option value="€">€ — Euro</option>
-          <option value="A$">A$ — Australian Dollar</option>
-          <option value="R$">R$ — Brazilian Real</option>
+          <option value="$" selected>CAD ($)</option>
+          <option value="US$">USD (US$)</option>
+          <option value="£">GBP (£)</option>
+          <option value="€">EUR (€)</option>
+          <option value="A$">AUD (A$)</option>
         </select>
       </div>
     </div>
-    <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:0.8rem;line-height:1.6;">✏️ Enter your after-tax take-home pay above then tap Calculate.</p>
+    <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:0.8rem;line-height:1.6;">✏️ Use your net pay: what lands in your bank account after income tax, CPP, EI and payroll deductions.</p>
     <button class="calc-btn" onclick="calculate()">Calculate My Budget →</button>
   </div>
 
@@ -221,19 +222,19 @@
           <div class="cat-label">Needs — 50%</div>
           <div class="cat-pct">50%</div>
           <div class="cat-amount" id="needsAmt">$2,500</div>
-          <div class="cat-sub">Housing, groceries, utilities, insurance, minimum debt payments</div>
+          <div class="cat-sub">Rent or mortgage, groceries, utilities, insurance, transportation, minimum debt payments</div>
         </div>
         <div class="cat-card wants" style="animation-delay:0.1s">
           <div class="cat-label">Wants — 30%</div>
           <div class="cat-pct">30%</div>
           <div class="cat-amount" id="wantsAmt">$1,500</div>
-          <div class="cat-sub">Dining out, entertainment, subscriptions, travel, personal care</div>
+          <div class="cat-sub">Dining out, entertainment, subscriptions, travel, hobbies</div>
         </div>
         <div class="cat-card savings" style="animation-delay:0.2s">
           <div class="cat-label">Savings — 20%</div>
           <div class="cat-pct">20%</div>
           <div class="cat-amount" id="savingsAmt">$1,000</div>
-          <div class="cat-sub">Emergency fund, 401(k)/RRSP, IRA/TFSA, investments, extra debt payments</div>
+          <div class="cat-sub">Emergency fund, RRSP, TFSA, FHSA, RESP, extra debt payments</div>
         </div>
       </div>
     </div>
@@ -244,7 +245,7 @@
         <a href="tracker.html" class="next-card" style="grid-column:1 / -1;">
           <div class="next-icon">📊</div>
           <div class="next-title">Track Your Actual Spending</div>
-          <div class="next-desc">Log your real expenses against these targets month-by-month and see exactly where you're overspending.</div>
+          <div class="next-desc">Log your real expenses against these targets month by month and see exactly where you're overspending.</div>
         </a>
       </div>
     </div>
@@ -260,57 +261,57 @@
 <div class="content-wrap">
 
   <div class="section">
-    <h2>How the 50/30/20 Budget Calculator Works</h2>
-    <p>Enter your take-home income for any pay period — monthly, annual, bi-weekly or weekly — select your currency, and the calculator instantly splits your income into three categories: 50% for needs, 30% for wants, and 20% for savings. It works for both US and Canadian budgets and supports multiple currencies.</p>
+    <h2>How the Calculator Works</h2>
+    <p>Enter your take-home pay for any pay period, whether that's monthly, bi-weekly, semi-monthly, weekly or annual. The calculator converts it to a monthly figure and splits it three ways: 50% for needs, 30% for wants and 20% for savings and extra debt repayment.</p>
     <div class="steps-grid">
-      <div class="step-card"><div class="step-number">01</div><div class="step-title">Enter Take-Home Income</div><div class="step-desc">Use your after-tax income — the amount actually deposited in your bank account each pay period. Select your pay period and currency. The calculator converts any period to monthly figures automatically.</div></div>
-      <div class="step-card"><div class="step-number">02</div><div class="step-title">See Your Budget Targets</div><div class="step-desc">Instantly see your exact dollar targets for needs, wants and savings at your income level. The colour bar gives you an at-a-glance view of how your income should be allocated across the three categories.</div></div>
-      <div class="step-card"><div class="step-number">03</div><div class="step-title">Take Action</div><div class="step-desc">Use your needs target to evaluate housing costs, your wants budget to identify overspending, and your savings target to set up automatic transfers on payday into your 401(k), RRSP, TFSA or savings account.</div></div>
+      <div class="step-card"><div class="step-number">01</div><div class="step-title">Enter Your Net Pay</div><div class="step-desc">Use the amount that actually lands in your account. Your pay stub shows it after income tax, CPP, EI, benefits and any pension or union deductions.</div></div>
+      <div class="step-card"><div class="step-number">02</div><div class="step-title">See Your Targets</div><div class="step-desc">Get exact dollar targets for needs, wants and savings at your income. The colour bar shows at a glance how your pay should be divided.</div></div>
+      <div class="step-card"><div class="step-number">03</div><div class="step-title">Act On Them</div><div class="step-desc">Check your housing costs against the needs target, look for leaks in wants, and set up an automatic payday transfer to your TFSA, RRSP or FHSA.</div></div>
     </div>
 
-    <h3>What is the 50/30/20 Rule?</h3>
-    <p>The 50/30/20 rule is the most widely adopted personal budgeting framework in both the US and Canada. It divides your after-tax income into three simple categories: half for needs, 30% for wants, and 20% for savings and debt repayment. The rule was popularized by US Senator Elizabeth Warren and her daughter Amelia Warren Tyagi in their 2005 book "All Your Worth: The Ultimate Lifetime Money Plan." It gained widespread adoption because of its simplicity — three categories instead of dozens of line items — and its flexibility to adapt to different income levels, life stages and financial situations on either side of the border.</p>
-    <p>The core insight behind the 50/30/20 rule is that most financial stress comes from one of three problems: spending too much on needs (usually housing), overspending on wants relative to income, or consistently failing to save. By assigning each category a specific percentage target, the rule makes it immediately visible which area needs attention in your personal budget.</p>
+    <h3>What Is the 50/30/20 Rule?</h3>
+    <p>The 50/30/20 rule divides your after-tax income into three buckets: about half for needs, about 30% for wants, and about 20% for savings and paying down debt beyond the minimums. It comes from Elizabeth Warren and Amelia Warren Tyagi's 2005 book <em>All Your Worth</em>, which grew out of Warren's research as a Harvard bankruptcy professor into why ordinary middle-class families end up broke.</p>
+    <p>The most important number is the 50. Her research found that families got into trouble when their must-pay costs climbed past roughly half of take-home pay, leaving no room to absorb a job loss, illness or rate increase. Keeping needs near 50% is what gives a household its margin for error. <a href="50-30-20-origin-and-limits.html" style="color:var(--sage);">Read the full origin story →</a></p>
 
-    <h3>Why Use Take-Home Pay — Not Gross Income?</h3>
-    <p>The 50/30/20 rule is always applied to take-home (after-tax) income — not your gross salary or hourly rate multiplied by hours. Taxes are deducted before you receive your pay in both the US and Canada and are not available to spend or save. Using gross income would produce budget targets that are impossible to meet in practice. Your take-home pay is the real number — the amount deposited in your bank account each pay period — and that is the correct starting point for any budgeting exercise regardless of which country you live in.</p>
+    <h3>Why Use Net Pay, Not Gross Salary?</h3>
+    <p>Income tax, CPP and EI come off your cheque before you ever see it, so that money isn't available to spend or save. Running the split on gross salary produces targets you can't hit. If you're self-employed or drive for a gig app, nothing is withheld, so set aside money for the CRA first and use what's left.</p>
   </div>
 
   <div class="section">
     <h2>What Counts as Needs, Wants and Savings?</h2>
-    <p>The most common question about the 50/30/20 rule is where specific expenses belong. Here is a clear breakdown with examples for both US and Canadian households — including the grey areas.</p>
+    <p>The most common question is where specific expenses belong. Here's a breakdown for Canadian households, including the grey areas.</p>
     <div class="cat-explainer">
       <div class="cat-box needs">
         <h3>🏠 Needs — 50%</h3>
-        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Expenses you cannot reasonably avoid without serious consequences.</p>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Bills you can't reasonably skip without serious consequences.</p>
         <ul>
           <li>Rent or mortgage payment</li>
+          <li>Property tax and strata fees</li>
           <li>Groceries (basic food)</li>
-          <li>Utilities — electricity, gas, water</li>
-          <li>Internet (essential in 2026)</li>
-          <li>Basic phone plan</li>
-          <li>Health insurance premiums (US)</li>
-          <li>Car payment (if required for work)</li>
-          <li>Gas and basic car maintenance</li>
+          <li>Hydro, gas and water</li>
+          <li>Home or tenant insurance</li>
+          <li>Car insurance</li>
+          <li>Internet and a basic phone plan</li>
+          <li>Transit pass or fuel for work</li>
+          <li>Car payment (if needed for work)</li>
           <li>Minimum debt payments</li>
-          <li>Prescription medications</li>
-          <li>Basic clothing and personal care</li>
+          <li>Prescriptions and dental not covered by a plan</li>
           <li>Child care (if required to work)</li>
         </ul>
       </div>
       <div class="cat-box wants">
         <h3>🎯 Wants — 30%</h3>
-        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Expenses that improve quality of life but aren't strictly essential.</p>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Spending that makes life better but isn't essential.</p>
         <ul>
-          <li>Dining out and takeout</li>
-          <li>Streaming subscriptions</li>
-          <li>Gym membership</li>
-          <li>Entertainment and hobbies</li>
-          <li>Vacations and travel</li>
+          <li>Dining out, takeout and delivery</li>
+          <li>Streaming services</li>
+          <li>Gym or rec centre membership</li>
+          <li>Hobbies and entertainment</li>
+          <li>Travel and weekends away</li>
           <li>Clothing beyond basics</li>
           <li>Coffee shops</li>
-          <li>Premium phone plan upgrades</li>
-          <li>Sporting events, concerts</li>
+          <li>Phone or data plan upgrades</li>
+          <li>Concerts and hockey tickets</li>
           <li>Home décor and upgrades</li>
           <li>Personal care beyond basics</li>
           <li>Gifts and charitable giving</li>
@@ -318,53 +319,51 @@
       </div>
       <div class="cat-box savings">
         <h3>💰 Savings — 20%</h3>
-        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Money set aside to build financial security and long-term freedom.</p>
+        <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.6;">Money that builds security and future options.</p>
         <ul>
-          <li>Emergency fund contributions</li>
-          <li>401(k) contributions (US)</li>
-          <li>IRA / Roth IRA (US)</li>
-          <li>RRSP contributions (Canada)</li>
-          <li>TFSA contributions (Canada)</li>
-          <li>FHSA contributions (Canada)</li>
-          <li>Investment accounts</li>
-          <li>Extra debt payments (above min)</li>
+          <li>Emergency fund</li>
+          <li>TFSA contributions</li>
+          <li>RRSP or group RRSP</li>
+          <li>FHSA (first-home buyers)</li>
+          <li>RESP for your kids</li>
+          <li>Workplace pension top-ups</li>
+          <li>Non-registered investing</li>
+          <li>Extra debt payments (above minimum)</li>
           <li>Down payment savings</li>
-          <li>Education savings — 529 / RESP</li>
-          <li>Pension contributions</li>
           <li>Sinking funds for big expenses</li>
         </ul>
       </div>
     </div>
 
-    <h3>Grey Areas — Where Do These Go?</h3>
-    <p><strong>Car payment:</strong> A need if your car is genuinely required to get to work and public transit is not a realistic option. A want if you chose a more expensive vehicle than necessary for basic transportation.</p>
-    <p><strong>Health insurance (US):</strong> Clearly a need in the US where coverage is not universal. The premium itself is a need; upgrading to a premium plan for non-essential extras is a want.</p>
-    <p><strong>Internet:</strong> A need in 2026 for most working adults — remote work, banking, job searching and essential communications all require it. A premium speed upgrade beyond what you actually need is a want.</p>
-    <p><strong>Employer 401(k) or RRSP matching:</strong> Always capture any employer matching contribution first — this is an immediate 50-100% guaranteed return. These contributions count toward your 20% savings target and should be prioritized before all other savings.</p>
+    <h3>Grey Areas: Where Do These Go?</h3>
+    <p><strong>Car payment:</strong> A need if you genuinely need a vehicle to get to work and transit isn't realistic, which is common outside the big cities. The portion you pay for a nicer vehicle than you need is a want.</p>
+    <p><strong>Prescriptions, dental and eye care:</strong> Provincial health care covers doctor visits and hospital care, but not everything. If you don't have a workplace plan, essential prescriptions and dental care are needs. Elective extras are wants.</p>
+    <p><strong>Internet:</strong> A need for most working adults, since banking, job searches and remote work depend on it. Paying for far more speed than you use is a want.</p>
+    <p><strong>Employer RRSP or pension matching:</strong> Always capture the full match first. It's an immediate, guaranteed return, and it counts toward your 20%.</p>
   </div>
 
   <div class="section">
     <h2>When the Standard Split Doesn't Fit</h2>
-    <p>The 50/30/20 rule is a framework, not a pass/fail test. In much of Canada, housing alone can push needs well past 50%. A modified split such as 60/20/20 or 70/20/10 is a legitimate starting point, as long as you protect your savings and have a plan to improve the ratio over time.</p>
-    <p>If your income changes month to month, budget from a conservative baseline and set aside taxes first. If you're carrying high-interest debt, temporarily direct more than 20% toward paying it off.</p>
+    <p>The 50/30/20 rule is a framework, not a pass/fail test. In much of Canada, from Metro Vancouver and the Fraser Valley to the Greater Toronto Area, housing alone can push needs well past 50%. A modified split such as 60/20/20 or 70/20/10 is a legitimate starting point, as long as you protect your savings and have a plan to improve the ratio over time.</p>
+    <p>If your income changes month to month, budget from a conservative baseline and set aside taxes first. If you're carrying high-interest credit card debt, temporarily direct more than 20% toward paying it off.</p>
     <p><a href="50-30-20-in-practice.html" style="color:var(--sage);font-weight:500;">The full guide: high-cost cities, irregular income, and other methods →</a></p>
   </div>
 
   <div class="section">
-    <h2>Six Tips to Hit Your 50/30/20 Targets</h2>
+    <h2>Six Tips to Hit Your Targets</h2>
     <div class="tips-grid">
-      <div class="tip-card"><div class="tip-icon">🏠</div><div class="tip-title">Tackle Your Biggest Expense First</div><div class="tip-text">Housing is typically the single largest needs expense and the most powerful lever for improving your budget ratios. If rent or mortgage exceeds 30-35% of take-home pay alone, your needs category will be over 50% regardless of how carefully you manage everything else. In the US, the general guideline is to keep housing under 28-30% of gross income. In Canada's expensive markets, this is difficult but worth working toward over time.</div></div>
-      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate Savings on Payday</div><div class="tip-text">Set up an automatic transfer to your savings account — 401(k), RRSP, TFSA, IRA or HYSA — for the same day your pay is deposited. This "pay yourself first" approach ensures savings happen before any spending decisions are made. In the US, 401(k) contributions through payroll deduction happen automatically before you ever see the money — an even stronger forcing function. In Canada, set up automatic TFSA or RRSP transfers to mirror the same effect.</div></div>
-      <div class="tip-card"><div class="tip-icon">📋</div><div class="tip-title">Audit Your Subscriptions Annually</div><div class="tip-text">The average US household spends over $200/month on subscriptions — many of which overlap in content or are rarely used. The average Canadian household is similar. Set aside 30 minutes once a year to review every recurring charge on your credit card and bank statement. Cancel anything you haven't actively used in the past 30 days. Subscription creep is one of the most common reasons the wants category exceeds 30% — and it is among the easiest to fix with minimal lifestyle impact.</div></div>
-      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Use the 48-Hour Rule for Wants</div><div class="tip-text">For any discretionary purchase over $50, wait 48 hours before buying. Add the item to a wishlist or cart and revisit it two days later. Research suggests 30-50% of want purchases are impulse decisions that you no longer want after a short waiting period. This habit meaningfully reduces wants spending without feeling like deprivation — you still buy the things you genuinely want, you simply filter out the impulse ones.</div></div>
-      <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-title">Treat Savings as a Non-Negotiable Bill</div><div class="tip-text">The most effective mental shift in personal finance is treating your monthly savings contribution exactly like a utility bill — something paid automatically, on time, every month, without debate. When savings are treated as optional (money left over after spending), they are the first thing eliminated in stressful months. When treated as a fixed obligation, savings happen consistently regardless of how the rest of the month went. This applies equally in the US and Canada.</div></div>
-      <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Do One Budget Review Per Month</div><div class="tip-text">Schedule a single 20-30 minute monthly budget review on the same date each month. Check your actual spending in each category against your 50/30/20 targets. No judgment — just information. Over time, even casual monthly awareness of where your money went creates gradual improvement in spending patterns. You don't need a detailed app or daily tracking — one honest monthly review is enough for most people to stay broadly on track with their budget goals.</div></div>
+      <div class="tip-card"><div class="tip-icon">🏠</div><div class="tip-title">Tackle Housing First</div><div class="tip-text">Housing is the biggest needs expense and the most powerful lever on your ratios. If rent or mortgage alone takes more than about a third of your take-home pay, needs will run over 50% no matter how carefully you manage the rest. If you own, your mortgage renewal is a key moment to review your payment, amortization and lender.</div></div>
+      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate Savings on Payday</div><div class="tip-text">Set up an automatic transfer to your TFSA, RRSP, FHSA or savings account for the day your pay arrives. Money that moves before you see it doesn't get spent. If your employer offers a group RRSP through payroll, that's an even stronger version of the same habit.</div></div>
+      <div class="tip-card"><div class="tip-icon">📋</div><div class="tip-title">Audit Subscriptions Once a Year</div><div class="tip-text">Set aside 30 minutes to go through every recurring charge on your credit card and bank statements. Cancel anything you haven't used in the last month. Subscription creep is one of the most common reasons wants run past 30%, and one of the easiest to fix.</div></div>
+      <div class="tip-card"><div class="tip-icon">📞</div><div class="tip-title">Re-shop Your Fixed Bills</div><div class="tip-text">Phone, internet and insurance are more negotiable than they feel. Compare the discount brands owned by the big carriers, call retention every year or two, and re-quote home and auto insurance at renewal. Loyalty is quietly expensive.</div></div>
+      <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-title">Treat Savings Like a Bill</div><div class="tip-text">Pay your savings the way you pay hydro: automatically, on time, every month, without debate. Savings treated as "whatever's left over" are the first thing cut in a stressful month. Savings treated as a fixed bill keep happening.</div></div>
+      <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Review Once a Month</div><div class="tip-text">Pick a date and spend 20 minutes comparing what you actually spent with your three targets. No judgment, just information. That one habit is enough to keep most households roughly on track without daily tracking.</div></div>
     </div>
   </div>
 
   <div class="section">
-    <h2>50/30/20 Quick Reference — Common Income Levels</h2>
-    <p>Here are exact 50/30/20 budget targets for common monthly take-home amounts in both USD and CAD. Find your approximate income to see your targets at a glance.</p>
+    <h2>Quick Reference: Common Take-Home Amounts</h2>
+    <p>Here are the 50/30/20 targets for common monthly net pay amounts. For your exact figures, use the calculator above.</p>
     <div style="overflow-x:auto;margin-top:1rem;">
       <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
         <thead>
@@ -385,19 +384,19 @@
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">Figures apply to both USD and CAD. Use the calculator above for exact figures at your income level.</p>
+    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">Amounts in Canadian dollars. The percentages work the same in any currency.</p>
   </div>
 
   <div class="planner-section">
-    <h2>🤝 When to Speak With a Licensed Financial Planner</h2>
-    <p>The 50/30/20 rule is a powerful starting framework for both US and Canadian households. For more complex financial situations, we recommend speaking with a licensed financial planner or non-profit credit counsellor.</p>
+    <h2>🤝 When to Talk to a Professional</h2>
+    <p>The 50/30/20 rule is a strong starting framework. Some situations call for one-on-one advice that a calculator can't give.</p>
     <div class="planner-points">
-      <div class="planner-point"><strong>When Your Needs Exceed 60%</strong>If essential expenses consistently take more than 60% of take-home pay, a licensed financial planner can identify structural solutions — debt consolidation, refinancing, income strategies — that a calculator cannot.</div>
-      <div class="planner-point"><strong>For Tax-Optimized Savings (US)</strong>A CFP can help sequence 401(k), Roth IRA and HSA contributions for your specific tax bracket — potentially worth thousands annually. Look for a fee-only fiduciary advisor at NAPFA.org.</div>
-      <div class="planner-point"><strong>For Tax-Optimized Savings (Canada)</strong>A CFP can help maximize RRSP, TFSA and FHSA contributions in the right sequence. Look for a CFP-designated advisor. Fee-only planners are legally required to act in your best interest.</div>
-      <div class="planner-point"><strong>Non-Profit Credit Counselling</strong>If debt is consuming too much of your budget, free help is available. In Canada: Credit Counselling Canada members. In the US: NFCC (National Foundation for Credit Counseling) member agencies.</div>
+      <div class="planner-point"><strong>Needs consistently above 60%</strong>A financial planner can look at structural fixes, such as refinancing, consolidating debt or restructuring at mortgage renewal, that a percentage target can't solve.</div>
+      <div class="planner-point"><strong>Choosing between RRSP, TFSA and FHSA</strong>The right order depends on your income, tax bracket and goals. A Certified Financial Planner (CFP) can map it out for your situation.</div>
+      <div class="planner-point"><strong>Self-employed or gig income</strong>An accountant can help you set the right CRA holdback, track deductible expenses and handle GST/HST if it applies to you.</div>
+      <div class="planner-point"><strong>Debt taking over your budget</strong>Free, confidential help is available from non-profit agencies that are members of Credit Counselling Canada.</div>
     </div>
-    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;font-style:italic;">503020.ca does not recommend specific planners and does not receive compensation for referrals. This is general educational content — not financial advice.</p>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;font-style:italic;">503020.ca doesn't recommend specific planners and doesn't receive referral fees. This is general educational content, not financial advice.</p>
   </div>
 
   <div class="section">
@@ -408,7 +407,7 @@
 
   <div class="section">
     <h2>Go Deeper on the 50/30/20 Rule</h2>
-    <p style="margin-bottom:1rem;">Want the full picture instead of quick answers? Two in-depth guides cover where this rule came from, where it breaks down, and exactly how to apply it to real Canadian situations.</p>
+    <p style="margin-bottom:1rem;">Want the full picture instead of quick answers? Two in-depth guides cover where this rule came from, where it breaks down, and how to apply it to real Canadian situations.</p>
     <div class="steps-grid">
       <a href="50-30-20-origin-and-limits.html" class="step-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="step-title">Where the 50/30/20 Rule Came From — and Where It Falls Short</div>
@@ -422,7 +421,6 @@
   </div>
 
 </div>
-
 <footer>
   Sharpline · 503020.ca © 2026 &nbsp;·&nbsp;
   <a href="tracker.html">Tracker</a> &nbsp;·&nbsp;
@@ -459,18 +457,19 @@
     if(period==='monthly')monthly=income;
     else if(period==='annual')monthly=income/12;
     else if(period==='biweekly')monthly=income*26/12;
+    else if(period==='semimonthly')monthly=income*2;
     else monthly=income*52/12;
     var needs=monthly*0.5,wants=monthly*0.3,savings=monthly*0.2;
-    var periodLabel={monthly:'Monthly',annual:'Monthly (from annual)',biweekly:'Monthly (from bi-weekly)',weekly:'Monthly (from weekly)'}[period];
+    var periodLabel={monthly:'Monthly',annual:'Monthly (from annual)',biweekly:'Monthly (from bi-weekly)',semimonthly:'Monthly (from semi-monthly)',weekly:'Monthly (from weekly)'}[period];
     lastResults={monthly:monthly,needs:needs,wants:wants,savings:savings,sym:sym,period:period,income:income};
     document.getElementById('resultsTitle').textContent='Your '+periodLabel+' Budget Split';
     document.getElementById('needsAmt').textContent=fmt(needs,sym)+'/mo';
     document.getElementById('wantsAmt').textContent=fmt(wants,sym)+'/mo';
     document.getElementById('savingsAmt').textContent=fmt(savings,sym)+'/mo';
     var tip='';
-    if(needs>monthly*0.6)tip='⚠️ <strong>Heads up:</strong> If your actual needs spending exceeds '+fmt(needs,sym)+', your essential expenses may be running high. Housing is usually the biggest lever — explore whether refinancing, relocating or a roommate could help.';
-    else if(savings<monthly*0.1)tip='💡 <strong>Savings tip:</strong> Even setting aside 10% ('+fmt(monthly*0.1,sym)+'/mo) consistently into a 401(k), RRSP or TFSA builds significant financial security. Set up an automatic transfer on payday.';
-    else tip='✅ <strong>Solid framework:</strong> At '+fmt(monthly,sym)+'/mo take-home, your 20% savings target is '+fmt(savings,sym)+'/mo. Automate this on payday into your 401(k), IRA, RRSP or TFSA and it happens without thinking.';
+    if(needs>monthly*0.6)tip='⚠️ <strong>Heads up:</strong> If your actual needs spending exceeds '+fmt(needs,sym)+', your essential expenses may be running high. Housing is usually the biggest lever — look at whether your mortgage renewal, a move or a roommate could help.';
+    else if(savings<monthly*0.1)tip='💡 <strong>Savings tip:</strong> Even setting aside 10% ('+fmt(monthly*0.1,sym)+'/mo) consistently into a TFSA or RRSP builds real financial security. Set up an automatic transfer on payday.';
+    else tip='✅ <strong>Solid framework:</strong> At '+fmt(monthly,sym)+'/mo take-home, your 20% savings target is '+fmt(savings,sym)+'/mo. Automate it on payday into your TFSA, RRSP or FHSA and it happens without thinking.';
     document.getElementById('tipBox').innerHTML=tip;
     var el=document.getElementById('results');el.classList.add('visible');el.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
